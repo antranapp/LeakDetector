@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		D6FEB033255EBDE1009B2235 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FEB031255EBDE1009B2235 /* Main.storyboard */; };
 		D6FEB035255EBDE3009B2235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FEB034255EBDE3009B2235 /* Assets.xcassets */; };
 		D6FEB038255EBDE3009B2235 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FEB036255EBDE3009B2235 /* LaunchScreen.storyboard */; };
+		D6FEB044255EBE4F009B2235 /* LeakDetector in Frameworks */ = {isa = PBXBuildFile; productRef = D6FEB043255EBE4F009B2235 /* LeakDetector */; };
+		D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FEB047255EBF50009B2235 /* DelegateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D6FEB034255EBDE3009B2235 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6FEB037255EBDE3009B2235 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6FEB039255EBDE3009B2235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6FEB040255EBDFE009B2235 /* LeakDetector */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LeakDetector; sourceTree = "<group>"; };
+		D6FEB047255EBF50009B2235 /* DelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6FEB044255EBE4F009B2235 /* LeakDetector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +45,10 @@
 		D6FEB01F255EBDE1009B2235 = {
 			isa = PBXGroup;
 			children = (
+				D6FEB040255EBDFE009B2235 /* LeakDetector */,
 				D6FEB02A255EBDE1009B2235 /* LeakDetectorDemo */,
 				D6FEB029255EBDE1009B2235 /* Products */,
+				D6FEB042255EBE4F009B2235 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +63,7 @@
 		D6FEB02A255EBDE1009B2235 /* LeakDetectorDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D6FEB047255EBF50009B2235 /* DelegateViewController.swift */,
 				D6FEB02B255EBDE1009B2235 /* AppDelegate.swift */,
 				D6FEB02D255EBDE1009B2235 /* SceneDelegate.swift */,
 				D6FEB02F255EBDE1009B2235 /* ViewController.swift */,
@@ -65,6 +73,13 @@
 				D6FEB039255EBDE3009B2235 /* Info.plist */,
 			);
 			path = LeakDetectorDemo;
+			sourceTree = "<group>";
+		};
+		D6FEB042255EBE4F009B2235 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +98,9 @@
 			dependencies = (
 			);
 			name = LeakDetectorDemo;
+			packageProductDependencies = (
+				D6FEB043255EBE4F009B2235 /* LeakDetector */,
+			);
 			productName = LeakDetectorDemo;
 			productReference = D6FEB028255EBDE1009B2235 /* LeakDetectorDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6FEB030255EBDE1009B2235 /* ViewController.swift in Sources */,
+				D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */,
 				D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */,
 				D6FEB02E255EBDE1009B2235 /* SceneDelegate.swift in Sources */,
 			);
@@ -289,6 +308,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z9NR9W2HK2;
 				INFOPLIST_FILE = LeakDetectorDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z9NR9W2HK2;
 				INFOPLIST_FILE = LeakDetectorDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,6 +362,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D6FEB043255EBE4F009B2235 /* LeakDetector */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LeakDetector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D6FEB020255EBDE1009B2235 /* Project object */;
 }

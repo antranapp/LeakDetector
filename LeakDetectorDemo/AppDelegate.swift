@@ -6,14 +6,24 @@
 //
 
 import UIKit
+import LeakDetector
+import Combine
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var cancellable: AnyCancellable?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        LeakDetector.isEnabled = true
+        cancellable = LeakDetector.instance.status.sink(
+            receiveValue: { status in
+                print(status)
+            }
+        )
+
         return true
     }
 
