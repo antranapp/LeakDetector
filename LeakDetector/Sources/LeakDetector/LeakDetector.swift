@@ -66,7 +66,7 @@ public class LeakDetector {
         trackingObjects.setObject(object, forKey: objectId)
 
         let handle = LeakDetectionHandleImpl {
-          self.expectationCount = self.expectationCount - 1
+            self.expectationCount = self.expectationCount - 1
         }
 
         LeakExecutor.execute(withDelay: time) {
@@ -86,6 +86,8 @@ public class LeakDetector {
 
             self.expectationCount = self.expectationCount - 1
         }
+        .sink { _ in }
+        .store(in: &cancellables)
 
         return handle
     }
@@ -100,7 +102,7 @@ public class LeakDetector {
         expectationCount = expectationCount + 1
 
         let handle = LeakDetectionHandleImpl {
-          self.expectationCount = self.expectationCount - 1
+            self.expectationCount = self.expectationCount - 1
         }
 
         LeakExecutor.execute(withDelay: time) { [weak viewController] in
@@ -120,6 +122,8 @@ public class LeakDetector {
 
             self.expectationCount = self.expectationCount - 1
         }
+        .sink { _ in }
+        .store(in: &cancellables)
 
         return handle
     }
@@ -154,10 +158,11 @@ public class LeakDetector {
 
 private class LeakDetectionHandleImpl: LeakDetectionHandle {
     var cancelled: Bool {
-        return cancelledRelay
+        return _cancelled
     }
 
-    @Published var cancelledRelay: Bool = false
+    @Published private var _cancelled: Bool = false
+    
     let cancelClosure: (() -> Void)?
 
     init(cancelClosure: (() -> Void)? = nil) {
@@ -165,7 +170,7 @@ private class LeakDetectionHandleImpl: LeakDetectionHandle {
     }
 
     func cancel() {
-        cancelledRelay = true
+        _cancelled = true
         cancelClosure?()
     }
 }
