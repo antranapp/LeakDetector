@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F4F1C3D255EE09500A90DA8 /* NoLeakRxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C3C255EE09500A90DA8 /* NoLeakRxViewController.swift */; };
+		7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */; };
+		7F4F1C43255EE40600A90DA8 /* NoLeakCombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */; };
 		7F957C4D255EC7DE002EB89A /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F957C4C255EC7DE002EB89A /* RxViewController.swift */; };
 		7F957C51255EC833002EB89A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F957C50255EC833002EB89A /* RxSwift */; };
 		7F957C53255EC833002EB89A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7F957C52255EC833002EB89A /* RxCocoa */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F4F1C3C255EE09500A90DA8 /* NoLeakRxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakRxViewController.swift; sourceTree = "<group>"; };
+		7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
+		7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakCombineViewController.swift; sourceTree = "<group>"; };
 		7F957C4C255EC7DE002EB89A /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
 		D6FEB028255EBDE1009B2235 /* LeakDetectorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeakDetectorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FEB02B255EBDE1009B2235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +56,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F4F1C3A255EE07800A90DA8 /* Leak */ = {
+			isa = PBXGroup;
+			children = (
+				D6FEB047255EBF50009B2235 /* DelegateViewController.swift */,
+				7F957C4C255EC7DE002EB89A /* RxViewController.swift */,
+				7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */,
+			);
+			path = Leak;
+			sourceTree = "<group>";
+		};
+		7F4F1C3B255EE08100A90DA8 /* NoLeak */ = {
+			isa = PBXGroup;
+			children = (
+				7F4F1C3C255EE09500A90DA8 /* NoLeakRxViewController.swift */,
+				7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */,
+			);
+			path = NoLeak;
+			sourceTree = "<group>";
+		};
 		D6FEB01F255EBDE1009B2235 = {
 			isa = PBXGroup;
 			children = (
@@ -71,10 +96,10 @@
 		D6FEB02A255EBDE1009B2235 /* LeakDetectorDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D6FEB047255EBF50009B2235 /* DelegateViewController.swift */,
+				7F4F1C3B255EE08100A90DA8 /* NoLeak */,
+				7F4F1C3A255EE07800A90DA8 /* Leak */,
 				D6FEB02B255EBDE1009B2235 /* AppDelegate.swift */,
 				D6FEB02D255EBDE1009B2235 /* SceneDelegate.swift */,
-				7F957C4C255EC7DE002EB89A /* RxViewController.swift */,
 				D6FEB02F255EBDE1009B2235 /* ViewController.swift */,
 				D6FEB031255EBDE1009B2235 /* Main.storyboard */,
 				D6FEB034255EBDE3009B2235 /* Assets.xcassets */,
@@ -174,6 +199,9 @@
 				D6FEB030255EBDE1009B2235 /* ViewController.swift in Sources */,
 				D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */,
 				D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */,
+				7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */,
+				7F4F1C3D255EE09500A90DA8 /* NoLeakRxViewController.swift in Sources */,
+				7F4F1C43255EE40600A90DA8 /* NoLeakCombineViewController.swift in Sources */,
 				D6FEB02E255EBDE1009B2235 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
