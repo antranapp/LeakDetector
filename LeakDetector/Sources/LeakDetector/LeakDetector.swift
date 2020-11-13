@@ -19,7 +19,10 @@ public enum LeakDetectionStatus {
     case inProgress, didComplete
 }
 
+/// The handle for a scheduled leak detection.
 public protocol LeakDetectionHandle {
+    
+    /// Cancel the scheduled detection.
     func cancel()
 }
 
@@ -30,8 +33,11 @@ public protocol LeakDetectionHandle {
 /// itself is deallocated. If the interactor does not deallocate in time, a runtime assert is triggered, along with
 /// critical logging.
 public class LeakDetector {
+    
     /// The singleton instance.
     public static let instance = LeakDetector()
+    
+    var cancellables = Set<AnyCancellable>()
 
     /// The status of leak detection.
     ///

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F957C4D255EC7DE002EB89A /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F957C4C255EC7DE002EB89A /* RxViewController.swift */; };
+		7F957C51255EC833002EB89A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F957C50255EC833002EB89A /* RxSwift */; };
+		7F957C53255EC833002EB89A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7F957C52255EC833002EB89A /* RxCocoa */; };
+		7F957C55255EC833002EB89A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7F957C54255EC833002EB89A /* RxRelay */; };
 		D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FEB02B255EBDE1009B2235 /* AppDelegate.swift */; };
 		D6FEB02E255EBDE1009B2235 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FEB02D255EBDE1009B2235 /* SceneDelegate.swift */; };
 		D6FEB030255EBDE1009B2235 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FEB02F255EBDE1009B2235 /* ViewController.swift */; };
@@ -18,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F957C4C255EC7DE002EB89A /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
 		D6FEB028255EBDE1009B2235 /* LeakDetectorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeakDetectorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FEB02B255EBDE1009B2235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6FEB02D255EBDE1009B2235 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +40,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F957C53255EC833002EB89A /* RxCocoa in Frameworks */,
+				7F957C51255EC833002EB89A /* RxSwift in Frameworks */,
+				7F957C55255EC833002EB89A /* RxRelay in Frameworks */,
 				D6FEB044255EBE4F009B2235 /* LeakDetector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +74,7 @@
 				D6FEB047255EBF50009B2235 /* DelegateViewController.swift */,
 				D6FEB02B255EBDE1009B2235 /* AppDelegate.swift */,
 				D6FEB02D255EBDE1009B2235 /* SceneDelegate.swift */,
+				7F957C4C255EC7DE002EB89A /* RxViewController.swift */,
 				D6FEB02F255EBDE1009B2235 /* ViewController.swift */,
 				D6FEB031255EBDE1009B2235 /* Main.storyboard */,
 				D6FEB034255EBDE3009B2235 /* Assets.xcassets */,
@@ -100,6 +109,9 @@
 			name = LeakDetectorDemo;
 			packageProductDependencies = (
 				D6FEB043255EBE4F009B2235 /* LeakDetector */,
+				7F957C50255EC833002EB89A /* RxSwift */,
+				7F957C52255EC833002EB89A /* RxCocoa */,
+				7F957C54255EC833002EB89A /* RxRelay */,
 			);
 			productName = LeakDetectorDemo;
 			productReference = D6FEB028255EBDE1009B2235 /* LeakDetectorDemo.app */;
@@ -128,6 +140,9 @@
 				Base,
 			);
 			mainGroup = D6FEB01F255EBDE1009B2235;
+			packageReferences = (
+				7F957C4F255EC833002EB89A /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = D6FEB029255EBDE1009B2235 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F957C4D255EC7DE002EB89A /* RxViewController.swift in Sources */,
 				D6FEB030255EBDE1009B2235 /* ViewController.swift in Sources */,
 				D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */,
 				D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */,
@@ -363,7 +379,33 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		7F957C4F255EC833002EB89A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		7F957C50255EC833002EB89A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F957C4F255EC833002EB89A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		7F957C52255EC833002EB89A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F957C4F255EC833002EB89A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		7F957C54255EC833002EB89A /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F957C4F255EC833002EB89A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
 		D6FEB043255EBE4F009B2235 /* LeakDetector */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LeakDetector;
