@@ -1,8 +1,5 @@
 //
-//  NoLeakRxViewController.swift
-//  LeakDetectorDemo
-//
-//  Created by An Tran on 13/11/20.
+//  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import UIKit

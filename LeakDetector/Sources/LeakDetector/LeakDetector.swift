@@ -1,9 +1,7 @@
 //
-//  LeakDetector.swift
-//  LeakDetector
-//
-//  Created by Steve Dao on 01/04/19.
+//  Copyright © UBER. All rights reserved.
 //  Copyright © 2019 duyquang91. All rights reserved.
+//  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -87,10 +85,12 @@ public class LeakDetector {
 
             self.expectationCount = self.expectationCount - 1
         }
-        .sink { [weak self] _ in
+        .handleEvents(receiveCompletion: { [weak self] _ in
+            cancellable.cancel()
             self?.cancellables.remove(cancellable)
             cancellable = nil
-        }
+        })
+        .sink(receiveValue: { _ in })
         
         cancellables.insert(cancellable)
 
@@ -128,11 +128,13 @@ public class LeakDetector {
 
             self.expectationCount = self.expectationCount - 1
         }
-        .sink { [weak self] _ in
+        .handleEvents(receiveCompletion: { [weak self] _ in
+            cancellable.cancel()
             self?.cancellables.remove(cancellable)
             cancellable = nil
-        }
-        
+        })
+        .sink(receiveValue: { _ in })
+
         cancellables.insert(cancellable)
 
         return handle

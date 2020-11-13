@@ -1,9 +1,7 @@
 //
-//  LeakExecutor.swift
-//  LeakDetector-iOS
-//
-//  Created by Steve Dao on 23/8/20.
+//  Copyright © UBER. All rights reserved.
 //  Copyright © 2020 duyquang91. All rights reserved.
+//  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import Foundation

@@ -1,9 +1,6 @@
 //
-//  RXViewController.swift
-//  LeakDetectorDemo
-//
-//  Created by Steve Dao on 23/8/20.
 //  Copyright © 2020 Steve Dao. All rights reserved.
+//  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import UIKit
