@@ -69,7 +69,8 @@ public class LeakDetector {
             self.expectationCount = self.expectationCount - 1
         }
 
-        LeakExecutor.execute(withDelay: time) {
+        var cancellable: AnyCancellable!
+        cancellable = LeakExecutor.execute(withDelay: time) {
             // Retain the handle so we can check for the cancelled status. Also cannot use the cancellable
             // concurrency API since the returned handle must be retained to ensure closure is executed.
             if !handle.cancelled {
@@ -86,8 +87,12 @@ public class LeakDetector {
 
             self.expectationCount = self.expectationCount - 1
         }
-        .sink { _ in }
-        .store(in: &cancellables)
+        .sink { [weak self] _ in
+            self?.cancellables.remove(cancellable)
+            cancellable = nil
+        }
+        
+        cancellables.insert(cancellable)
 
         return handle
     }
@@ -105,7 +110,8 @@ public class LeakDetector {
             self.expectationCount = self.expectationCount - 1
         }
 
-        LeakExecutor.execute(withDelay: time) { [weak viewController] in
+        var cancellable: AnyCancellable!
+        cancellable = LeakExecutor.execute(withDelay: time) { [weak viewController] in
             // Retain the handle so we can check for the cancelled status. Also cannot use the cancellable
             // concurrency API since the returned handle must be retained to ensure closure is executed.
             if let viewController = viewController, !handle.cancelled {
@@ -122,8 +128,12 @@ public class LeakDetector {
 
             self.expectationCount = self.expectationCount - 1
         }
-        .sink { _ in }
-        .store(in: &cancellables)
+        .sink { [weak self] _ in
+            self?.cancellables.remove(cancellable)
+            cancellable = nil
+        }
+        
+        cancellables.insert(cancellable)
 
         return handle
     }

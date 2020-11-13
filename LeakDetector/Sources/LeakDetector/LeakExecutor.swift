@@ -32,7 +32,6 @@ public class LeakExecutor {
             .filter { _ -> Bool in
                 !didExecute
             }
-//            .print("timer", to: nil)
             .flatMap { _ -> AnyPublisher<Void, Never> in
                 let currentTime = Date().timeIntervalSinceReferenceDate
                 let trueElapsedTime = currentTime - lastRunLoopTime
