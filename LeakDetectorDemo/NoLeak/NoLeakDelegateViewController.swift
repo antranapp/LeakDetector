@@ -19,7 +19,7 @@ class NoLeakDelegateViewController: UIViewController {
         
     }
     
-    // Expecting DelegateViewController & LeakDelegate should be deallocated after poping from Navigation controller
+    // Expecting NoLeakDelegateViewController & LeakDelegate should be deallocated after poping from Navigation controller
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         

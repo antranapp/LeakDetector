@@ -44,7 +44,7 @@ final class LeakDetectorTests: XCTestCase {
         
         wait(for: [expectation], timeout: LeakDefaultExpectationTime.deallocation + 0.1)
         
-        XCTAssertFalse(LeakDetector.isLeaked)
+        XCTAssertFalse(LeakDetector.isLeaked.value)
     }
     
     func testDetectLeak() {
@@ -64,7 +64,7 @@ final class LeakDetectorTests: XCTestCase {
 
         wait(for: [expectation], timeout: LeakDefaultExpectationTime.deallocation + 0.1)
         
-        XCTAssertTrue(LeakDetector.isLeaked)
+        XCTAssertTrue(LeakDetector.isLeaked.value)
     }
 }
 

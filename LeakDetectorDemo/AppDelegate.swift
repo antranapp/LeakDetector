@@ -1,8 +1,5 @@
 //
-//  AppDelegate.swift
-//  LeakDetectorDemo
-//
-//  Created by Tran, Binh An on 13/11/20.
+//  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import UIKit
@@ -12,17 +9,36 @@ import Combine
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var cancellable: AnyCancellable?
+    var cancellables = Set<AnyCancellable>()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        LeakDetector.isEnabled = true
-        cancellable = LeakDetector.instance.status.sink(
-            receiveValue: { status in
-                print(status)
+        if ProcessInfo().arguments.contains("testMode") {
+            print("The app is running in TestMode")
+            // set to `false` so that the app doesn't crash.
+            LeakDetector.isEnabled = false
+        } else {
+            // set to `true` so that the app should crash when leaks occur.
+            LeakDetector.isEnabled = false
+        }
+        
+        LeakDetector.instance.status
+            .sink(
+                receiveValue: { status in
+                    print(status)
+                }
+            )
+            .store(in: &cancellables)
+        
+        LeakDetector.isLeaked
+            .sink { isLeaked in
+                if isLeaked {
+                    self.showLeakAlert()
+                }
             }
-        )
+            .store(in: &cancellables)
+        
 
         return true
     }
@@ -41,6 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    private func showLeakAlert() {
+        let alertController = UIAlertController(title: "LEAK", message: "Something is leaked", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel) { _ in }
+        alertController.addAction(action)
+        UIApplication.shared.topMostViewController()?.present(alertController, animated: true, completion: nil)
+    }
 }
-
