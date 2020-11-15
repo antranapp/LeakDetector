@@ -1,5 +1,6 @@
 //
 //  Copyright © 2020 Steve Dao. All rights reserved.
+//  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import UIKit

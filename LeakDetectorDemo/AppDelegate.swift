@@ -59,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func showLeakAlert() {
         let alertController = UIAlertController(title: "LEAK", message: "Something is leaked", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel) { _ in }
+        alertController.addAction(action)
         UIApplication.shared.topMostViewController()?.present(alertController, animated: true, completion: nil)
     }
 }

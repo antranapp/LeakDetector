@@ -10,7 +10,7 @@ import Combine
 
 public struct LeakDefaultExpectationTime {
     public static let deallocation: TimeInterval = 1
-    public static let viewDisappear: TimeInterval = 5
+    public static let viewDisappear: TimeInterval = 3
 }
 
 public enum LeakDetectionStatus {
@@ -99,13 +99,13 @@ public class LeakDetector {
         return handle
     }
 
-    /// Sets up an expectation for the given view controller to disappear within the given time.
+    /// Sets up an expectation for the given view controller to be deallocated within the given time.
     ///
     /// - parameter viewController: The `UIViewController` expected to disappear.
     /// - parameter inTime: The time the given view controller is expected to disappear.
     /// - returns: The handle that can be used to cancel the expectation.
     @discardableResult
-    public func expectViewControllerDisappear(viewController: UIViewController, inTime time: TimeInterval = LeakDefaultExpectationTime.viewDisappear) -> LeakDetectionHandle {
+    public func expectViewControllerDellocated(viewController: UIViewController, inTime time: TimeInterval = LeakDefaultExpectationTime.viewDisappear) -> LeakDetectionHandle {
         expectationCount = expectationCount + 1
 
         let handle = LeakDetectionHandleImpl {
@@ -117,7 +117,7 @@ public class LeakDetector {
             // Retain the handle so we can check for the cancelled status. Also cannot use the cancellable
             // concurrency API since the returned handle must be retained to ensure closure is executed.
             if let viewController = viewController, !handle.cancelled {
-                let viewDidDisappear = (!viewController.isViewLoaded || viewController.view.window == nil)
+                let viewDidDisappear = (!viewController.isViewLoaded && viewController.view.window == nil)
                 let message = "\(viewController) appearance has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
                 if LeakDetector.isEnabled {
