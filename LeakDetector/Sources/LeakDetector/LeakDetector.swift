@@ -80,7 +80,7 @@ public class LeakDetector {
                 } else if !didDeallocate {
                     print("Leak detection is disabled. This should only be used for debugging purposes.")
                     print("\(message)")
-                    LeakDetector.isLeaked = true
+                    LeakDetector.isLeaked.send(true)
                 }
             }
 
@@ -125,7 +125,7 @@ public class LeakDetector {
                 } else if !viewDidDisappear {
                     print("Leak detection is disabled. This should only be used for debugging purposes.")
                     print("\(message)")
-                    LeakDetector.isLeaked = true
+                    LeakDetector.isLeaked.send(true)
                 }
             }
 
@@ -150,14 +150,14 @@ public class LeakDetector {
     /// We should enable leak detector in Debug mode only.
     public static var isEnabled: Bool = false
 
-    public static var isLeaked: Bool = false
+    public static var isLeaked = CurrentValueSubject<Bool, Never>(false)
 
     #if DEBUG
     /// Reset the state of Leak Detector, internal for UI test only.
     func reset() {
         trackingObjects.removeAllObjects()
         expectationCount = 0
-        LeakDetector.isLeaked = false
+        LeakDetector.isLeaked.send(false)
     }
     #endif
 
