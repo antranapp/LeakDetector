@@ -8,8 +8,8 @@ import XCTest
 
 final class LeakExecutorTests: XCTestCase {
     
-    var cancellables = Set<AnyCancellable>()
-    @Published var value: Bool = false
+    private var cancellables = Set<AnyCancellable>()
+    @Published private var value: Bool = false
     
     func testLoginIsCalledOnTime() {
         
