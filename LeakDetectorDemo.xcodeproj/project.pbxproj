@@ -12,6 +12,7 @@
 		7F4F1C43255EE40600A90DA8 /* NoLeakCombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */; };
 		7F4F1C4725611CEC00A90DA8 /* NoLeakDelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C4625611CEC00A90DA8 /* NoLeakDelegateViewController.swift */; };
 		7F4F1C502561726C00A90DA8 /* LeakDetectorDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C4F2561726C00A90DA8 /* LeakDetectorDemoUITests.swift */; };
+		7F4F1C5A25617CBA00A90DA8 /* UIApplication+TopMostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C5925617CBA00A90DA8 /* UIApplication+TopMostController.swift */; };
 		7F957C4D255EC7DE002EB89A /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F957C4C255EC7DE002EB89A /* RxViewController.swift */; };
 		7F957C51255EC833002EB89A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F957C50255EC833002EB89A /* RxSwift */; };
 		7F957C53255EC833002EB89A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7F957C52255EC833002EB89A /* RxCocoa */; };
@@ -43,6 +44,7 @@
 		7F4F1C4D2561726C00A90DA8 /* LeakDetectorDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeakDetectorDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4F1C4F2561726C00A90DA8 /* LeakDetectorDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakDetectorDemoUITests.swift; sourceTree = "<group>"; };
 		7F4F1C512561726C00A90DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F4F1C5925617CBA00A90DA8 /* UIApplication+TopMostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopMostController.swift"; sourceTree = "<group>"; };
 		7F957C4C255EC7DE002EB89A /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
 		D6FEB028255EBDE1009B2235 /* LeakDetectorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeakDetectorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FEB02B255EBDE1009B2235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				D6FEB034255EBDE3009B2235 /* Assets.xcassets */,
 				D6FEB036255EBDE3009B2235 /* LaunchScreen.storyboard */,
 				D6FEB039255EBDE3009B2235 /* Info.plist */,
+				7F4F1C5925617CBA00A90DA8 /* UIApplication+TopMostController.swift */,
 			);
 			path = LeakDetectorDemo;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */,
 				D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */,
 				7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */,
+				7F4F1C5A25617CBA00A90DA8 /* UIApplication+TopMostController.swift in Sources */,
 				7F4F1C3D255EE09500A90DA8 /* NoLeakRxViewController.swift in Sources */,
 				7F4F1C4725611CEC00A90DA8 /* NoLeakDelegateViewController.swift in Sources */,
 				7F4F1C43255EE40600A90DA8 /* NoLeakCombineViewController.swift in Sources */,

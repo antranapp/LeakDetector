@@ -1,8 +1,5 @@
 //
-//  SceneDelegate.swift
-//  LeakDetectorDemo
-//
-//  Created by Tran, Binh An on 13/11/20.
+//  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import UIKit
