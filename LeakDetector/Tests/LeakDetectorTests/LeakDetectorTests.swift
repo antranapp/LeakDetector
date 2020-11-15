@@ -54,7 +54,6 @@ final class LeakDetectorTests: XCTestCase {
         cancellable = LeakDetector.instance.status
             .dropFirst()
             .sink { status in
-                print(status)
                 if status == .didComplete {
                     expectation.fulfill()
                 }
