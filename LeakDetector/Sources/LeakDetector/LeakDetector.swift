@@ -35,7 +35,7 @@ public class LeakDetector {
     /// The singleton instance.
     public static let instance = LeakDetector()
     
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
 
     /// The status of leak detection.
     ///
@@ -80,12 +80,14 @@ public class LeakDetector {
                 } else if !didDeallocate {
                     print("Leak detection is disabled. This should only be used for debugging purposes.")
                     print("\(message)")
+                    LeakDetector.isLeaked = true
                 }
             }
 
             self.expectationCount = self.expectationCount - 1
         }
         .handleEvents(receiveCompletion: { [weak self] _ in
+            // Clean up the subscription after the evalutation is done.
             cancellable.cancel()
             self?.cancellables.remove(cancellable)
             cancellable = nil
@@ -123,6 +125,7 @@ public class LeakDetector {
                 } else if !viewDidDisappear {
                     print("Leak detection is disabled. This should only be used for debugging purposes.")
                     print("\(message)")
+                    LeakDetector.isLeaked = true
                 }
             }
 
@@ -147,16 +150,14 @@ public class LeakDetector {
     /// We should enable leak detector in Debug mode only.
     public static var isEnabled: Bool = false
 
-    /// Enable leak detector for core components such as RadixViewController, ServiceBasedViewModel, ... Default is false.
-    ///
-    /// We should enable in Debug mode only.
-    public static var isCoreComponentsEnabled = false
+    public static var isLeaked: Bool = false
 
     #if DEBUG
     /// Reset the state of Leak Detector, internal for UI test only.
     func reset() {
         trackingObjects.removeAllObjects()
         expectationCount = 0
+        LeakDetector.isLeaked = false
     }
     #endif
 

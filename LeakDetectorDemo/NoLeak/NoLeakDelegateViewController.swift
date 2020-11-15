@@ -1,18 +1,16 @@
 //
-//  Copyright © 2020 Steve Dao. All rights reserved.
+//  NoLeakDelegateViewController.swift
+//  LeakDetectorDemo
+//
+//  Created by An Tran on 15/11/20.
 //
 
 import UIKit
 import LeakDetector
 
-protocol LeakDelegate: class {
-    var viewController: UIViewController { get }
-}
-
-class DelegateViewController: UIViewController {
+class NoLeakDelegateViewController: UIViewController {
         
-//    weak var delegate: LeakDelegate!
-    var delegate: LeakDelegate!
+    weak var delegate: LeakDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +29,8 @@ class DelegateViewController: UIViewController {
     }
 }
 
-extension DelegateViewController: LeakDelegate {
+
+extension NoLeakDelegateViewController: LeakDelegate {
     var viewController: UIViewController {
         self
     }

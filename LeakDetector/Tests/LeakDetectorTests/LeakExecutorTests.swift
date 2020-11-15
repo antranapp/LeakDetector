@@ -6,7 +6,7 @@ import Combine
 import XCTest
 @testable import LeakDetector
 
-final class LeakDetectorTests: XCTestCase {
+final class LeakExecutorTests: XCTestCase {
     
     var cancellables = Set<AnyCancellable>()
     @Published var value: Bool = false
