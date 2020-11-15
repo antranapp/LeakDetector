@@ -83,12 +83,6 @@ private class Parent {
     func makeLeakingChild() {
         child = LeakingChild(parent: self)
     }
-    
-    deinit {
-        guard let child = child else { return }
-        LeakDetector.instance.expectDeallocate(object: child)
-    }
-
 }
 
 private class Child {}
