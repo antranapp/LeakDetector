@@ -5,9 +5,9 @@
 import UIKit
 import LeakDetector
 
-class ClosureRootViewController: UITableViewController {
+class ClosureRootViewController: LeakDetectableTableViewController {
     
     @IBAction func backFromClosureViewController(_ segue: UIStoryboardSegue) {
-        LeakDetector.instance.expectViewControllerDellocated(viewController: segue.source)
+        super.executeLeakDetector(for: segue.source)
     }
 }

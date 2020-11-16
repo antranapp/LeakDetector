@@ -7,7 +7,7 @@ import RxSwift
 import RxCocoa
 import LeakDetector
 
-class NoLeakRxViewController: UIViewController {
+class NoLeakRxViewController: LeakDetectableViewController {
     
     let disposeBag = DisposeBag()
     let leakRelay = PublishRelay<Bool>()
@@ -33,7 +33,7 @@ class NoLeakRxViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         if isMovingFromParent || isBeingDismissed {
-            LeakDetector.instance.expectDeallocate(object: leakRelay)
+            super.executeLeakDetector(for: leakRelay)
         }
     }
     

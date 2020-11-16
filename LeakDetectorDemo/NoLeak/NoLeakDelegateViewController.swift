@@ -7,10 +7,11 @@
 
 import UIKit
 import LeakDetector
+import Combine
 
-class NoLeakDelegateViewController: UIViewController {
+class NoLeakDelegateViewController: LeakDetectableViewController {
         
-    weak var delegate: LeakDelegate!
+    private weak var delegate: LeakDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class NoLeakDelegateViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         if isMovingFromParent || isBeingDismissed {
-            LeakDetector.instance.expectDeallocate(object: delegate)
+            super.executeLeakDetector(for: delegate)
         }
     }
 }
