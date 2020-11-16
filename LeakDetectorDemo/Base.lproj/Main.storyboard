@@ -553,6 +553,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="aPY-Kd-zB7" kind="show" id="aB3-YT-5Za"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -594,6 +597,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Fjo-Y0-PsZ" kind="show" id="gVo-sR-0Vy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -718,6 +724,66 @@
                 <exit id="OXk-jq-yuj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="8977" y="-40"/>
+        </scene>
+        <!--Leak - Nested Closure-->
+        <scene sceneID="aig-t5-THY">
+            <objects>
+                <viewController id="aPY-Kd-zB7" customClass="NestedClosureViewController" customModule="LeakDetectorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D70-rS-Nzb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyS-qJ-Lpj">
+                                <rect key="frame" x="178" y="406" width="58" height="30"/>
+                                <state key="normal" title="Go Back"/>
+                                <connections>
+                                    <segue destination="JOB-uL-XzO" kind="unwind" unwindAction="backFromClosureViewController:" id="CIb-Kr-iKb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="D2s-RI-qWa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MyS-qJ-Lpj" firstAttribute="centerX" secondItem="D70-rS-Nzb" secondAttribute="centerX" id="V7Q-Ga-wVZ"/>
+                            <constraint firstItem="MyS-qJ-Lpj" firstAttribute="centerY" secondItem="D70-rS-Nzb" secondAttribute="centerY" id="dZ6-oS-bMN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Leak - Nested Closure" id="33e-q3-peC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLs-sD-nIo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JOB-uL-XzO" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="9681" y="-723"/>
+        </scene>
+        <!--No Leak - Nested Closure-->
+        <scene sceneID="UjN-bw-6vg">
+            <objects>
+                <viewController id="Fjo-Y0-PsZ" customClass="NoLeakSimpleClosureViewController" customModule="LeakDetectorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ndM-DX-0QO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BY-7K-OGQ">
+                                <rect key="frame" x="178" y="406" width="58" height="30"/>
+                                <state key="normal" title="Go Back"/>
+                                <connections>
+                                    <segue destination="K50-np-xin" kind="unwind" unwindAction="backFromClosureViewController:" id="oAJ-ln-zcr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qfN-bf-PJg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6BY-7K-OGQ" firstAttribute="centerY" secondItem="ndM-DX-0QO" secondAttribute="centerY" id="Lae-YB-WCK"/>
+                            <constraint firstItem="6BY-7K-OGQ" firstAttribute="centerX" secondItem="ndM-DX-0QO" secondAttribute="centerX" id="NJt-8n-Mxz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="No Leak - Nested Closure" id="HyM-Nd-cb7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h7k-tH-daj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="K50-np-xin" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="9680" y="-40"/>
         </scene>
     </scenes>
     <resources>

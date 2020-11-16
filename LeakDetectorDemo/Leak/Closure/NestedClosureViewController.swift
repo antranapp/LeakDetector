@@ -4,7 +4,7 @@
 
 import UIKit
 
-class SimpleClosureViewController: UIViewController {
+class NestedClosureViewController: UIViewController {
     
     private var handler: (() -> Void)!
       
@@ -12,12 +12,18 @@ class SimpleClosureViewController: UIViewController {
         super.viewDidLoad()
 
         handler = {
-            self.view.tag = 111
+            self.execute { [weak self] in
+                self?.view.tag = 111
+            }
         }
+    }
+    
+    func execute(_ closure: () -> Void) {
+        closure()
     }
 }
 
-class NoLeakSimpleClosureViewController: UIViewController {
+class NoLeakNestedClosureViewController: UIViewController {
     
     private var handler: (() -> Void)!
       
@@ -26,7 +32,13 @@ class NoLeakSimpleClosureViewController: UIViewController {
 
         // Capture `self` weakly to avoid retain cycle.
         handler = { [weak self] in
-            self?.view.tag = 111
+            self?.execute { [weak self] in
+                self?.view.tag = 111
+            }
         }
+    }
+    
+    func execute(_ closure: () -> Void) {
+        closure()
     }
 }
