@@ -1,5 +1,4 @@
 //
-//  Copyright © 2020 Steve Dao. All rights reserved.
 //  Copyright © 2020 An Tran. All rights reserved.
 //
 
@@ -7,7 +6,7 @@ import UIKit
 import Combine
 import LeakDetector
 
-class CombineViewController: UIViewController {
+class CombineViewController: LeakDetectableViewController {
     
     var cancellables = Set<AnyCancellable>()
     let leakPublisher = CurrentValueSubject<Bool, Never>(false)
@@ -30,7 +29,7 @@ class CombineViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         if isMovingFromParent || isBeingDismissed {
-            LeakDetector.instance.expectDeallocate(object: leakPublisher)
+            super.executeLeakDetector(for: leakPublisher)
         }
     }
     

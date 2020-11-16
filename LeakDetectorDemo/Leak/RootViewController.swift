@@ -6,10 +6,10 @@ import UIKit
 import LeakDetector
 import Combine
 
-class RootViewController: UITableViewController {
+class RootViewController: LeakDetectableTableViewController {
     
     @IBAction func backFromLeakingViewController(_ segue: UIStoryboardSegue) {
-        LeakDetector.instance.expectViewControllerDellocated(viewController: segue.source)
+        super.executeLeakDetector(for: segue.source)
     }
 }
 

@@ -1,19 +1,21 @@
 //
-//  Copyright © 2020 Steve Dao. All rights reserved.
 //  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import UIKit
 import LeakDetector
+import Combine
 
 protocol LeakDelegate: class {
     var viewController: UIViewController { get }
 }
 
-class DelegateViewController: UIViewController {
+class DelegateViewController: LeakDetectableViewController {
         
-//    weak var delegate: LeakDelegate!
-    var delegate: LeakDelegate!
+    private var cancellable: AnyCancellable?
+    
+//    weak private var delegate: LeakDelegate!
+    private var delegate: LeakDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,7 @@ class DelegateViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         if isMovingFromParent || isBeingDismissed {
-            LeakDetector.instance.expectDeallocate(object: delegate)
+            super.executeLeakDetector(for: delegate)
         }
     }
 }

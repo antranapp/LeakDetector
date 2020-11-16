@@ -9,7 +9,7 @@ import XCTest
 
 final class LeakDetectorTests: XCTestCase {
     
-    private var cancellable: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
     private var parent: Parent?
     
     override func setUp() {
@@ -23,26 +23,31 @@ final class LeakDetectorTests: XCTestCase {
         super.tearDown()
         
         LeakDetector.instance.reset()
-        cancellable?.cancel()
-        cancellable = nil
+        for cancellable in cancellables {
+            cancellable.cancel()
+        }
+        cancellables.removeAll()
     }
     
     func testDetectNoLeak() {
         let expectation = self.expectation(description: "No Leak is reported")
         parent?.makeNonLeakingChild()
         
-        cancellable = LeakDetector.instance.status
+        LeakDetector.instance.status
             .dropFirst()
             .sink { status in
                 if status == .didComplete {
                     expectation.fulfill()
                 }
             }
+            .store(in: &cancellables)
         
         LeakDetector.instance.expectDeallocate(object: parent!)
+            .sink {}
+            .store(in: &cancellables)
         parent = nil
         
-        wait(for: [expectation], timeout: LeakDefaultExpectationTime.deallocation + 0.1)
+        wait(for: [expectation], timeout: .deallocationExpectation + 0.1)
         
         XCTAssertNil(LeakDetector.isLeaked.value)
     }
@@ -51,18 +56,21 @@ final class LeakDetectorTests: XCTestCase {
         let expectation = self.expectation(description: "Leak is reported")
         parent?.makeLeakingChild()
                 
-        cancellable = LeakDetector.instance.status
+        LeakDetector.instance.status
             .dropFirst()
             .sink { status in
                 if status == .didComplete {
                     expectation.fulfill()
                 }
             }
+            .store(in: &cancellables)
         
         LeakDetector.instance.expectDeallocate(object: parent!)
+            .sink {}
+            .store(in: &cancellables)
         parent = nil
 
-        wait(for: [expectation], timeout: LeakDefaultExpectationTime.deallocation + 0.1)
+        wait(for: [expectation], timeout: .deallocationExpectation + 0.1)
         
         XCTAssertNotNil(LeakDetector.isLeaked.value)
     }

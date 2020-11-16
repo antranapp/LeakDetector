@@ -1,27 +1,22 @@
 //
-//  Copyright © UBER. All rights reserved.
-//  Copyright © 2019 duyquang91. All rights reserved.
 //  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import Foundation
-import UIKit
 import Combine
+import UIKit
 
-public struct LeakDefaultExpectationTime {
-    public static let deallocation: TimeInterval = 1
-    public static let viewDisappear: TimeInterval = 3
+/// The default time values used for leak detection expectations.
+public extension TimeInterval {
+    /// The object deallocation time.
+    static let deallocationExpectation: TimeInterval = 1.0
+
+    /// The view disappear time.
+    static let viewDisappearExpectation: TimeInterval = 3.0
 }
 
 public enum LeakDetectionStatus {
     case inProgress, didComplete
-}
-
-/// The handle for a scheduled leak detection.
-public protocol LeakDetectionHandle {
-    
-    /// Cancel the scheduled detection.
-    func cancel()
 }
 
 /// An expectation based leak detector, that allows an object's owner to set an expectation that an owned object to be
@@ -35,8 +30,6 @@ public class LeakDetector {
     /// The singleton instance.
     public static let instance = LeakDetector()
     
-    private var cancellables = Set<AnyCancellable>()
-
     /// The status of leak detection.
     ///
     /// The status changes between InProgress and DidComplete as units register for new detections, cancel existing
@@ -54,93 +47,82 @@ public class LeakDetector {
     ///
     /// - parameter object: The object to track for deallocation.
     /// - parameter inTime: The time the given object is expected to be deallocated within.
-    /// - returns: The handle that can be used to cancel the expectation.
-    @discardableResult
-    public func expectDeallocate(object: AnyObject, inTime time: TimeInterval = LeakDefaultExpectationTime.deallocation) -> LeakDetectionHandle {
-        expectationCount = expectationCount + 1
-
+    /// - returns: `AnyPublisher` that can be used to cancel the expectation.
+    public func expectDeallocate(object: AnyObject, inTime time: TimeInterval = .deallocationExpectation) -> AnyPublisher<Void, Never> {
+        
         let objectDescription = String(describing: object)
         let objectId = String(ObjectIdentifier(object).hashValue) as NSString
-        trackingObjects.setObject(object, forKey: objectId)
 
-        let handle = LeakDetectionHandleImpl {
-            self.expectationCount = self.expectationCount - 1
-        }
+        return Timer
+            .execute(withDelay: time)
+            .receive(on: DispatchQueue.main)
+            .handleEvents(
+                receiveSubscription: { [weak object] _ in
+                    self.expectationCount += 1
+                    if let object = object {
+                        self.trackingObjects.setObject(object, forKey: objectId)
+                    }
+                },
+                receiveOutput: { _ in
+                    let didDeallocate = (self.trackingObjects.object(forKey: objectId) == nil)
+                    let message = "<\(objectDescription): \(objectId)> has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
-        var cancellable: AnyCancellable!
-        cancellable = LeakExecutor.execute(withDelay: time) {
-            // Retain the handle so we can check for the cancelled status. Also cannot use the cancellable
-            // concurrency API since the returned handle must be retained to ensure closure is executed.
-            if !handle.cancelled {
-                let didDeallocate = (self.trackingObjects.object(forKey: objectId) == nil)
-                let message = "<\(objectDescription): \(objectId)> has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
-
-                if LeakDetector.isEnabled {
-                    assert(didDeallocate, message)
-                } else if !didDeallocate {
-                    print("Leak detection is disabled. This should only be used for debugging purposes.")
-                    print("\(message)")
-                    LeakDetector.isLeaked.send(message)
+                    if LeakDetector.isEnabled {
+                        assert(didDeallocate, message)
+                    } else if !didDeallocate {
+                        print("Leak detection is disabled. This should only be used for debugging purposes.")
+                        print("\(message)")
+                        LeakDetector.isLeaked.send(message)
+                    }
+                },
+                receiveCompletion: { _ in
+                    self.expectationCount -= 1
+                },
+                receiveCancel: {
+                    self.expectationCount -= 1
                 }
-            }
-
-            self.expectationCount = self.expectationCount - 1
-        }
-        .handleEvents(receiveCompletion: { [weak self] _ in
-            // Clean up the subscription after the evalutation is done.
-            cancellable.cancel()
-            self?.cancellables.remove(cancellable)
-            cancellable = nil
-        })
-        .sink(receiveValue: { _ in })
-        
-        cancellables.insert(cancellable)
-
-        return handle
+            )
+            .subscribe(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 
     /// Sets up an expectation for the given view controller to be deallocated within the given time.
     ///
     /// - parameter viewController: The `UIViewController` expected to disappear.
     /// - parameter inTime: The time the given view controller is expected to disappear.
-    /// - returns: The handle that can be used to cancel the expectation.
+    /// - returns: `AnyPublisher` that can be used to cancel the expectation.
     @discardableResult
-    public func expectViewControllerDellocated(viewController: UIViewController, inTime time: TimeInterval = LeakDefaultExpectationTime.viewDisappear) -> LeakDetectionHandle {
-        expectationCount = expectationCount + 1
+    public func expectViewControllerDellocated(viewController: UIViewController, inTime time: TimeInterval = .viewDisappearExpectation) -> AnyPublisher<Void, Never> {
+        Timer
+            .execute(withDelay: time)
+            .receive(on: DispatchQueue.main)
+            .handleEvents(
+                receiveSubscription: { _ in
+                    self.expectationCount += 1
+                },
+                receiveOutput: { [weak viewController] in
+                    if let viewController = viewController {
+                        let viewDidDisappear = (!viewController.isViewLoaded && viewController.view.window == nil)
+                        let message = "\(viewController) appearance has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
-        let handle = LeakDetectionHandleImpl {
-            self.expectationCount = self.expectationCount - 1
-        }
-
-        var cancellable: AnyCancellable!
-        cancellable = LeakExecutor.execute(withDelay: time) { [weak viewController] in
-            // Retain the handle so we can check for the cancelled status. Also cannot use the cancellable
-            // concurrency API since the returned handle must be retained to ensure closure is executed.
-            if let viewController = viewController, !handle.cancelled {
-                let viewDidDisappear = (!viewController.isViewLoaded && viewController.view.window == nil)
-                let message = "\(viewController) appearance has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
-
-                if LeakDetector.isEnabled {
-                    assert(viewDidDisappear, message)
-                } else if !viewDidDisappear {
-                    print("Leak detection is disabled. This should only be used for debugging purposes.")
-                    print("\(message)")
-                    LeakDetector.isLeaked.send(message)
+                        if LeakDetector.isEnabled {
+                            assert(viewDidDisappear, message)
+                        } else if !viewDidDisappear {
+                            print("Leak detection is disabled. This should only be used for debugging purposes.")
+                            print("\(message)")
+                            LeakDetector.isLeaked.send(message)
+                        }
+                    }
+                },
+                receiveCompletion: { _ in
+                    self.expectationCount -= 1
+                },
+                receiveCancel: {
+                    self.expectationCount -= 1
                 }
-            }
-
-            self.expectationCount = self.expectationCount - 1
-        }
-        .handleEvents(receiveCompletion: { [weak self] _ in
-            cancellable.cancel()
-            self?.cancellables.remove(cancellable)
-            cancellable = nil
-        })
-        .sink(receiveValue: { _ in })
-
-        cancellables.insert(cancellable)
-
-        return handle
+            )
+            .subscribe(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 
     // MARK: - Internal Interface
@@ -167,23 +149,4 @@ public class LeakDetector {
     @Published private var expectationCount: Int = 0
 
     private init() {}
-}
-
-private class LeakDetectionHandleImpl: LeakDetectionHandle {
-    var cancelled: Bool {
-        return _cancelled
-    }
-
-    @Published private var _cancelled: Bool = false
-    
-    let cancelClosure: (() -> Void)?
-
-    init(cancelClosure: (() -> Void)? = nil) {
-        self.cancelClosure = cancelClosure
-    }
-
-    func cancel() {
-        _cancelled = true
-        cancelClosure?()
-    }
 }

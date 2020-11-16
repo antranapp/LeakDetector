@@ -22,6 +22,5 @@ let package = Package(
             name: "LeakDetectorTests",
             dependencies: ["LeakDetector"]
         ),
-    ],
-    swiftLanguageVersions: [.v5]
+    ]
 )
