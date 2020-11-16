@@ -32,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .store(in: &cancellables)
         
         LeakDetector.isLeaked
-            .sink { isLeaked in
-                if isLeaked {
-                    self.showLeakAlert()
+            .sink { message in
+                if let message = message {
+                    self.showLeakAlert(message)
                 }
             }
             .store(in: &cancellables)
@@ -57,8 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-    private func showLeakAlert() {
-        let alertController = UIAlertController(title: "LEAK", message: "Something is leaked", preferredStyle: .alert)
+    private func showLeakAlert(_ message: String) {
+        let alertController = UIAlertController(title: "LEAK", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel) { _ in }
         alertController.addAction(action)
         UIApplication.shared.topMostViewController()?.present(alertController, animated: true, completion: nil)
