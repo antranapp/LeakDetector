@@ -1,8 +1,5 @@
 //
-//  MainViewController.swift
-//  LeakDetectorDemo
-//
-//  Created by An Tran on 19/11/20.
+//  Copyright © 2020 An Tran. All rights reserved.
 //
 
 import UIKit
