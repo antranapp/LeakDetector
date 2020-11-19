@@ -1,9 +1,7 @@
 //
-//  LeakDetectableViewController.swift
-//  LeakDetectorDemo
+//  Copyright © 2020 An Tran. All rights reserved.
 //
-//  Created by An Tran on 16/11/20.
-//
+
 
 import UIKit
 import Combine
