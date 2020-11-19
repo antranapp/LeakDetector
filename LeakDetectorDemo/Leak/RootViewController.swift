@@ -26,6 +26,7 @@ class NotLeakingChildViewController: UIViewController {
 
 class LeakingChildViewController: UIViewController {
         
+    //    weak private var delegate: LeakDelegate!
     var delegate: LeakDelegate!
 
     override func viewDidLoad() {
