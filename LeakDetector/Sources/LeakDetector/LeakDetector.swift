@@ -1,9 +1,9 @@
 //
-//  Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
-import Foundation
 import Combine
+import Foundation
 import UIKit
 
 /// The default time values used for leak detection expectations.
@@ -35,7 +35,7 @@ public class LeakDetector {
     /// The status changes between InProgress and DidComplete as units register for new detections, cancel existing
     /// detections, and existing detections complete.
     public var status: AnyPublisher<LeakDetectionStatus, Never> {
-        return $expectationCount
+        $expectationCount
             .map { expectationCount in
                 expectationCount > 0 ? LeakDetectionStatus.inProgress : LeakDetectionStatus.didComplete
             }

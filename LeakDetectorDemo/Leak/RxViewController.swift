@@ -1,11 +1,11 @@
 //
-//  Copyright © 2020 Steve Dao. All rights reserved.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
-import UIKit
-import RxSwift
-import RxCocoa
 import LeakDetector
+import RxCocoa
+import RxSwift
+import UIKit
 
 class RxViewController: LeakDetectableViewController {
     

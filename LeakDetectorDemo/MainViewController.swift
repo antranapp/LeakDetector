@@ -1,10 +1,10 @@
 //
-//  Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
-import UIKit
-import LeakDetector
 import Combine
+import LeakDetector
+import UIKit
 
 class MainViewController: UITableViewController {
     
@@ -16,6 +16,11 @@ class MainViewController: UITableViewController {
         switch indexPath.section {
         case 0:
             switch indexPath.row {
+            case 4:
+                let storyboard = UIStoryboard(name: "Closure", bundle: nil)
+                let viewController = storyboard.instantiateInitialViewController()!
+                weakViewController = viewController
+                navigationController?.present(viewController, animated: true, completion: nil)
             case 5:
                 let storyboard = UIStoryboard(name: "DispatchQueue", bundle: nil)
                 let viewController = storyboard.instantiateInitialViewController()!
