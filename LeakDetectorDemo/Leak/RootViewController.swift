@@ -1,10 +1,10 @@
 //
-//  Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
-import UIKit
-import LeakDetector
 import Combine
+import LeakDetector
+import UIKit
 
 class RootViewController: LeakDetectableTableViewController {
     

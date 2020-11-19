@@ -1,5 +1,5 @@
 //
-//  Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
 import UIKit
@@ -43,6 +43,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
 }
-

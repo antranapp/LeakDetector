@@ -1,11 +1,11 @@
 //
-//  Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
 import Combine
 import Foundation
 
-extension Timer {
+public extension Timer {
 
     /// Emite a Void signal after the given delay assuming the given maximum frame duration.
     ///
@@ -18,7 +18,7 @@ extension Timer {
     ///   pauses.
     /// - parameter maxFrameDuration: The maximum duration a single frame should take. Defaults to 33ms.
     /// - returns: `AnyPublisher` that outputs after delay.
-    public static func execute(withDelay delay: TimeInterval, maxFrameDuration: Int = 33, runloop: RunLoop = RunLoop.main) -> AnyPublisher<Void, Never> {
+    static func execute(withDelay delay: TimeInterval, maxFrameDuration: Int = 33, runloop: RunLoop = RunLoop.main) -> AnyPublisher<Void, Never> {
         let period: TimeInterval = .milliseconds(maxFrameDuration / 3)
         var lastRunLoopTime = Date().timeIntervalSinceReferenceDate
         var properFrameTime = 0.0

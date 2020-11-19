@@ -1,5 +1,5 @@
 //
-//  Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
 import UIKit
@@ -20,11 +20,11 @@ class ChildViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
     
     @objc func goBack() {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }

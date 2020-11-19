@@ -1,12 +1,9 @@
 //
-//  DispatchQueueRootViewController.swift
-//  LeakDetectorDemo
-//
-//  Created by Tran, Binh An on 17/11/20.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
-import UIKit
 import LeakDetector
+import UIKit
 
 class DispatchQueueRootViewController: LeakDetectableTableViewController {
 
