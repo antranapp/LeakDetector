@@ -10,13 +10,9 @@ This is a demo project for the [LeakDetector](https://github.com/antranapp/LeakD
 This demo app focuses on common mistakes that could lead to retain cycles/memory leaks.
 
 
-## More test cases:
+## References:
 
-### Leak cases:
-
-- UIView.animate
-
-### No Leak cases:
-
-- DispatchQueue
-- lazy var
+- RIBs: [https://github.com/uber/RIBs/tree/master/ios/RIBs](https://github.com/uber/RIBs/tree/master/ios/RIBs)
+- LifeCycleKit: [https://github.com/ashare80/LifecycleKit](https://github.com/ashare80/LifecycleKit)
+- You don’t (always) need [weak self]: [https://medium.com/flawless-app-stories/you-dont-always-need-weak-self-a778bec505ef](https://medium.com/flawless-app-stories/you-dont-always-need-weak-self-a778bec505ef)
+- swift-leak-check: [https://github.com/grab/swift-leak-check](https://github.com/grab/swift-leak-check)
