@@ -30,6 +30,8 @@
 		7FE047E82567F6E0005BE7C7 /* AnimateRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047E72567F6E0005BE7C7 /* AnimateRootViewController.swift */; };
 		7FE047EC2567F76C005BE7C7 /* AnimatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047EB2567F76C005BE7C7 /* AnimatorViewController.swift */; };
 		7FE047FA25680EF6005BE7C7 /* TimerRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047F925680EF6005BE7C7 /* TimerRootViewController.swift */; };
+		7FE0480725681A3E005BE7C7 /* NestedClosuresRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE0480625681A3E005BE7C7 /* NestedClosuresRootViewController.swift */; };
+		7FE0480D25681B29005BE7C7 /* NestedClosuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE0480C25681B29005BE7C7 /* NestedClosuresViewController.swift */; };
 		7FF11903256736BE000B6C59 /* Closure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF11902256736BE000B6C59 /* Closure.storyboard */; };
 		7FF1190925673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1190825673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift */; };
 		D640D9DE2563AD7E005ABD34 /* DispatchQueueRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640D9DD2563AD7E005ABD34 /* DispatchQueueRootViewController.swift */; };
@@ -78,6 +80,8 @@
 		7FE047E72567F6E0005BE7C7 /* AnimateRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateRootViewController.swift; sourceTree = "<group>"; };
 		7FE047EB2567F76C005BE7C7 /* AnimatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorViewController.swift; sourceTree = "<group>"; };
 		7FE047F925680EF6005BE7C7 /* TimerRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRootViewController.swift; sourceTree = "<group>"; };
+		7FE0480625681A3E005BE7C7 /* NestedClosuresRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedClosuresRootViewController.swift; sourceTree = "<group>"; };
+		7FE0480C25681B29005BE7C7 /* NestedClosuresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedClosuresViewController.swift; sourceTree = "<group>"; };
 		7FF11902256736BE000B6C59 /* Closure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Closure.storyboard; sourceTree = "<group>"; };
 		7FF1190825673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakNonEscapingClosureViewController.swift; sourceTree = "<group>"; };
 		D640D9DD2563AD7E005ABD34 /* DispatchQueueRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueRootViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		7F4F1C3A255EE07800A90DA8 /* Leak */ = {
 			isa = PBXGroup;
 			children = (
+				7FE0480525681A29005BE7C7 /* NestedClosures */,
 				7FE047F825680EE2005BE7C7 /* Timer */,
 				7FE047E62567F6D0005BE7C7 /* Animate */,
 				D640D9DC2563AD6C005ABD34 /* DispatchQueue */,
@@ -188,6 +193,15 @@
 				7F18D5942565F9730045F6FC /* TimerViewController.swift */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		7FE0480525681A29005BE7C7 /* NestedClosures */ = {
+			isa = PBXGroup;
+			children = (
+				7FE0480625681A3E005BE7C7 /* NestedClosuresRootViewController.swift */,
+				7FE0480C25681B29005BE7C7 /* NestedClosuresViewController.swift */,
+			);
+			path = NestedClosures;
 			sourceTree = "<group>";
 		};
 		D640D9DC2563AD6C005ABD34 /* DispatchQueue */ = {
@@ -374,11 +388,13 @@
 				7F4F1C762562B4DC00A90DA8 /* SimpleClosureViewController.swift in Sources */,
 				D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */,
 				7F18D5952565F9730045F6FC /* TimerViewController.swift in Sources */,
+				7FE0480D25681B29005BE7C7 /* NestedClosuresViewController.swift in Sources */,
 				D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */,
 				7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */,
 				7F18D5992565FA730045F6FC /* MainViewController.swift in Sources */,
 				7F4F1C712562A78000A90DA8 /* ClosureRootViewController.swift in Sources */,
 				7FE047EC2567F76C005BE7C7 /* AnimatorViewController.swift in Sources */,
+				7FE0480725681A3E005BE7C7 /* NestedClosuresRootViewController.swift in Sources */,
 				7F4F1C5A25617CBA00A90DA8 /* UIApplication+TopMostController.swift in Sources */,
 				D640D9EA2563AE60005ABD34 /* NoLeakDispatchAsyncViewController.swift in Sources */,
 				7FE047FA25680EF6005BE7C7 /* TimerRootViewController.swift in Sources */,
