@@ -27,7 +27,7 @@ class AnimatorViewController: ChildViewController {
     }
 }
 
-class NoLeakAnimatorViewController: ChildViewController {
+class NoLeakAnimatorViewController1: ChildViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,4 +41,43 @@ class NoLeakAnimatorViewController: ChildViewController {
         UIView.animate(withDuration: 3.0) { self.view.backgroundColor = .red }
     }
 
+}
+
+class NoLeakAnimatorViewController2: ChildViewController {
+    
+    private var closureStorage: Any?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        nonLeakyViewPropertyAnimator()
+    }
+    
+    // Copied from https://github.com/almaleh/weak-self/blob/391493f19f8012d13451dc9db36042ac5b34ffb9/WeakSelf/PresentedController.swift
+    /* If we pass references to the properties we want to manipulate directly to the closure, instead of using self,
+     * we will no longer leak the controller, even without using [weak self] */
+    func nonLeakyViewPropertyAnimator() {
+        let view = self.view
+        // color won't actually change, because we aren't executing the animation
+        let anim = UIViewPropertyAnimator(duration: 2.0, curve: .linear) { view?.backgroundColor = .red }
+        anim.addCompletion { _ in view?.backgroundColor = .white }
+        self.closureStorage = anim
+    }
+}
+
+class NoLeakAnimatorViewController3: ChildViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        nonLeakyViewPropertyAnimator()
+    }
+    
+    // Copied from https://github.com/almaleh/weak-self/blob/391493f19f8012d13451dc9db36042ac5b34ffb9/WeakSelf/PresentedController.swift
+    // If we start the animation immediately, it won't leak the controller, even without [weak self]
+    func nonLeakyViewPropertyAnimator() {
+        let anim = UIViewPropertyAnimator(duration: 2.0, curve: .linear) { self.view.backgroundColor = .red }
+        anim.addCompletion { _ in self.view.backgroundColor = .white }
+        anim.startAnimation()
+    }
 }
