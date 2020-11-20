@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class DispatchAsyncViewController1: UIViewController {
+class NoLeakDispatchAsyncViewController1: UIViewController {
 
     private let queue = DispatchQueue.main
 
@@ -18,7 +18,7 @@ class DispatchAsyncViewController1: UIViewController {
     }
 }
 
-class DispatchAsyncViewController2: UIViewController {
+class NoLeakDispatchAsyncViewController2: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
