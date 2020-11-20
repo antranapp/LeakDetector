@@ -39,6 +39,10 @@ class MainViewController: UITableViewController {
                 let viewController = NoLeakTimerViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
+            case 4:
+                let viewController = NoLeakHighOrderFunctionViewController()
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
             default:
                 break
             }

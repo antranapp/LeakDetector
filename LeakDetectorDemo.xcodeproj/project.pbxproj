@@ -27,6 +27,7 @@
 		7F4F1C7C2562B75400A90DA8 /* NestedClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C7B2562B75400A90DA8 /* NestedClosureViewController.swift */; };
 		7F957C4D255EC7DE002EB89A /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F957C4C255EC7DE002EB89A /* RxViewController.swift */; };
 		7FE047D525673F34005BE7C7 /* DispatchWorkItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047D425673F34005BE7C7 /* DispatchWorkItemViewController.swift */; };
+		7FE047DF25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047DE25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift */; };
 		7FF11903256736BE000B6C59 /* Closure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF11902256736BE000B6C59 /* Closure.storyboard */; };
 		7FF1190925673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1190825673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift */; };
 		D640D9DE2563AD7E005ABD34 /* DispatchQueueRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640D9DD2563AD7E005ABD34 /* DispatchQueueRootViewController.swift */; };
@@ -72,6 +73,7 @@
 		7F4F1C7B2562B75400A90DA8 /* NestedClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedClosureViewController.swift; sourceTree = "<group>"; };
 		7F957C4C255EC7DE002EB89A /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
 		7FE047D425673F34005BE7C7 /* DispatchWorkItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchWorkItemViewController.swift; sourceTree = "<group>"; };
+		7FE047DE25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakHighOrderFunctionViewController.swift; sourceTree = "<group>"; };
 		7FF11902256736BE000B6C59 /* Closure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Closure.storyboard; sourceTree = "<group>"; };
 		7FF1190825673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakNonEscapingClosureViewController.swift; sourceTree = "<group>"; };
 		D640D9DD2563AD7E005ABD34 /* DispatchQueueRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueRootViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */,
 				7F4F1C4625611CEC00A90DA8 /* NoLeakDelegateViewController.swift */,
 				7F18D59C2565FC380045F6FC /* NoLeakTimerViewController.swift */,
+				7FE047DE25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift */,
 			);
 			path = NoLeak;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				7FF1190925673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift in Sources */,
 				7FE047D525673F34005BE7C7 /* DispatchWorkItemViewController.swift in Sources */,
 				D6FEB02E255EBDE1009B2235 /* SceneDelegate.swift in Sources */,
+				7FE047DF25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
