@@ -9,7 +9,7 @@ import UIKit
 class ClosureRootViewController: LeakDetectableTableViewController {
     
     @IBAction func backFromClosureViewController(_ segue: UIStoryboardSegue) {
-        super.executeLeakDetector(for: segue.source)
+        executeLeakDetector(for: segue.source)
         weakViewController = nil
     }
     

@@ -6,12 +6,8 @@ import Combine
 import LeakDetector
 import UIKit
 
-class MainViewController: UITableViewController {
-    
-    weak var weakViewController: UIViewController?
-    
-    var cancellable: AnyCancellable?
-    
+class MainViewController: LeakDetectableTableViewController {
+        
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -27,9 +23,10 @@ class MainViewController: UITableViewController {
                 weakViewController = viewController
                 navigationController?.present(viewController, animated: true, completion: nil)
             case 6:
-                let viewController = TimerViewController()
-                weakViewController = viewController
-                navigationController?.pushViewController(viewController, animated: true)
+                let viewController = TimerRootViewController()
+                let navController = UINavigationController(rootViewController: viewController)
+                weakViewController = navController
+                navigationController?.present(navController, animated: true, completion: nil)
             case 7:
                 let viewController = AnimateRootViewController()
                 let navController = UINavigationController(rootViewController: viewController)
@@ -41,10 +38,6 @@ class MainViewController: UITableViewController {
         case 1:
             switch indexPath.row {
             case 3:
-                let viewController = NoLeakTimerViewController()
-                weakViewController = viewController
-                navigationController?.pushViewController(viewController, animated: true)
-            case 4:
                 let viewController = NoLeakHighOrderFunctionViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
@@ -58,7 +51,7 @@ class MainViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if let weakViewController = weakViewController {
-            cancellable = LeakDetector.instance.expectViewControllerDellocated(viewController: weakViewController).sink {}
+            executeLeakDetector(for: weakViewController)
         }
     }
 }

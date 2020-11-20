@@ -9,7 +9,7 @@ import UIKit
 class RootViewController: LeakDetectableTableViewController {
     
     @IBAction func backFromLeakingViewController(_ segue: UIStoryboardSegue) {
-        super.executeLeakDetector(for: segue.source)
+        executeLeakDetector(for: segue.source)
     }
 }
 

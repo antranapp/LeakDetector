@@ -8,7 +8,7 @@ import UIKit
 class DispatchQueueRootViewController: LeakDetectableTableViewController {
     
     @IBAction func backFromDispatchQueueViewController(_ segue: UIStoryboardSegue) {
-        super.executeLeakDetector(for: segue.source)
+        executeLeakDetector(for: segue.source)
         weakViewController = nil
     }
     

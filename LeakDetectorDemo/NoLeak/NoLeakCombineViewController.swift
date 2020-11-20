@@ -28,7 +28,7 @@ class NoLeakCombineViewController: LeakDetectableViewController {
         super.viewWillDisappear(animated)
         
         if isMovingFromParent || isBeingDismissed {
-            super.executeLeakDetector(for: leakPublisher)
+            executeLeakDetector(for: leakPublisher)
         }
     }
     

@@ -61,7 +61,7 @@ class NoLeakAnimatorViewController2: ChildViewController {
         // color won't actually change, because we aren't executing the animation
         let anim = UIViewPropertyAnimator(duration: 2.0, curve: .linear) { view?.backgroundColor = .red }
         anim.addCompletion { _ in view?.backgroundColor = .white }
-        self.closureStorage = anim
+        closureStorage = anim
     }
 }
 
