@@ -8,26 +8,34 @@ import UIKit
 
 class LeakDetectableViewController: UIViewController {
     
-    var leakSubscribtion: AnyCancellable?
+    var leakSubscription: AnyCancellable?
     
     func executeLeakDetector(for object: AnyObject) {
-        leakSubscribtion = LeakDetector.instance.expectDeallocate(object: object).sink {}
+        leakSubscription = LeakDetector.instance.expectDeallocate(object: object).sink {}
     }
 
     func executeLeakDetector(for viewController: UIViewController) {
-        leakSubscribtion = LeakDetector.instance.expectViewControllerDellocated(viewController: viewController).sink {}
+        leakSubscription = LeakDetector.instance.expectViewControllerDellocated(viewController: viewController).sink {}
     }
 }
 
 class LeakDetectableTableViewController: UITableViewController {
     
-    var leakSubscribtion: AnyCancellable?
-    
+    weak var weakViewController: UIViewController?
+    var leakSubscription: AnyCancellable?
+
     func executeLeakDetector(for object: AnyObject) {
-        leakSubscribtion = LeakDetector.instance.expectDeallocate(object: object).sink {}
+        leakSubscription = LeakDetector.instance.expectDeallocate(object: object).sink {}
     }
 
     func executeLeakDetector(for viewController: UIViewController) {
-        leakSubscribtion = LeakDetector.instance.expectViewControllerDellocated(viewController: viewController).sink {}
+        leakSubscription = LeakDetector.instance.expectViewControllerDellocated(viewController: viewController).sink {}
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let weakViewController = weakViewController {
+            executeLeakDetector(for: weakViewController)
+            self.weakViewController = nil
+        }
     }
 }
