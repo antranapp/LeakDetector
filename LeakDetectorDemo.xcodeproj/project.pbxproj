@@ -12,7 +12,6 @@
 		7F18D5912565F4E70045F6FC /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D5902565F4E70045F6FC /* ChildViewController.swift */; };
 		7F18D5952565F9730045F6FC /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D5942565F9730045F6FC /* TimerViewController.swift */; };
 		7F18D5992565FA730045F6FC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D5982565FA730045F6FC /* MainViewController.swift */; };
-		7F18D59D2565FC380045F6FC /* NoLeakTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D59C2565FC380045F6FC /* NoLeakTimerViewController.swift */; };
 		7F4F1C3D255EE09500A90DA8 /* NoLeakRxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C3C255EE09500A90DA8 /* NoLeakRxViewController.swift */; };
 		7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */; };
 		7F4F1C43255EE40600A90DA8 /* NoLeakCombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */; };
@@ -30,6 +29,7 @@
 		7FE047DF25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047DE25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift */; };
 		7FE047E82567F6E0005BE7C7 /* AnimateRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047E72567F6E0005BE7C7 /* AnimateRootViewController.swift */; };
 		7FE047EC2567F76C005BE7C7 /* AnimatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047EB2567F76C005BE7C7 /* AnimatorViewController.swift */; };
+		7FE047FA25680EF6005BE7C7 /* TimerRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047F925680EF6005BE7C7 /* TimerRootViewController.swift */; };
 		7FF11903256736BE000B6C59 /* Closure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF11902256736BE000B6C59 /* Closure.storyboard */; };
 		7FF1190925673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1190825673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift */; };
 		D640D9DE2563AD7E005ABD34 /* DispatchQueueRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640D9DD2563AD7E005ABD34 /* DispatchQueueRootViewController.swift */; };
@@ -59,7 +59,6 @@
 		7F18D5902565F4E70045F6FC /* ChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		7F18D5942565F9730045F6FC /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		7F18D5982565FA730045F6FC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		7F18D59C2565FC380045F6FC /* NoLeakTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakTimerViewController.swift; sourceTree = "<group>"; };
 		7F4F1C3C255EE09500A90DA8 /* NoLeakRxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakRxViewController.swift; sourceTree = "<group>"; };
 		7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
 		7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakCombineViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		7FE047DE25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakHighOrderFunctionViewController.swift; sourceTree = "<group>"; };
 		7FE047E72567F6E0005BE7C7 /* AnimateRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateRootViewController.swift; sourceTree = "<group>"; };
 		7FE047EB2567F76C005BE7C7 /* AnimatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorViewController.swift; sourceTree = "<group>"; };
+		7FE047F925680EF6005BE7C7 /* TimerRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRootViewController.swift; sourceTree = "<group>"; };
 		7FF11902256736BE000B6C59 /* Closure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Closure.storyboard; sourceTree = "<group>"; };
 		7FF1190825673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakNonEscapingClosureViewController.swift; sourceTree = "<group>"; };
 		D640D9DD2563AD7E005ABD34 /* DispatchQueueRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueRootViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +128,7 @@
 		7F4F1C3A255EE07800A90DA8 /* Leak */ = {
 			isa = PBXGroup;
 			children = (
+				7FE047F825680EE2005BE7C7 /* Timer */,
 				7FE047E62567F6D0005BE7C7 /* Animate */,
 				D640D9DC2563AD6C005ABD34 /* DispatchQueue */,
 				7F4F1C742562B4CB00A90DA8 /* Closure */,
@@ -135,7 +136,6 @@
 				7F957C4C255EC7DE002EB89A /* RxViewController.swift */,
 				7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */,
 				7F4F1C5D256185D600A90DA8 /* RootViewController.swift */,
-				7F18D5942565F9730045F6FC /* TimerViewController.swift */,
 			);
 			path = Leak;
 			sourceTree = "<group>";
@@ -146,7 +146,6 @@
 				7F4F1C3C255EE09500A90DA8 /* NoLeakRxViewController.swift */,
 				7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */,
 				7F4F1C4625611CEC00A90DA8 /* NoLeakDelegateViewController.swift */,
-				7F18D59C2565FC380045F6FC /* NoLeakTimerViewController.swift */,
 				7FE047DE25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift */,
 			);
 			path = NoLeak;
@@ -180,6 +179,15 @@
 				7FE047EB2567F76C005BE7C7 /* AnimatorViewController.swift */,
 			);
 			path = Animate;
+			sourceTree = "<group>";
+		};
+		7FE047F825680EE2005BE7C7 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				7FE047F925680EF6005BE7C7 /* TimerRootViewController.swift */,
+				7F18D5942565F9730045F6FC /* TimerViewController.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 		D640D9DC2563AD6C005ABD34 /* DispatchQueue */ = {
@@ -363,7 +371,6 @@
 				7F957C4D255EC7DE002EB89A /* RxViewController.swift in Sources */,
 				7F4F1C5E256185D600A90DA8 /* RootViewController.swift in Sources */,
 				D640D9DE2563AD7E005ABD34 /* DispatchQueueRootViewController.swift in Sources */,
-				7F18D59D2565FC380045F6FC /* NoLeakTimerViewController.swift in Sources */,
 				7F4F1C762562B4DC00A90DA8 /* SimpleClosureViewController.swift in Sources */,
 				D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */,
 				7F18D5952565F9730045F6FC /* TimerViewController.swift in Sources */,
@@ -374,6 +381,7 @@
 				7FE047EC2567F76C005BE7C7 /* AnimatorViewController.swift in Sources */,
 				7F4F1C5A25617CBA00A90DA8 /* UIApplication+TopMostController.swift in Sources */,
 				D640D9EA2563AE60005ABD34 /* NoLeakDispatchAsyncViewController.swift in Sources */,
+				7FE047FA25680EF6005BE7C7 /* TimerRootViewController.swift in Sources */,
 				7F4F1C3D255EE09500A90DA8 /* NoLeakRxViewController.swift in Sources */,
 				7F4F1C4725611CEC00A90DA8 /* NoLeakDelegateViewController.swift in Sources */,
 				7F4F1C7C2562B75400A90DA8 /* NestedClosureViewController.swift in Sources */,

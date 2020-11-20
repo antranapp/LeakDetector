@@ -33,7 +33,7 @@ class NoLeakRxViewController: LeakDetectableViewController {
         super.viewWillDisappear(animated)
         
         if isMovingFromParent || isBeingDismissed {
-            super.executeLeakDetector(for: leakRelay)
+            executeLeakDetector(for: leakRelay)
         }
     }
     

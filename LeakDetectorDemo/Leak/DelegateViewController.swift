@@ -29,7 +29,7 @@ class DelegateViewController: LeakDetectableViewController {
         super.viewWillDisappear(animated)
         
         if isMovingFromParent || isBeingDismissed {
-            super.executeLeakDetector(for: delegate)
+            executeLeakDetector(for: delegate)
         }
     }
 }

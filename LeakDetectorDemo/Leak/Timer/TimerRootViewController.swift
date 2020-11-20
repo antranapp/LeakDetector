@@ -5,18 +5,18 @@
 import Foundation
 import UIKit
 
-class AnimateRootViewController: LeakDetectableTableViewController {
+class TimerRootViewController: LeakDetectableTableViewController {
     
     private enum Scenarios {
         
         enum Leak: String, CaseIterable {
-            case storingAnimator = "Leak by Storing Animator"
+            case selector = "Leak by Selector"
+            case strongSelfInClosure = "Leak by Strong Self in Closure"
         }
         
         enum NoLeak: String, CaseIterable {
-            case runAnimatorImmediately = "No Leak - Run Animator Immediately"
-            case proxyViewAnimator = "No Leak - Proxy View"
-            case storingAnimatorLocally = "No Leak - Storing Animator Locally"
+            case invalidate = "No Leak - Invalidate timer"
+            case weakSelfInClosure = "No Leak - Weakify self in Closure"
         }
     }
     
@@ -70,26 +70,27 @@ class AnimateRootViewController: LeakDetectableTableViewController {
         case 0:
             let scenario = Scenarios.Leak.allCases[indexPath.row]
             switch scenario {
-            case .storingAnimator:
-                let viewController = AnimatorViewController()
+            case .selector:
+                let viewController = LeakTimerViewController1()
+                viewController.title = scenario.rawValue
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case .strongSelfInClosure:
+                let viewController = LeakTimerViewController2()
+                viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
             }
         case 1:
             let scenario = Scenarios.NoLeak.allCases[indexPath.row]
             switch scenario {
-            case .runAnimatorImmediately:
-                let viewController = NoLeakAnimatorViewController1()
+            case .invalidate:
+                let viewController = NoLeakTimerViewController1()
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
-            case .proxyViewAnimator:
-                let viewController = NoLeakAnimatorViewController2()
-                viewController.title = scenario.rawValue
-                weakViewController = viewController
-                navigationController?.pushViewController(viewController, animated: true)
-            case .storingAnimatorLocally:
-                let viewController = NoLeakAnimatorViewController3()
+            case .weakSelfInClosure:
+                let viewController = NoLeakTimerViewController2()
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
