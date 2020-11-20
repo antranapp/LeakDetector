@@ -30,6 +30,11 @@ class MainViewController: UITableViewController {
                 let viewController = TimerViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
+            case 7:
+                let viewController = AnimateRootViewController()
+                let navController = UINavigationController(rootViewController: viewController)
+                weakViewController = navController
+                navigationController?.present(navController, animated: true, completion: nil)
             default:
                 break
             }
