@@ -14,7 +14,9 @@ class AnimateRootViewController: LeakDetectableTableViewController {
         }
         
         enum NoLeak: String, CaseIterable {
-            case runAnimatorImmediately = "No Leak Animator"
+            case runAnimatorImmediately = "No Leak - Run Animator Immediately"
+            case proxyViewAnimator = "No Leak - Proxy View"
+            case storingAnimatorLocally = "No Leak - Storing Animator Locally"
         }
     }
     
@@ -77,7 +79,18 @@ class AnimateRootViewController: LeakDetectableTableViewController {
             let scenario = Scenarios.NoLeak.allCases[indexPath.row]
             switch scenario {
             case .runAnimatorImmediately:
-                let viewController = NoLeakAnimatorViewController()
+                let viewController = NoLeakAnimatorViewController1()
+                viewController.title = "Run Animator Immediately"
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case .proxyViewAnimator:
+                let viewController = NoLeakAnimatorViewController2()
+                viewController.title = "Proxy View"
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case .storingAnimatorLocally:
+                let viewController = NoLeakAnimatorViewController3()
+                viewController.title = "Store Animator Locally"
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
             }
