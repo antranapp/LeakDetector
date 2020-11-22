@@ -37,6 +37,11 @@ class MainViewController: LeakDetectableTableViewController {
                 let navController = UINavigationController(rootViewController: viewController)
                 weakViewController = navController
                 navigationController?.present(navController, animated: true, completion: nil)
+            case 9:
+                let viewController = URLSessionRootViewController()
+                let navController = UINavigationController(rootViewController: viewController)
+                weakViewController = navController
+                navigationController?.present(navController, animated: true, completion: nil)
             default:
                 break
             }
