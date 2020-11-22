@@ -17,6 +17,7 @@ class CombineRootViewController: LeakDetectableTableViewController {
             case combine1 = "No Leak - Combine assign"
             case combine2 = "No Leak - Combine map"
             case combine3 = "No Leak - Combine sink"
+            case combineService1 = "No Leak - Combine Service"
         }
     }
     
@@ -91,6 +92,11 @@ class CombineRootViewController: LeakDetectableTableViewController {
                 navigationController?.pushViewController(viewController, animated: true)
             case .combine3:
                 let viewController = NoLeakCombineViewController2()
+                viewController.title = scenario.rawValue
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case .combineService1:
+                let viewController = NoLeakCombineServiceViewController1()
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
