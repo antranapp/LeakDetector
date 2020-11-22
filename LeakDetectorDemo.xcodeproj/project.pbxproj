@@ -14,7 +14,6 @@
 		7F18D5992565FA730045F6FC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D5982565FA730045F6FC /* MainViewController.swift */; };
 		7F4F1C3D255EE09500A90DA8 /* NoLeakRxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C3C255EE09500A90DA8 /* NoLeakRxViewController.swift */; };
 		7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */; };
-		7F4F1C43255EE40600A90DA8 /* NoLeakCombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */; };
 		7F4F1C4725611CEC00A90DA8 /* NoLeakDelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C4625611CEC00A90DA8 /* NoLeakDelegateViewController.swift */; };
 		7F4F1C502561726C00A90DA8 /* LeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C4F2561726C00A90DA8 /* LeakTests.swift */; };
 		7F4F1C5A25617CBA00A90DA8 /* UIApplication+TopMostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C5925617CBA00A90DA8 /* UIApplication+TopMostController.swift */; };
@@ -27,6 +26,7 @@
 		7F957C4D255EC7DE002EB89A /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F957C4C255EC7DE002EB89A /* RxViewController.swift */; };
 		7FBA06D5256A8782000A42C4 /* URLSessionRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06D4256A8782000A42C4 /* URLSessionRootViewController.swift */; };
 		7FBA06D9256A884C000A42C4 /* URLSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06D8256A884C000A42C4 /* URLSessionViewController.swift */; };
+		7FBA06E2256A91CF000A42C4 /* CombineRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06E1256A91CF000A42C4 /* CombineRootViewController.swift */; };
 		7FE047D525673F34005BE7C7 /* DispatchWorkItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047D425673F34005BE7C7 /* DispatchWorkItemViewController.swift */; };
 		7FE047DF25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047DE25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift */; };
 		7FE047E82567F6E0005BE7C7 /* AnimateRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE047E72567F6E0005BE7C7 /* AnimateRootViewController.swift */; };
@@ -65,7 +65,6 @@
 		7F18D5982565FA730045F6FC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7F4F1C3C255EE09500A90DA8 /* NoLeakRxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakRxViewController.swift; sourceTree = "<group>"; };
 		7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
-		7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakCombineViewController.swift; sourceTree = "<group>"; };
 		7F4F1C4625611CEC00A90DA8 /* NoLeakDelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakDelegateViewController.swift; sourceTree = "<group>"; };
 		7F4F1C4D2561726C00A90DA8 /* LeakDetectorDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeakDetectorDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4F1C4F2561726C00A90DA8 /* LeakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakTests.swift; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		7F957C4C255EC7DE002EB89A /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
 		7FBA06D4256A8782000A42C4 /* URLSessionRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRootViewController.swift; sourceTree = "<group>"; };
 		7FBA06D8256A884C000A42C4 /* URLSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewController.swift; sourceTree = "<group>"; };
+		7FBA06E1256A91CF000A42C4 /* CombineRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineRootViewController.swift; sourceTree = "<group>"; };
 		7FE047D425673F34005BE7C7 /* DispatchWorkItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchWorkItemViewController.swift; sourceTree = "<group>"; };
 		7FE047DE25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakHighOrderFunctionViewController.swift; sourceTree = "<group>"; };
 		7FE047E72567F6E0005BE7C7 /* AnimateRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateRootViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +136,7 @@
 		7F4F1C3A255EE07800A90DA8 /* Leak */ = {
 			isa = PBXGroup;
 			children = (
+				7FBA06E0256A91BC000A42C4 /* Combine */,
 				7FBA06D3256A875F000A42C4 /* URLSession */,
 				7FE0480525681A29005BE7C7 /* NestedClosures */,
 				7FE047F825680EE2005BE7C7 /* Timer */,
@@ -144,7 +145,6 @@
 				7F4F1C742562B4CB00A90DA8 /* Closure */,
 				D6FEB047255EBF50009B2235 /* DelegateViewController.swift */,
 				7F957C4C255EC7DE002EB89A /* RxViewController.swift */,
-				7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */,
 				7F4F1C5D256185D600A90DA8 /* RootViewController.swift */,
 			);
 			path = Leak;
@@ -154,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				7F4F1C3C255EE09500A90DA8 /* NoLeakRxViewController.swift */,
-				7F4F1C42255EE40600A90DA8 /* NoLeakCombineViewController.swift */,
 				7F4F1C4625611CEC00A90DA8 /* NoLeakDelegateViewController.swift */,
 				7FE047DE25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift */,
 			);
@@ -189,6 +188,15 @@
 				7FBA06D8256A884C000A42C4 /* URLSessionViewController.swift */,
 			);
 			path = URLSession;
+			sourceTree = "<group>";
+		};
+		7FBA06E0256A91BC000A42C4 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				7FBA06E1256A91CF000A42C4 /* CombineRootViewController.swift */,
+				7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */,
+			);
+			path = Combine;
 			sourceTree = "<group>";
 		};
 		7FE047E62567F6D0005BE7C7 /* Animate */ = {
@@ -416,9 +424,9 @@
 				7F4F1C3D255EE09500A90DA8 /* NoLeakRxViewController.swift in Sources */,
 				7F4F1C4725611CEC00A90DA8 /* NoLeakDelegateViewController.swift in Sources */,
 				7F4F1C7C2562B75400A90DA8 /* NestedClosureViewController.swift in Sources */,
+				7FBA06E2256A91CF000A42C4 /* CombineRootViewController.swift in Sources */,
 				7FBA06D5256A8782000A42C4 /* URLSessionRootViewController.swift in Sources */,
 				7F18D5912565F4E70045F6FC /* ChildViewController.swift in Sources */,
-				7F4F1C43255EE40600A90DA8 /* NoLeakCombineViewController.swift in Sources */,
 				7F1131782562D8C500438910 /* LeakDetectableViewController.swift in Sources */,
 				7FF1190925673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift in Sources */,
 				7FE047E82567F6E0005BE7C7 /* AnimateRootViewController.swift in Sources */,

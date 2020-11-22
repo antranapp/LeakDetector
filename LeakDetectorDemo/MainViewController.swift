@@ -12,6 +12,11 @@ class MainViewController: LeakDetectableTableViewController {
         switch indexPath.section {
         case 0:
             switch indexPath.row {
+            case 2:
+                let viewController = CombineRootViewController()
+                let navController = UINavigationController(rootViewController: viewController)
+                weakViewController = navController
+                navigationController?.present(navController, animated: true, completion: nil)
             case 4:
                 let storyboard = UIStoryboard(name: "Closure", bundle: nil)
                 let viewController = storyboard.instantiateInitialViewController()!
