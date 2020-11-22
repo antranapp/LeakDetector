@@ -18,3 +18,4 @@ This demo app focuses on common mistakes that could lead to retain cycles/memory
 - Everything you need to know about Memory Leaks in iOS: [https://medium.com/flawless-app-stories/all-about-memory-leaks-in-ios-cdd450d0cc34](https://medium.com/flawless-app-stories/all-about-memory-leaks-in-ios-cdd450d0cc34)
 - swift-leak-check: [https://github.com/grab/swift-leak-check](https://github.com/grab/swift-leak-check)
 - LifetimeTracker: [https://github.com/krzysztofzablocki/LifetimeTracker](https://github.com/krzysztofzablocki/LifetimeTracker()
+- The Nested Closure Trap: [https://medium.com/flawless-app-stories/the-nested-closure-trap-356a0145b6d](https://medium.com/flawless-app-stories/the-nested-closure-trap-356a0145b6d)
