@@ -18,14 +18,9 @@ class LeakCombineViewController1: ChildViewController {
 
         leakPublisher.assign(to: \.boolValue, on: self).store(in: &cancellables)
         
-        // Use `sink` and capture `weak self` to avoid memory leak
-//        leakPublisher.sink { [weak self] value in
-//            self?.boolValue = value
-//        }.store(in: &cancellables)
-        
     }
-        
 }
+
 
 class NoLeakCombineViewController1: ChildViewController {
     
@@ -43,4 +38,50 @@ class NoLeakCombineViewController1: ChildViewController {
         
     }
 
+}
+
+class NoLeakCombineViewController2: ChildViewController {
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    private var boolValue: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        Just(true)
+            .map(transform)
+            .sink {
+                print($0)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func transform(_ value: Bool) -> Bool {
+        !value
+    }
+}
+
+class NoLeakCombineViewController3: ChildViewController {
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    private var boolValue: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        Just(true)
+            .map(transform)
+            .sink(receiveValue: display)
+            .store(in: &cancellables)
+    }
+    
+    private func transform(_ value: Bool) -> Bool {
+        !value
+    }
+    
+    private func display(_ value: Bool) {
+        print(value)
+    }
 }

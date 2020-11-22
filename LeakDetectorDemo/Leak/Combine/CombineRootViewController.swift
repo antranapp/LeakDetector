@@ -10,11 +10,13 @@ class CombineRootViewController: LeakDetectableTableViewController {
     private enum Scenarios {
         
         enum Leak: String, CaseIterable {
-            case urlSession1 = "Leak - Combine assign"
+            case combine1 = "Leak - Combine assign"
         }
         
         enum NoLeak: String, CaseIterable {
-            case urlSession1 = "No Leak - Combine assign"
+            case combine1 = "No Leak - Combine assign"
+            case combine2 = "No Leak - Combine map"
+            case combine3 = "No Leak - Combine sink"
         }
     }
     
@@ -68,7 +70,7 @@ class CombineRootViewController: LeakDetectableTableViewController {
         case 0:
             let scenario = Scenarios.Leak.allCases[indexPath.row]
             switch scenario {
-            case .urlSession1:
+            case .combine1:
                 let viewController = LeakCombineViewController1()
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
@@ -77,8 +79,18 @@ class CombineRootViewController: LeakDetectableTableViewController {
         case 1:
             let scenario = Scenarios.NoLeak.allCases[indexPath.row]
             switch scenario {
-            case .urlSession1:
+            case .combine1:
                 let viewController = NoLeakCombineViewController1()
+                viewController.title = scenario.rawValue
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case .combine2:
+                let viewController = NoLeakCombineViewController2()
+                viewController.title = scenario.rawValue
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case .combine3:
+                let viewController = NoLeakCombineViewController2()
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
