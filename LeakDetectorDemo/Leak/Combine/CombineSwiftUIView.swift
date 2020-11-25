@@ -1,10 +1,6 @@
 //
-//  CombineReplaceErrorViewController.swift
-//  LeakDetectorDemo
+// Copyright © 2020 An Tran. All rights reserved.
 //
-//  Created by An Tran on 25/11/20.
-//
-
 
 import Combine
 import SwiftUI
@@ -18,7 +14,7 @@ final class Store: ObservableObject {
     }
 
     @Published var user: User?
-    @Published var userImage: UIImage = UIImage(systemName: "photo")!
+    @Published var userImage = UIImage(systemName: "photo")!
     @Published var log: String = ""
 
     var cancellables = Set<AnyCancellable>()
@@ -29,11 +25,11 @@ final class Store: ObservableObject {
         let request = URLRequest(url: baseURL.appendingPathComponent("users/\(user)"))
         URLSession.shared
             .dataTaskPublisher(for: request)
-            .map { $0.data }
+            .map(\.data)
             .decode(type: User?.self, decoder: JSONDecoder())
             .replaceError(with: nil)
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { (result) in
+            .sink(receiveCompletion: { result in
                 self.log = "fetchUserInfo \(result)"
             }) { (user: User?) in
                 self.user = user
@@ -45,9 +41,9 @@ final class Store: ObservableObject {
         if let avatarUrl = URL(string: user?.avatar_url ?? "") {
             URLSession.shared
                 .dataTaskPublisher(for: URLRequest(url: avatarUrl))
-                .map { $0.data }
+                .map(\.data)
                 .tryMap { UIImage(data: $0)! }
-                .replaceError(with: UIImage(systemName: "photo")!)  
+                .replaceError(with: UIImage(systemName: "photo")!)
                 .receive(on: DispatchQueue.main)
                 .assign(to: \.userImage, on: self)
                 .store(in: &cancellables)
@@ -117,7 +113,7 @@ struct CombineSwiftUIView: View {
 
     func fetchUser() {
         loadAvatar = false
-        store.fetchUserInfo(self.username)
+        store.fetchUserInfo(username)
     }
 
     func fetchAvatar() {

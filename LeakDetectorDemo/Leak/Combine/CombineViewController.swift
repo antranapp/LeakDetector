@@ -39,7 +39,6 @@ class LeakCombineViewController2: ChildViewController {
     }
 }
 
-
 class NoLeakCombineViewController1: ChildViewController {
     
     private var cancellables = Set<AnyCancellable>()

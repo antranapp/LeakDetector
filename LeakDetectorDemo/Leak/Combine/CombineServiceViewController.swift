@@ -1,12 +1,9 @@
 //
-//  CombineServiceViewController.swift
-//  LeakDetectorDemo
-//
-//  Created by An Tran on 22/11/20.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class NoLeakCombineServiceViewController1: ChildViewController {
     
@@ -37,7 +34,7 @@ class NoLeakCombineServiceViewController1: ChildViewController {
     }
     
     private func setValue(_ value: Bool) {
-        self.boolValue = value
+        boolValue = value
     }
 }
 
