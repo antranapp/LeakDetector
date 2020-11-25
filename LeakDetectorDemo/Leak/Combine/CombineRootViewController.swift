@@ -11,6 +11,7 @@ class CombineRootViewController: LeakDetectableTableViewController {
         
         enum Leak: String, CaseIterable {
             case combine1 = "Leak - Combine assign"
+            case combine2 = "Leak - Combine sink"
         }
         
         enum NoLeak: String, CaseIterable {
@@ -18,6 +19,8 @@ class CombineRootViewController: LeakDetectableTableViewController {
             case combine2 = "No Leak - Combine map"
             case combine3 = "No Leak - Combine sink"
             case combineService1 = "No Leak - Combine Service"
+            case future1 = "No Leak - Combine Future 1"
+            case future2 = "No Leak - Combine Future 2"
         }
     }
     
@@ -76,6 +79,11 @@ class CombineRootViewController: LeakDetectableTableViewController {
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
+            case .combine2:
+                let viewController = LeakCombineViewController2()
+                viewController.title = scenario.rawValue
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
             }
         case 1:
             let scenario = Scenarios.NoLeak.allCases[indexPath.row]
@@ -97,6 +105,16 @@ class CombineRootViewController: LeakDetectableTableViewController {
                 navigationController?.pushViewController(viewController, animated: true)
             case .combineService1:
                 let viewController = NoLeakCombineServiceViewController1()
+                viewController.title = scenario.rawValue
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case .future1:
+                let viewController = NoLeakFutureViewController1()
+                viewController.title = scenario.rawValue
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case .future2:
+                let viewController = NoLeakFutureViewController2()
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)

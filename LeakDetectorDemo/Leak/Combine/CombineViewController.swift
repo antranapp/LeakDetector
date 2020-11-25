@@ -21,6 +21,24 @@ class LeakCombineViewController1: ChildViewController {
     }
 }
 
+class LeakCombineViewController2: ChildViewController {
+    
+    private var cancellables = Set<AnyCancellable>()
+    private let leakPublisher = CurrentValueSubject<Bool, Never>(false)
+    private var boolValue: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        leakPublisher
+            .sink { value in
+                self.boolValue = value
+            }
+            .store(in: &cancellables)
+        
+    }
+}
+
 
 class NoLeakCombineViewController1: ChildViewController {
     
@@ -44,8 +62,6 @@ class NoLeakCombineViewController2: ChildViewController {
     
     private var cancellables = Set<AnyCancellable>()
     
-    private var boolValue: Bool = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,17 +80,14 @@ class NoLeakCombineViewController2: ChildViewController {
 
 class NoLeakCombineViewController3: ChildViewController {
     
-    private var cancellables = Set<AnyCancellable>()
-    
-    private var boolValue: Bool = false
+    private var cancellable: AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Just(true)
+        cancellable = Just(true)
             .map(transform)
             .sink(receiveValue: display)
-            .store(in: &cancellables)
     }
     
     private func transform(_ value: Bool) -> Bool {
