@@ -24,6 +24,7 @@
 		7F4F1C762562B4DC00A90DA8 /* SimpleClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C752562B4DC00A90DA8 /* SimpleClosureViewController.swift */; };
 		7F4F1C7C2562B75400A90DA8 /* NestedClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C7B2562B75400A90DA8 /* NestedClosureViewController.swift */; };
 		7F957C4D255EC7DE002EB89A /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F957C4C255EC7DE002EB89A /* RxViewController.swift */; };
+		7FB179A0256EA72C00209C04 /* CombineSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1799F256EA72C00209C04 /* CombineSwiftUIView.swift */; };
 		7FBA06D5256A8782000A42C4 /* URLSessionRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06D4256A8782000A42C4 /* URLSessionRootViewController.swift */; };
 		7FBA06D9256A884C000A42C4 /* URLSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06D8256A884C000A42C4 /* URLSessionViewController.swift */; };
 		7FBA06E2256A91CF000A42C4 /* CombineRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06E1256A91CF000A42C4 /* CombineRootViewController.swift */; };
@@ -78,6 +79,7 @@
 		7F4F1C752562B4DC00A90DA8 /* SimpleClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleClosureViewController.swift; sourceTree = "<group>"; };
 		7F4F1C7B2562B75400A90DA8 /* NestedClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedClosureViewController.swift; sourceTree = "<group>"; };
 		7F957C4C255EC7DE002EB89A /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
+		7FB1799F256EA72C00209C04 /* CombineSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineSwiftUIView.swift; sourceTree = "<group>"; };
 		7FBA06D4256A8782000A42C4 /* URLSessionRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRootViewController.swift; sourceTree = "<group>"; };
 		7FBA06D8256A884C000A42C4 /* URLSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewController.swift; sourceTree = "<group>"; };
 		7FBA06E1256A91CF000A42C4 /* CombineRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineRootViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */,
 				7FBA06E9256A9CAA000A42C4 /* CombineServiceViewController.swift */,
 				7FBA06F1256B22E2000A42C4 /* FutureViewController.swift */,
+				7FB1799F256EA72C00209C04 /* CombineSwiftUIView.swift */,
 			);
 			path = Combine;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				7FBA06D9256A884C000A42C4 /* URLSessionViewController.swift in Sources */,
 				7F4F1C5E256185D600A90DA8 /* RootViewController.swift in Sources */,
 				D640D9DE2563AD7E005ABD34 /* DispatchQueueRootViewController.swift in Sources */,
+				7FB179A0256EA72C00209C04 /* CombineSwiftUIView.swift in Sources */,
 				7F4F1C762562B4DC00A90DA8 /* SimpleClosureViewController.swift in Sources */,
 				D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */,
 				7F18D5952565F9730045F6FC /* TimerViewController.swift in Sources */,

@@ -4,6 +4,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class CombineRootViewController: LeakDetectableTableViewController {
     
@@ -21,6 +22,7 @@ class CombineRootViewController: LeakDetectableTableViewController {
             case combineService1 = "No Leak - Combine Service"
             case future1 = "No Leak - Combine Future 1"
             case future2 = "No Leak - Combine Future 2"
+            case swiftui = "No Leak - Combine SwiftUI"
         }
     }
     
@@ -79,11 +81,13 @@ class CombineRootViewController: LeakDetectableTableViewController {
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
+                
             case .combine2:
                 let viewController = LeakCombineViewController2()
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
+                
             }
         case 1:
             let scenario = Scenarios.NoLeak.allCases[indexPath.row]
@@ -118,6 +122,13 @@ class CombineRootViewController: LeakDetectableTableViewController {
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
+
+            case .swiftui:
+                let viewController = UIHostingController(rootView: CombineSwiftUIView(store: Store()))
+                viewController.title = scenario.rawValue
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+
             }
 
         default:
