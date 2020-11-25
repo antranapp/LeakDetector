@@ -1,12 +1,9 @@
 //
-//  CombineServiceViewController.swift
-//  LeakDetectorDemo
-//
-//  Created by An Tran on 22/11/20.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
-import Foundation
 import Combine
+import Foundation
 import LeakDetector
 
 class NoLeakFutureViewController1: ChildViewController {
@@ -46,7 +43,7 @@ class NoLeakFutureViewController1: ChildViewController {
         print(status)
     }
     
-    private func processAsync() -> Future<Bool, Error>  {
+    private func processAsync() -> Future<Bool, Error> {
         let future = Future<Bool, Error> { promise in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.view.tag = 111
@@ -56,7 +53,6 @@ class NoLeakFutureViewController1: ChildViewController {
         return future
     }
 }
-
 
 class NoLeakFutureViewController2: ChildViewController {
     
@@ -91,14 +87,14 @@ class NoLeakFutureViewController2: ChildViewController {
     }
     
     private func setValue(_ value: Bool) {
-        self.boolValue = value
+        boolValue = value
     }
     
     private func display(_ status: String) {
         print(status)
     }
     
-    private func processAsync() -> Future<Bool, Error>  {
+    private func processAsync() -> Future<Bool, Error> {
         let future = Future<Bool, Error> { promise in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.view.tag = 111

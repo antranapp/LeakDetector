@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import SwiftUI
+import UIKit
 
 class CombineRootViewController: LeakDetectableTableViewController {
     
