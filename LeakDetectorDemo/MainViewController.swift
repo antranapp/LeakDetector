@@ -52,7 +52,7 @@ class MainViewController: LeakDetectableTableViewController {
             }
         case 1:
             switch indexPath.row {
-            case 3:
+            case 2:
                 let viewController = NoLeakHighOrderFunctionViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
