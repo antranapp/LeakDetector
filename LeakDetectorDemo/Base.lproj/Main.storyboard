@@ -36,9 +36,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="mJA-Yn-6Uf" kind="show" id="QRg-AB-D79"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Dhi-xB-xhw" style="IBUITableViewCellStyleDefault" id="Ej1-vk-ae6">
                                         <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
@@ -220,28 +217,8 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="No Leak" id="w2m-HG-JUB" userLabel="No Leak">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="pXT-qo-OXa" style="IBUITableViewCellStyleDefault" id="gwm-Yf-cJQ">
-                                        <rect key="frame" x="0.0" y="562.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gwm-Yf-cJQ" id="mte-RR-yDa">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="No Leak by observables" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pXT-qo-OXa">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="q8T-Lu-g5S" kind="show" id="55D-PD-uWf"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Zfb-fm-ELx" style="IBUITableViewCellStyleDefault" id="5nl-un-IND">
-                                        <rect key="frame" x="0.0" y="606" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="562.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5nl-un-IND" id="8gq-Ms-232">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
@@ -261,7 +238,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="mfo-rT-f1S" style="IBUITableViewCellStyleDefault" id="SrQ-Fr-ZSC">
-                                        <rect key="frame" x="0.0" y="649.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="606" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SrQ-Fr-ZSC" id="8x2-zc-fwW">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
@@ -349,36 +326,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Oy-38-X40" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2493" y="-323"/>
-        </scene>
-        <!--Observables-->
-        <scene sceneID="unt-JX-6fh">
-            <objects>
-                <viewController id="mJA-Yn-6Uf" customClass="RxViewController" customModule="LeakDetectorDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SP2-Kv-bSR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJx-Ov-057">
-                                <rect key="frame" x="16" y="417.5" width="382" height="61"/>
-                                <string key="text">This view controller subscribes to an observable which should be disposed a long with dismissal. Dismiss this view controller to see the result</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="zYe-R1-QyQ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="vJx-Ov-057" firstAttribute="centerY" secondItem="SP2-Kv-bSR" secondAttribute="centerY" id="6WC-pe-DBK"/>
-                            <constraint firstItem="vJx-Ov-057" firstAttribute="leading" secondItem="zYe-R1-QyQ" secondAttribute="leading" constant="16" id="9W7-55-AQN"/>
-                            <constraint firstItem="zYe-R1-QyQ" firstAttribute="trailing" secondItem="vJx-Ov-057" secondAttribute="trailing" constant="16" id="TUQ-Ve-Uzr"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Observables" id="TOm-ou-CS7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xzd-vq-ta9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3220" y="-323"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eZc-S1-Jmb">

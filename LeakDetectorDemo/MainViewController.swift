@@ -12,6 +12,11 @@ class MainViewController: LeakDetectableTableViewController {
         switch indexPath.section {
         case 0:
             switch indexPath.row {
+            case 0:
+                let viewController = RxSwiftRootViewController()
+                let navController = UINavigationController(rootViewController: viewController)
+                weakViewController = navController
+                navigationController?.present(navController, animated: true, completion: nil)
             case 2:
                 let viewController = CombineRootViewController()
                 let navController = UINavigationController(rootViewController: viewController)
