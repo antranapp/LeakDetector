@@ -61,6 +61,10 @@ class MainViewController: LeakDetectableTableViewController {
                 let viewController = NotificationCenterViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
+            case 11:
+                let viewController = LazyVarRootViewController()
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
             default:
                 break
             }

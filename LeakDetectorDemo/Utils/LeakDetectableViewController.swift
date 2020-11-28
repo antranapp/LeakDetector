@@ -10,6 +10,11 @@ class LeakDetectableViewController: UIViewController {
     
     var leakSubscription: AnyCancellable?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+    }
+
     func executeLeakDetector(for object: AnyObject) {
         leakSubscription = LeakDetector.instance.expectDeallocate(object: object).sink {}
     }
@@ -23,6 +28,11 @@ class LeakDetectableTableViewController: UITableViewController {
     
     weak var weakViewController: UIViewController?
     var leakSubscription: AnyCancellable?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+    }
 
     func executeLeakDetector(for object: AnyObject) {
         leakSubscription = LeakDetector.instance.expectDeallocate(object: object).sink {}
