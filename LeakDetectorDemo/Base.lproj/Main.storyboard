@@ -53,9 +53,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="RDn-O6-AYt" kind="show" id="8p6-nQ-2SM"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="O27-ki-WWz" style="IBUITableViewCellStyleDefault" id="RZn-sV-wHt">
                                         <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
@@ -217,28 +214,8 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="No Leak" id="w2m-HG-JUB" userLabel="No Leak">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Zfb-fm-ELx" style="IBUITableViewCellStyleDefault" id="5nl-un-IND">
-                                        <rect key="frame" x="0.0" y="562.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5nl-un-IND" id="8gq-Ms-232">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="No Leak by delegate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zfb-fm-ELx">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="UGv-Fg-5Wr" kind="show" id="BiS-OX-GzF"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="mfo-rT-f1S" style="IBUITableViewCellStyleDefault" id="SrQ-Fr-ZSC">
-                                        <rect key="frame" x="0.0" y="606" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="562.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SrQ-Fr-ZSC" id="8x2-zc-fwW">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
@@ -267,65 +244,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cu0-dG-Gzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1595.6521739130435" y="65.625"/>
-        </scene>
-        <!--No Leak - Observables-->
-        <scene sceneID="PXR-bI-voS">
-            <objects>
-                <viewController title="No Leak - Observables" id="q8T-Lu-g5S" customClass="NoLeakRxViewController" customModule="LeakDetectorDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gb9-OU-IbU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This view controller generates no leak" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcj-M1-rLI">
-                                <rect key="frame" x="16" y="438" width="382" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Bc0-vW-Owh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="zcj-M1-rLI" firstAttribute="centerY" secondItem="Gb9-OU-IbU" secondAttribute="centerY" id="8R4-E9-vB1"/>
-                            <constraint firstItem="zcj-M1-rLI" firstAttribute="leading" secondItem="Bc0-vW-Owh" secondAttribute="leading" constant="16" id="Z9z-Yf-4TO"/>
-                            <constraint firstItem="Bc0-vW-Owh" firstAttribute="trailing" secondItem="zcj-M1-rLI" secondAttribute="trailing" constant="16" id="tah-D9-FIb"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="No Leak - Observables" id="fza-Ym-I4L"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Bv-Ao-6Yj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3219" y="370"/>
-        </scene>
-        <!--Delegate-->
-        <scene sceneID="Eel-5E-5Wr">
-            <objects>
-                <viewController id="RDn-O6-AYt" customClass="DelegateViewController" customModule="LeakDetectorDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BN5-4x-GNN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Di-M8-pS0">
-                                <rect key="frame" x="16" y="417.5" width="382" height="61"/>
-                                <string key="text">This view controller retains a strong reference to its certain delegate which cause a retain cycle. Dismiss this view controller to see the result</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="BLy-hi-3JA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="9Di-M8-pS0" firstAttribute="leading" secondItem="BLy-hi-3JA" secondAttribute="leading" constant="16" id="Vpt-kh-Z9R"/>
-                            <constraint firstItem="9Di-M8-pS0" firstAttribute="centerY" secondItem="BN5-4x-GNN" secondAttribute="centerY" id="akj-3a-bir"/>
-                            <constraint firstItem="BLy-hi-3JA" firstAttribute="trailing" secondItem="9Di-M8-pS0" secondAttribute="trailing" constant="16" id="vqE-lz-Tav"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Delegate" id="C6k-iM-dDa"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Oy-38-X40" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2493" y="-323"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eZc-S1-Jmb">
@@ -425,35 +343,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWE-R5-QSZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4806" y="-323"/>
-        </scene>
-        <!--No Leak - Delegate-->
-        <scene sceneID="tGV-NT-xSH">
-            <objects>
-                <viewController id="UGv-Fg-5Wr" customClass="NoLeakDelegateViewController" customModule="LeakDetectorDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hHp-Jb-nv3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This view controller retains a weak reference to its certain delegate hence there is no leak." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mb-aK-Tto">
-                                <rect key="frame" x="16" y="427.5" width="382" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="WzI-kz-h87"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="9Mb-aK-Tto" firstAttribute="leading" secondItem="WzI-kz-h87" secondAttribute="leading" constant="16" id="BIV-Tj-zp6"/>
-                            <constraint firstItem="9Mb-aK-Tto" firstAttribute="centerY" secondItem="hHp-Jb-nv3" secondAttribute="centerY" id="kJu-zB-6PF"/>
-                            <constraint firstItem="WzI-kz-h87" firstAttribute="trailing" secondItem="9Mb-aK-Tto" secondAttribute="trailing" constant="16" id="wZi-ed-U32"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="No Leak - Delegate" id="aBv-v2-UOr"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lbg-oi-HmT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2493" y="370"/>
         </scene>
         <!--Not Leaking View Controller-->
         <scene sceneID="PTB-ko-XFK">
