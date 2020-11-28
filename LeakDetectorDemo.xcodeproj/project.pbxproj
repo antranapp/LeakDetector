@@ -26,6 +26,8 @@
 		7FB179B1256EAE7500209C04 /* NotificationCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179B0256EAE7500209C04 /* NotificationCenterViewController.swift */; };
 		7FB179BA2571668500209C04 /* RxSwiftRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179B92571668500209C04 /* RxSwiftRootViewController.swift */; };
 		7FB179C9257225F100209C04 /* DelegateRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179C8257225F100209C04 /* DelegateRootViewController.swift */; };
+		7FB179D62572970800209C04 /* LazyVarRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179D52572970800209C04 /* LazyVarRootViewController.swift */; };
+		7FB179E02572971C00209C04 /* LazyVarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179DF2572971C00209C04 /* LazyVarViewController.swift */; };
 		7FBA06D5256A8782000A42C4 /* URLSessionRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06D4256A8782000A42C4 /* URLSessionRootViewController.swift */; };
 		7FBA06D9256A884C000A42C4 /* URLSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06D8256A884C000A42C4 /* URLSessionViewController.swift */; };
 		7FBA06E2256A91CF000A42C4 /* CombineRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06E1256A91CF000A42C4 /* CombineRootViewController.swift */; };
@@ -82,6 +84,8 @@
 		7FB179B0256EAE7500209C04 /* NotificationCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterViewController.swift; sourceTree = "<group>"; };
 		7FB179B92571668500209C04 /* RxSwiftRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftRootViewController.swift; sourceTree = "<group>"; };
 		7FB179C8257225F100209C04 /* DelegateRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateRootViewController.swift; sourceTree = "<group>"; };
+		7FB179D52572970800209C04 /* LazyVarRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyVarRootViewController.swift; sourceTree = "<group>"; };
+		7FB179DF2572971C00209C04 /* LazyVarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyVarViewController.swift; sourceTree = "<group>"; };
 		7FBA06D4256A8782000A42C4 /* URLSessionRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRootViewController.swift; sourceTree = "<group>"; };
 		7FBA06D8256A884C000A42C4 /* URLSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewController.swift; sourceTree = "<group>"; };
 		7FBA06E1256A91CF000A42C4 /* CombineRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineRootViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		7F4F1C3A255EE07800A90DA8 /* Leak */ = {
 			isa = PBXGroup;
 			children = (
+				7FB179D4257296FA00209C04 /* LazyVar */,
 				7FB179C7257225DD00209C04 /* Delegate */,
 				7FB179B82571667700209C04 /* RxSwift */,
 				7FBA06E0256A91BC000A42C4 /* Combine */,
@@ -204,6 +209,15 @@
 				D6FEB047255EBF50009B2235 /* DelegateViewController.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		7FB179D4257296FA00209C04 /* LazyVar */ = {
+			isa = PBXGroup;
+			children = (
+				7FB179D52572970800209C04 /* LazyVarRootViewController.swift */,
+				7FB179DF2572971C00209C04 /* LazyVarViewController.swift */,
+			);
+			path = LazyVar;
 			sourceTree = "<group>";
 		};
 		7FBA06D3256A875F000A42C4 /* URLSession */ = {
@@ -444,8 +458,10 @@
 				7F18D5952565F9730045F6FC /* TimerViewController.swift in Sources */,
 				7FE0480D25681B29005BE7C7 /* NestedClosuresViewController.swift in Sources */,
 				D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */,
+				7FB179D62572970800209C04 /* LazyVarRootViewController.swift in Sources */,
 				7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */,
 				7F18D5992565FA730045F6FC /* MainViewController.swift in Sources */,
+				7FB179E02572971C00209C04 /* LazyVarViewController.swift in Sources */,
 				7F4F1C712562A78000A90DA8 /* ClosureRootViewController.swift in Sources */,
 				7FE047EC2567F76C005BE7C7 /* AnimatorViewController.swift in Sources */,
 				7FB179C9257225F100209C04 /* DelegateRootViewController.swift in Sources */,

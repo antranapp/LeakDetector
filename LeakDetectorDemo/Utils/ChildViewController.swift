@@ -6,13 +6,26 @@ import UIKit
 
 class ChildViewController: UIViewController {
     
+    private var buttonTitle: String
+    private var buttonAction: (() -> Void)?
+    
+    init(buttonTitle: String = "Go Back", buttonAction: (() -> Void)? = nil) {
+        self.buttonTitle = buttonTitle
+        self.buttonAction = buttonAction
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         
         let button = UIButton()
-        button.setTitle("Go Back", for: .normal)
+        button.setTitle(buttonTitle, for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(goBack), for: .touchUpInside)
@@ -25,6 +38,10 @@ class ChildViewController: UIViewController {
     }
     
     @objc func goBack() {
-        navigationController?.popViewController(animated: true)
+        if let buttonAction = buttonAction {
+            buttonAction()
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }

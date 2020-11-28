@@ -5,17 +5,16 @@
 import Foundation
 import UIKit
 
-class DelegateRootViewController: LeakDetectableTableViewController {
+class LazyVarRootViewController: LeakDetectableTableViewController {
     
     private enum Scenarios {
         
         enum Leak: String, CaseIterable {
-            case delegate1 = "Leak - 1"
+            case lazy1 = "Leak - 1"
         }
         
         enum NoLeak: String, CaseIterable {
-            case delegate1 = "No Leak - 1"
-            case delegate2 = "No Leak - 2"
+            case lazy1 = "No Leak - 1"
         }
     }
     
@@ -69,8 +68,8 @@ class DelegateRootViewController: LeakDetectableTableViewController {
         case 0:
             let scenario = Scenarios.Leak.allCases[indexPath.row]
             switch scenario {
-            case .delegate1:
-                let viewController = DelegateViewController1()
+            case .lazy1:
+                let viewController = LazyVarViewController1()
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
@@ -78,13 +77,8 @@ class DelegateRootViewController: LeakDetectableTableViewController {
         case 1:
             let scenario = Scenarios.NoLeak.allCases[indexPath.row]
             switch scenario {
-            case .delegate1:
-                let viewController = NoLeakDelegateViewController1()
-                viewController.title = scenario.rawValue
-                weakViewController = viewController
-                navigationController?.pushViewController(viewController, animated: true)
-            case .delegate2:
-                let viewController = NoLeakDelegateViewController2()
+            case .lazy1:
+                let viewController = NoLeakLazyVarViewController1()
                 viewController.title = scenario.rawValue
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
