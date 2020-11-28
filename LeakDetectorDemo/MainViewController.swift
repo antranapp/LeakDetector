@@ -17,6 +17,11 @@ class MainViewController: LeakDetectableTableViewController {
                 let navController = UINavigationController(rootViewController: viewController)
                 weakViewController = navController
                 navigationController?.present(navController, animated: true, completion: nil)
+            case 1:
+                let viewController = DelegateRootViewController()
+                let navController = UINavigationController(rootViewController: viewController)
+                weakViewController = navController
+                navigationController?.present(navController, animated: true, completion: nil)
             case 2:
                 let viewController = CombineRootViewController()
                 let navController = UINavigationController(rootViewController: viewController)
@@ -61,7 +66,7 @@ class MainViewController: LeakDetectableTableViewController {
             }
         case 1:
             switch indexPath.row {
-            case 2:
+            case 0:
                 let viewController = NoLeakHighOrderFunctionViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
