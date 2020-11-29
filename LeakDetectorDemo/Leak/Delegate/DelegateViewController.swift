@@ -31,7 +31,6 @@ extension DelegateViewController1: LeakDelegate {
     }
 }
 
-
 // MARK: - No Leak Case 1
 
 class NoLeakDelegateViewController1: ChildViewController {
@@ -62,7 +61,7 @@ class NoLeakDelegateViewController2: ChildViewController, UITableViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(tableView)
+        view.addSubview(tableView)
 
         tableView.delegate = self
         tableView.dataSource = self

@@ -1,14 +1,12 @@
 //
-//  SimpleCasesViewController.swift
-//  LeakDetectorDemo
-//
-//  Created by An Tran on 29/11/20.
+// Copyright © 2020 An Tran. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
 // MARK: - Leak: Case 1:
+
 // https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID48
 
 class Person {
@@ -116,4 +114,3 @@ class NoLeakSimpleCasesViewController1: LeakDetectableViewController {
     }
 
 }
-
