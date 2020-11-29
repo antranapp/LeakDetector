@@ -22,27 +22,33 @@ class LeakTests: XCTestCase {
     func testLeakByDelegate() throws {
         assert(
             testCase: "Leak by delegate",
+            subcase: "Leak - 1",
             exitAction: {
-                self.app.navigationBars["Delegate"].buttons["Leak Detector Demo"].tap()
-            }
+                app.buttons["Go Back"].tap()
+            },
+            timeout: .viewDisappearExpectation + 0.5
         )
     }
 
     func testLeakByObservables() throws {
         assert(
             testCase: "Leak by observables",
+            subcase: "Leak - 1",
             exitAction: {
-                self.app.navigationBars["Observables"].buttons["Leak Detector Demo"].tap()
-            }
+                app.buttons["Go Back"].tap()
+            },
+            timeout: .viewDisappearExpectation + 0.5
         )
     }
     
     func testLeakByCombine() throws {
         assert(
-            testCase: "Leak by assign in Combine",
+            testCase: "Leak by Combine",
+            subcase: "Leak - Combine assign",
             exitAction: {
-                self.app.navigationBars["Combine Assign"].buttons["Leak Detector Demo"].tap()
-            }
+                app.buttons["Go Back"].tap()
+            },
+            timeout: .viewDisappearExpectation + 0.5
         )
     }
     
@@ -68,10 +74,10 @@ class LeakTests: XCTestCase {
         )
     }
     
-    func testLeakByNestedClosures() throws {
+    func testLeakBySimplelosures() throws {
         assert(
             testCase: "Leak by Closure",
-            subcase: "Leak by Nested Closures",
+            subcase: "Leak by Simple Closure",
             exitAction: {
                 app.buttons["Go Back"].tap()
             },
