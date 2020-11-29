@@ -7,7 +7,7 @@ import LeakDetector
 import UIKit
 
 class MainViewController: LeakDetectableTableViewController {
-            
+                
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -63,6 +63,10 @@ class MainViewController: LeakDetectableTableViewController {
                 navigationController?.pushViewController(viewController, animated: true)
             case 11:
                 let viewController = LazyVarRootViewController()
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case 12:
+                let viewController = SimpleCasesRootViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
             default:

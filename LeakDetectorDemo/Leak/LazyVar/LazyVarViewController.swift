@@ -45,9 +45,6 @@ class LazyVarViewController1: LeakDetectableViewController {
         prepareButton()
         
         print(heading?.asHTML())
-//        heading.asHTML = {
-//            return "<\(self.heading.name)>\(self.heading.text)</\(self.heading.name)>"
-//        }
     }
         
     private func prepareButton() {
