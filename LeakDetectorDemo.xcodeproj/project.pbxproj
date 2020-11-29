@@ -28,6 +28,8 @@
 		7FB179C9257225F100209C04 /* DelegateRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179C8257225F100209C04 /* DelegateRootViewController.swift */; };
 		7FB179D62572970800209C04 /* LazyVarRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179D52572970800209C04 /* LazyVarRootViewController.swift */; };
 		7FB179E02572971C00209C04 /* LazyVarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179DF2572971C00209C04 /* LazyVarViewController.swift */; };
+		7FB179EA257375DB00209C04 /* SimpleCasesRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179E9257375DB00209C04 /* SimpleCasesRootViewController.swift */; };
+		7FB179F02573768B00209C04 /* SimpleCasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179EF2573768B00209C04 /* SimpleCasesViewController.swift */; };
 		7FBA06D5256A8782000A42C4 /* URLSessionRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06D4256A8782000A42C4 /* URLSessionRootViewController.swift */; };
 		7FBA06D9256A884C000A42C4 /* URLSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06D8256A884C000A42C4 /* URLSessionViewController.swift */; };
 		7FBA06E2256A91CF000A42C4 /* CombineRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA06E1256A91CF000A42C4 /* CombineRootViewController.swift */; };
@@ -86,6 +88,8 @@
 		7FB179C8257225F100209C04 /* DelegateRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateRootViewController.swift; sourceTree = "<group>"; };
 		7FB179D52572970800209C04 /* LazyVarRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyVarRootViewController.swift; sourceTree = "<group>"; };
 		7FB179DF2572971C00209C04 /* LazyVarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyVarViewController.swift; sourceTree = "<group>"; };
+		7FB179E9257375DB00209C04 /* SimpleCasesRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCasesRootViewController.swift; sourceTree = "<group>"; };
+		7FB179EF2573768B00209C04 /* SimpleCasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCasesViewController.swift; sourceTree = "<group>"; };
 		7FBA06D4256A8782000A42C4 /* URLSessionRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRootViewController.swift; sourceTree = "<group>"; };
 		7FBA06D8256A884C000A42C4 /* URLSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewController.swift; sourceTree = "<group>"; };
 		7FBA06E1256A91CF000A42C4 /* CombineRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineRootViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 		7F4F1C3A255EE07800A90DA8 /* Leak */ = {
 			isa = PBXGroup;
 			children = (
+				7FB179E8257375C000209C04 /* SimpleCases */,
 				7FB179D4257296FA00209C04 /* LazyVar */,
 				7FB179C7257225DD00209C04 /* Delegate */,
 				7FB179B82571667700209C04 /* RxSwift */,
@@ -218,6 +223,15 @@
 				7FB179DF2572971C00209C04 /* LazyVarViewController.swift */,
 			);
 			path = LazyVar;
+			sourceTree = "<group>";
+		};
+		7FB179E8257375C000209C04 /* SimpleCases */ = {
+			isa = PBXGroup;
+			children = (
+				7FB179E9257375DB00209C04 /* SimpleCasesRootViewController.swift */,
+				7FB179EF2573768B00209C04 /* SimpleCasesViewController.swift */,
+			);
+			path = SimpleCases;
 			sourceTree = "<group>";
 		};
 		7FBA06D3256A875F000A42C4 /* URLSession */ = {
@@ -459,6 +473,7 @@
 				7FE0480D25681B29005BE7C7 /* NestedClosuresViewController.swift in Sources */,
 				D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */,
 				7FB179D62572970800209C04 /* LazyVarRootViewController.swift in Sources */,
+				7FB179F02573768B00209C04 /* SimpleCasesViewController.swift in Sources */,
 				7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */,
 				7F18D5992565FA730045F6FC /* MainViewController.swift in Sources */,
 				7FB179E02572971C00209C04 /* LazyVarViewController.swift in Sources */,
@@ -472,6 +487,7 @@
 				7FE047FA25680EF6005BE7C7 /* TimerRootViewController.swift in Sources */,
 				7F4F1C7C2562B75400A90DA8 /* NestedClosureViewController.swift in Sources */,
 				7FBA06E2256A91CF000A42C4 /* CombineRootViewController.swift in Sources */,
+				7FB179EA257375DB00209C04 /* SimpleCasesRootViewController.swift in Sources */,
 				7FBA06D5256A8782000A42C4 /* URLSessionRootViewController.swift in Sources */,
 				7F18D5912565F4E70045F6FC /* ChildViewController.swift in Sources */,
 				7F1131782562D8C500438910 /* LeakDetectableViewController.swift in Sources */,
