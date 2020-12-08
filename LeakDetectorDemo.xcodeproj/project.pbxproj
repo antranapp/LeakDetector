@@ -114,7 +114,6 @@
 		D6FEB034255EBDE3009B2235 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6FEB037255EBDE3009B2235 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6FEB039255EBDE3009B2235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6FEB040255EBDFE009B2235 /* LeakDetector */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LeakDetector; sourceTree = "<group>"; };
 		D6FEB047255EBF50009B2235 /* DelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -297,7 +296,6 @@
 			isa = PBXGroup;
 			children = (
 				7F4F1C6F2562126900A90DA8 /* README.md */,
-				D6FEB040255EBDFE009B2235 /* LeakDetector */,
 				D6FEB02A255EBDE1009B2235 /* LeakDetectorDemo */,
 				7F4F1C4E2561726C00A90DA8 /* LeakDetectorDemoUITests */,
 				D6FEB029255EBDE1009B2235 /* Products */,
