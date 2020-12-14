@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo().arguments.contains("testMode") {
             print("The app is running in TestMode")
             // set to `false` so that the app doesn't crash.
-            LeakDetector.isEnabled = false
+            LeakDetector.instance.isEnabled = false
         } else {
             // set to `true` so that the app should crash when leaks occur.
-            LeakDetector.isEnabled = false
+            LeakDetector.instance.isEnabled = false
         }
         
         LeakDetector.instance.status
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             )
             .store(in: &cancellables)
         
-        LeakDetector.isLeaked
+        LeakDetector.instance.isLeaked
             .sink { message in
                 if let message = message {
                     self.showLeakAlert(message)

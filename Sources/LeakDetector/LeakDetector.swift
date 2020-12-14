@@ -67,12 +67,12 @@ public class LeakDetector {
                     let didDeallocate = (self.trackingObjects.object(forKey: objectId) == nil)
                     let message = "<\(objectDescription): \(objectId)> has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
-                    if LeakDetector.isEnabled {
+                    if LeakDetector.instance.isEnabled {
                         assert(didDeallocate, message)
                     } else if !didDeallocate {
                         print("Leak detection is disabled. This should only be used for debugging purposes.")
                         print("\(message)")
-                        LeakDetector.isLeaked.send(message)
+                        LeakDetector.instance.isLeaked.send(message)
                     }
                 },
                 receiveCompletion: { _ in
@@ -105,12 +105,12 @@ public class LeakDetector {
                         let viewDidDisappear = (!viewController.isViewLoaded && viewController.view.window == nil)
                         let message = "\(viewController) appearance has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
-                        if LeakDetector.isEnabled {
+                        if LeakDetector.instance.isEnabled {
                             assert(viewDidDisappear, message)
                         } else if !viewDidDisappear {
                             print("Leak detection is disabled. This should only be used for debugging purposes.")
                             print("\(message)")
-                            LeakDetector.isLeaked.send(message)
+                            LeakDetector.instance.isLeaked.send(message)
                         }
                     }
                 },
@@ -130,16 +130,16 @@ public class LeakDetector {
     /// Enable leak detector. Default is false.
     ///
     /// We should enable leak detector in Debug mode only.
-    public static var isEnabled: Bool = false
+    public var isEnabled: Bool = false
 
-    public static var isLeaked = CurrentValueSubject<String?, Never>(nil)
+    public var isLeaked = CurrentValueSubject<String?, Never>(nil)
 
     #if DEBUG
     /// Reset the state of Leak Detector, internal for UI test only.
     func reset() {
         trackingObjects.removeAllObjects()
         expectationCount = 0
-        LeakDetector.isLeaked.send(nil)
+        LeakDetector.instance.isLeaked.send(nil)
     }
     #endif
 
