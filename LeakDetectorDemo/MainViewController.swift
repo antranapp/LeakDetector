@@ -69,6 +69,10 @@ class MainViewController: LeakDetectableTableViewController {
                 let viewController = SimpleCasesRootViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
+            case 13:
+                let viewController = CoordinatorRootViewController()
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
             default:
                 break
             }
