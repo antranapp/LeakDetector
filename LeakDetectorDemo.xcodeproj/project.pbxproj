@@ -44,6 +44,10 @@
 		7FE0480D25681B29005BE7C7 /* NestedClosuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE0480C25681B29005BE7C7 /* NestedClosuresViewController.swift */; };
 		7FF11903256736BE000B6C59 /* Closure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF11902256736BE000B6C59 /* Closure.storyboard */; };
 		7FF1190925673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1190825673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift */; };
+		D62DE9522588B2C200CF5CE1 /* CoordinatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DE94E2588B2C200CF5CE1 /* CoordinatorViewController.swift */; };
+		D62DE9532588B2C200CF5CE1 /* CoordinatorRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DE94F2588B2C200CF5CE1 /* CoordinatorRootViewController.swift */; };
+		D62DE9542588B2C200CF5CE1 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DE9502588B2C200CF5CE1 /* BaseCoordinator.swift */; };
+		D62DE9552588B2C200CF5CE1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DE9512588B2C200CF5CE1 /* Coordinator.swift */; };
 		D640D9DE2563AD7E005ABD34 /* DispatchQueueRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640D9DD2563AD7E005ABD34 /* DispatchQueueRootViewController.swift */; };
 		D640D9E42563AE04005ABD34 /* DispatchQueue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D640D9E32563AE04005ABD34 /* DispatchQueue.storyboard */; };
 		D640D9EA2563AE60005ABD34 /* NoLeakDispatchAsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640D9E92563AE60005ABD34 /* NoLeakDispatchAsyncViewController.swift */; };
@@ -104,6 +108,10 @@
 		7FE0480C25681B29005BE7C7 /* NestedClosuresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedClosuresViewController.swift; sourceTree = "<group>"; };
 		7FF11902256736BE000B6C59 /* Closure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Closure.storyboard; sourceTree = "<group>"; };
 		7FF1190825673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakNonEscapingClosureViewController.swift; sourceTree = "<group>"; };
+		D62DE94E2588B2C200CF5CE1 /* CoordinatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorViewController.swift; sourceTree = "<group>"; };
+		D62DE94F2588B2C200CF5CE1 /* CoordinatorRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorRootViewController.swift; sourceTree = "<group>"; };
+		D62DE9502588B2C200CF5CE1 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		D62DE9512588B2C200CF5CE1 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D640D9DD2563AD7E005ABD34 /* DispatchQueueRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueRootViewController.swift; sourceTree = "<group>"; };
 		D640D9E32563AE04005ABD34 /* DispatchQueue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DispatchQueue.storyboard; sourceTree = "<group>"; };
 		D640D9E92563AE60005ABD34 /* NoLeakDispatchAsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLeakDispatchAsyncViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +159,7 @@
 		7F4F1C3A255EE07800A90DA8 /* Leak */ = {
 			isa = PBXGroup;
 			children = (
+				D62DE94D2588B2C200CF5CE1 /* Coordinator */,
 				7FB179E8257375C000209C04 /* SimpleCases */,
 				7FB179D4257296FA00209C04 /* LazyVar */,
 				7FB179C7257225DD00209C04 /* Delegate */,
@@ -279,6 +288,17 @@
 				7FE0480C25681B29005BE7C7 /* NestedClosuresViewController.swift */,
 			);
 			path = NestedClosures;
+			sourceTree = "<group>";
+		};
+		D62DE94D2588B2C200CF5CE1 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D62DE94E2588B2C200CF5CE1 /* CoordinatorViewController.swift */,
+				D62DE94F2588B2C200CF5CE1 /* CoordinatorRootViewController.swift */,
+				D62DE9502588B2C200CF5CE1 /* BaseCoordinator.swift */,
+				D62DE9512588B2C200CF5CE1 /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		D640D9DC2563AD6C005ABD34 /* DispatchQueue */ = {
@@ -473,11 +493,14 @@
 				7FB179D62572970800209C04 /* LazyVarRootViewController.swift in Sources */,
 				7FB179F02573768B00209C04 /* SimpleCasesViewController.swift in Sources */,
 				7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */,
+				D62DE9542588B2C200CF5CE1 /* BaseCoordinator.swift in Sources */,
 				7F18D5992565FA730045F6FC /* MainViewController.swift in Sources */,
 				7FB179E02572971C00209C04 /* LazyVarViewController.swift in Sources */,
+				D62DE9522588B2C200CF5CE1 /* CoordinatorViewController.swift in Sources */,
 				7F4F1C712562A78000A90DA8 /* ClosureRootViewController.swift in Sources */,
 				7FE047EC2567F76C005BE7C7 /* AnimatorViewController.swift in Sources */,
 				7FB179C9257225F100209C04 /* DelegateRootViewController.swift in Sources */,
+				D62DE9552588B2C200CF5CE1 /* Coordinator.swift in Sources */,
 				7FE0480725681A3E005BE7C7 /* NestedClosuresRootViewController.swift in Sources */,
 				7F4F1C5A25617CBA00A90DA8 /* UIApplication+TopMostController.swift in Sources */,
 				D640D9EA2563AE60005ABD34 /* NoLeakDispatchAsyncViewController.swift in Sources */,
@@ -489,6 +512,7 @@
 				7FBA06D5256A8782000A42C4 /* URLSessionRootViewController.swift in Sources */,
 				7F18D5912565F4E70045F6FC /* ChildViewController.swift in Sources */,
 				7F1131782562D8C500438910 /* LeakDetectableViewController.swift in Sources */,
+				D62DE9532588B2C200CF5CE1 /* CoordinatorRootViewController.swift in Sources */,
 				7FF1190925673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift in Sources */,
 				7FBA06F2256B22E2000A42C4 /* FutureViewController.swift in Sources */,
 				7FE047E82567F6E0005BE7C7 /* AnimateRootViewController.swift in Sources */,

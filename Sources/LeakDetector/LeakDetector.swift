@@ -43,16 +43,59 @@ public class LeakDetector {
             .eraseToAnyPublisher()
     }
 
+    // MARK: - Private Interface
+
+    private(set) var trackingObjects = WeakSet<AnyObject>()
+    @Published private var expectationCount: Int = 0 {
+        didSet {
+            if expectationCount == 0 {
+                // Clear strong key references.
+                trackingObjects.removeAll()
+            }
+        }
+    }
+
+    private init() {}
+
+    /// Sets up an expectation for the given objects to be deallocated within the given time.
+    ///
+    /// - parameter objects: The weak set of objects to track for deallocation.
+    /// - parameter inTime: The time the given object is expected to be deallocated within.
+    /// - returns: `Publishers.First` that outputs after delay.
+    public func expectDeallocate<Element>(objects: WeakSet<Element>, inTime time: TimeInterval = .deallocationExpectation) -> AnyPublisher<Void, Never> {
+        guard !objects.isEmpty else { return Empty().eraseToAnyPublisher() }
+        return Timer
+            .execute(withDelay: time)
+            .receive(on: DispatchQueue.main)
+            .handleEvents(receiveSubscription: { _ in
+                self.trackingObjects.formUnion(objects)
+                self.expectationCount += 1
+            }, receiveOutput: {
+                if !objects.isEmpty {
+                    let message = "\(objects) have leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
+                    if self.isEnabled {
+                        assertionFailure(message)
+                    } else {
+                        print("Leak detection is disabled. This should only be used for debugging purposes.")
+                        print(message)
+                        self.isLeaked.send(message)
+                    }
+                }
+            }, receiveCompletion: { _ in
+                self.expectationCount -= 1
+            }, receiveCancel: {
+                self.expectationCount -= 1
+            })
+            .subscribe(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+
     /// Sets up an expectation for the given object to be deallocated within the given time.
     ///
     /// - parameter object: The object to track for deallocation.
     /// - parameter inTime: The time the given object is expected to be deallocated within.
     /// - returns: `AnyPublisher` that can be used to cancel the expectation.
     public func expectDeallocate(object: AnyObject, inTime time: TimeInterval = .deallocationExpectation) -> AnyPublisher<Void, Never> {
-        
-        let objectDescription = String(describing: object)
-        let objectId = String(ObjectIdentifier(object).hashValue) as NSString
-
         return Timer
             .execute(withDelay: time)
             .receive(on: DispatchQueue.main)
@@ -60,19 +103,20 @@ public class LeakDetector {
                 receiveSubscription: { [weak object] _ in
                     self.expectationCount += 1
                     if let object = object {
-                        self.trackingObjects.setObject(object, forKey: objectId)
+                        self.trackingObjects.insert(object)
                     }
                 },
-                receiveOutput: { _ in
-                    let didDeallocate = (self.trackingObjects.object(forKey: objectId) == nil)
-                    let message = "<\(objectDescription): \(objectId)> has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
+                receiveOutput: { [weak object] in
+                    if let object = object {
+                        let message = "<\(memoryAddressDescription(for: object))> has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
-                    if LeakDetector.instance.isEnabled {
-                        assert(didDeallocate, message)
-                    } else if !didDeallocate {
-                        print("Leak detection is disabled. This should only be used for debugging purposes.")
-                        print("\(message)")
-                        LeakDetector.instance.isLeaked.send(message)
+                        if self.isEnabled {
+                            assertionFailure(message)
+                        } else {
+                            print("Leak detection is disabled. This should only be used for debugging purposes.")
+                            print("\(message)")
+                            self.isLeaked.send(message)
+                        }
                     }
                 },
                 receiveCompletion: { _ in
@@ -105,12 +149,12 @@ public class LeakDetector {
                         let viewDidDisappear = (!viewController.isViewLoaded && viewController.view.window == nil)
                         let message = "\(viewController) appearance has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
-                        if LeakDetector.instance.isEnabled {
+                        if self.isEnabled {
                             assert(viewDidDisappear, message)
                         } else if !viewDidDisappear {
                             print("Leak detection is disabled. This should only be used for debugging purposes.")
                             print("\(message)")
-                            LeakDetector.instance.isLeaked.send(message)
+                            self.isLeaked.send(message)
                         }
                     }
                 },
@@ -137,16 +181,9 @@ public class LeakDetector {
     #if DEBUG
     /// Reset the state of Leak Detector, internal for UI test only.
     func reset() {
-        trackingObjects.removeAllObjects()
+        trackingObjects.removeAll()
         expectationCount = 0
-        LeakDetector.instance.isLeaked.send(nil)
+        isLeaked.send(nil)
     }
     #endif
-
-    // MARK: - Private Interface
-
-    private let trackingObjects = NSMapTable<AnyObject, AnyObject>.strongToWeakObjects()
-    @Published private var expectationCount: Int = 0
-
-    private init() {}
 }

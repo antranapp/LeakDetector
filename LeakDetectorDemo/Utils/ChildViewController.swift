@@ -28,8 +28,8 @@ class ChildViewController: UIViewController {
         let button = UIButton()
         button.setTitle(buttonTitle, for: .normal)
         button.setTitleColor(.blue, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         
         NSLayoutConstraint.activate([

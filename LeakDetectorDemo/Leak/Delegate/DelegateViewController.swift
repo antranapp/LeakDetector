@@ -6,7 +6,7 @@ import Combine
 import LeakDetector
 import UIKit
 
-protocol LeakDelegate: AnyObject {
+private protocol LeakDelegate: AnyObject {
     var viewController: UIViewController { get }
 }
 

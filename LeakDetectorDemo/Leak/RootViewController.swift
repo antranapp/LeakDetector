@@ -6,6 +6,10 @@ import Combine
 import LeakDetector
 import UIKit
 
+private protocol LeakDelegate: AnyObject {
+    var viewController: UIViewController { get }
+}
+
 class RootViewController: LeakDetectableTableViewController {
     
     @IBAction func backFromLeakingViewController(_ segue: UIStoryboardSegue) {
@@ -27,7 +31,7 @@ class NotLeakingChildViewController: UIViewController {
 class LeakingChildViewController: UIViewController {
         
     //    weak private var delegate: LeakDelegate!
-    var delegate: LeakDelegate!
+    private var delegate: LeakDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
