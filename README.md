@@ -16,6 +16,9 @@ There is a demo project to demostrate different use cases of the library.
 
 This demo app focuses on common mistakes that could lead to retain cycles/memory leaks.
 
+## TODO
+
+- [ ] Leak by UICollectionView + DataSource
 
 ## References:
 
