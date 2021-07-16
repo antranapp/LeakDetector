@@ -13,7 +13,7 @@ final class LeakDetectorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        LeakDetector.isEnabled = false
+        LeakDetector.instance.isEnabled = false
         
         parent = Parent()
     }
@@ -48,7 +48,7 @@ final class LeakDetectorTests: XCTestCase {
         
         wait(for: [expectation], timeout: .deallocationExpectation + 0.1)
         
-        XCTAssertNil(LeakDetector.isLeaked.value)
+        XCTAssertNil(LeakDetector.instance.isLeaked.value)
     }
     
     func testDetectLeak() {
@@ -71,7 +71,7 @@ final class LeakDetectorTests: XCTestCase {
 
         wait(for: [expectation], timeout: .deallocationExpectation + 0.1)
         
-        XCTAssertNotNil(LeakDetector.isLeaked.value)
+        XCTAssertNotNil(LeakDetector.instance.isLeaked.value)
     }
 }
 
