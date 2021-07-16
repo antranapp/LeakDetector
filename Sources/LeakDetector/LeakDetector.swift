@@ -4,7 +4,6 @@
 
 import Combine
 import Foundation
-import UIKit
 
 /// The default time values used for leak detection expectations.
 public extension TimeInterval {
@@ -46,7 +45,7 @@ public class LeakDetector {
     // MARK: - Private Interface
 
     private(set) var trackingObjects = WeakSet<AnyObject>()
-    @Published private var expectationCount: Int = 0 {
+    @Published var expectationCount: Int = 0 {
         didSet {
             if expectationCount == 0 {
                 // Clear strong key references.
@@ -113,45 +112,6 @@ public class LeakDetector {
                         if self.isEnabled {
                             assertionFailure(message)
                         } else {
-                            print("Leak detection is disabled. This should only be used for debugging purposes.")
-                            print("\(message)")
-                            self.isLeaked.send(message)
-                        }
-                    }
-                },
-                receiveCompletion: { _ in
-                    self.expectationCount -= 1
-                },
-                receiveCancel: {
-                    self.expectationCount -= 1
-                }
-            )
-            .subscribe(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
-
-    /// Sets up an expectation for the given view controller to be deallocated within the given time.
-    ///
-    /// - parameter viewController: The `UIViewController` expected to disappear.
-    /// - parameter inTime: The time the given view controller is expected to disappear.
-    /// - returns: `AnyPublisher` that can be used to cancel the expectation.
-    @discardableResult
-    public func expectViewControllerDellocated(viewController: UIViewController, inTime time: TimeInterval = .viewDisappearExpectation) -> AnyPublisher<Void, Never> {
-        Timer
-            .execute(withDelay: time)
-            .receive(on: DispatchQueue.main)
-            .handleEvents(
-                receiveSubscription: { _ in
-                    self.expectationCount += 1
-                },
-                receiveOutput: { [weak viewController] in
-                    if let viewController = viewController {
-                        let viewDidDisappear = (!viewController.isViewLoaded && viewController.view.window == nil)
-                        let message = "\(viewController) appearance has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
-
-                        if self.isEnabled {
-                            assert(viewDidDisappear, message)
-                        } else if !viewDidDisappear {
                             print("Leak detection is disabled. This should only be used for debugging purposes.")
                             print("\(message)")
                             self.isLeaked.send(message)

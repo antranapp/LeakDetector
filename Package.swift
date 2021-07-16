@@ -4,7 +4,8 @@ import PackageDescription
 let package = Package(
     name: "LeakDetector",
     platforms: [
-        .iOS("13.0"),
+        .iOS(.v13),
+        .macOS(.v10_15)
     ],
     products: [
         .library(
