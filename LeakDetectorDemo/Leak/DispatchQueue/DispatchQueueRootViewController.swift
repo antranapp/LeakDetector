@@ -1,8 +1,8 @@
 //
-// Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
-import LeakDetector
+import LeakDetectorCombine
 import UIKit
 
 class DispatchQueueRootViewController: LeakDetectableTableViewController {

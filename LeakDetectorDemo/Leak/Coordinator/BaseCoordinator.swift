@@ -1,9 +1,9 @@
 //
-// Copyright © 2020 Standard Chartered. All rights reserved.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Combine
-import LeakDetector
+import LeakDetectorCombine
 import UIKit
 
 open class BaseCoordinator<T>: UINavigationController, Coordinator {
@@ -51,7 +51,7 @@ open class BaseCoordinator<T>: UINavigationController, Coordinator {
     }
 
     deinit {
-        guard let topViewController = topViewController else {
+        guard topViewController != nil else {
             return
         }
         LeakDetector.instance.expectDeallocate(objects: trackingViewControllers).sink {}.store(in: &cancellables)

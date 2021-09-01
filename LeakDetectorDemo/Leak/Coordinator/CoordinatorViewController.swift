@@ -1,13 +1,10 @@
 //
-//  File.swift
-//  
-//
-//  Created by Tran, Binh An on 15/12/20.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
-import UIKit
 import Combine
-import LeakDetector
+import LeakDetectorCombine
+import UIKit
 
 class CoordinatorViewController: UIViewController {
 
@@ -96,6 +93,7 @@ private class ParentViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

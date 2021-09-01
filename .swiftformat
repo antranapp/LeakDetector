@@ -3,7 +3,7 @@
 --trimwhitespace nonblank-lines
 --importgrouping testable-bottom
 --wraparguments before-first
---header "\nCopyright © 2020 An Tran. All rights reserved.\n"
+--header "\nCopyright © 2021 An Tran. All rights reserved.\n"
 --ifdef no-indent
 
 # Rules

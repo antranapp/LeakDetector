@@ -56,8 +56,12 @@
 		D6FEB033255EBDE1009B2235 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FEB031255EBDE1009B2235 /* Main.storyboard */; };
 		D6FEB035255EBDE3009B2235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FEB034255EBDE3009B2235 /* Assets.xcassets */; };
 		D6FEB038255EBDE3009B2235 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FEB036255EBDE3009B2235 /* LaunchScreen.storyboard */; };
-		D6FEB044255EBE4F009B2235 /* LeakDetector in Frameworks */ = {isa = PBXBuildFile; productRef = D6FEB043255EBE4F009B2235 /* LeakDetector */; };
 		D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FEB047255EBF50009B2235 /* DelegateViewController.swift */; };
+		D785334C26DF1EAD001B3FDA /* LeakDetectorRxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D785334B26DF1EAD001B3FDA /* LeakDetectorRxSwift */; };
+		D7A55BAE26DF27D300F0DA35 /* LeakDetectorCombine in Frameworks */ = {isa = PBXBuildFile; productRef = D7A55BAD26DF27D300F0DA35 /* LeakDetectorCombine */; };
+		D7A55BB126DF2EF800F0DA35 /* LeakDetectorRxSwiftRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A55BB026DF2EF800F0DA35 /* LeakDetectorRxSwiftRootViewController.swift */; };
+		D7A55BB326DF2F4100F0DA35 /* LeakDetectableRxSwiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A55BB226DF2F4100F0DA35 /* LeakDetectableRxSwiftTableViewController.swift */; };
+		D7A55BB526DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A55BB426DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +127,9 @@
 		D6FEB037255EBDE3009B2235 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6FEB039255EBDE3009B2235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6FEB047255EBF50009B2235 /* DelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
+		D7A55BB026DF2EF800F0DA35 /* LeakDetectorRxSwiftRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakDetectorRxSwiftRootViewController.swift; sourceTree = "<group>"; };
+		D7A55BB226DF2F4100F0DA35 /* LeakDetectableRxSwiftTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakDetectableRxSwiftTableViewController.swift; sourceTree = "<group>"; };
+		D7A55BB426DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakDetectorRxSwiftChildViewControllers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4F1C692561960B00A90DA8 /* RxCocoa in Frameworks */,
+				D785334C26DF1EAD001B3FDA /* LeakDetectorRxSwift in Frameworks */,
 				7F4F1C672561960B00A90DA8 /* RxSwift in Frameworks */,
-				D6FEB044255EBE4F009B2235 /* LeakDetector in Frameworks */,
+				D7A55BAE26DF27D300F0DA35 /* LeakDetectorCombine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +160,7 @@
 			children = (
 				7F1131772562D8C500438910 /* LeakDetectableViewController.swift */,
 				7F18D5902565F4E70045F6FC /* ChildViewController.swift */,
+				D7A55BB226DF2F4100F0DA35 /* LeakDetectableRxSwiftTableViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -159,6 +168,7 @@
 		7F4F1C3A255EE07800A90DA8 /* Leak */ = {
 			isa = PBXGroup;
 			children = (
+				D7A55BAF26DF2EE500F0DA35 /* LeakDetectorRxSwift */,
 				D62DE94D2588B2C200CF5CE1 /* Coordinator */,
 				7FB179E8257375C000209C04 /* SimpleCases */,
 				7FB179D4257296FA00209C04 /* LazyVar */,
@@ -357,6 +367,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D7A55BAF26DF2EE500F0DA35 /* LeakDetectorRxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				D7A55BB026DF2EF800F0DA35 /* LeakDetectorRxSwiftRootViewController.swift */,
+				D7A55BB426DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift */,
+			);
+			path = LeakDetectorRxSwift;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -395,9 +414,10 @@
 			);
 			name = LeakDetectorDemo;
 			packageProductDependencies = (
-				D6FEB043255EBE4F009B2235 /* LeakDetector */,
 				7F4F1C662561960B00A90DA8 /* RxSwift */,
 				7F4F1C682561960B00A90DA8 /* RxCocoa */,
+				D785334B26DF1EAD001B3FDA /* LeakDetectorRxSwift */,
+				D7A55BAD26DF27D300F0DA35 /* LeakDetectorCombine */,
 			);
 			productName = LeakDetectorDemo;
 			productReference = D6FEB028255EBDE1009B2235 /* LeakDetectorDemo.app */;
@@ -487,6 +507,7 @@
 				7F4F1C762562B4DC00A90DA8 /* SimpleClosureViewController.swift in Sources */,
 				D6FEB048255EBF50009B2235 /* DelegateViewController.swift in Sources */,
 				7FB179BA2571668500209C04 /* RxSwiftRootViewController.swift in Sources */,
+				D7A55BB326DF2F4100F0DA35 /* LeakDetectableRxSwiftTableViewController.swift in Sources */,
 				7F18D5952565F9730045F6FC /* TimerViewController.swift in Sources */,
 				7FE0480D25681B29005BE7C7 /* NestedClosuresViewController.swift in Sources */,
 				D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */,
@@ -499,6 +520,7 @@
 				D62DE9522588B2C200CF5CE1 /* CoordinatorViewController.swift in Sources */,
 				7F4F1C712562A78000A90DA8 /* ClosureRootViewController.swift in Sources */,
 				7FE047EC2567F76C005BE7C7 /* AnimatorViewController.swift in Sources */,
+				D7A55BB126DF2EF800F0DA35 /* LeakDetectorRxSwiftRootViewController.swift in Sources */,
 				7FB179C9257225F100209C04 /* DelegateRootViewController.swift in Sources */,
 				D62DE9552588B2C200CF5CE1 /* Coordinator.swift in Sources */,
 				7FE0480725681A3E005BE7C7 /* NestedClosuresRootViewController.swift in Sources */,
@@ -516,6 +538,7 @@
 				7FF1190925673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift in Sources */,
 				7FBA06F2256B22E2000A42C4 /* FutureViewController.swift in Sources */,
 				7FE047E82567F6E0005BE7C7 /* AnimateRootViewController.swift in Sources */,
+				D7A55BB526DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift in Sources */,
 				7FE047D525673F34005BE7C7 /* DispatchWorkItemViewController.swift in Sources */,
 				D6FEB02E255EBDE1009B2235 /* SceneDelegate.swift in Sources */,
 				7FE047DF25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift in Sources */,
@@ -784,7 +807,7 @@
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.1;
+				minimumVersion = 6.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -804,9 +827,13 @@
 			package = 7F4F1C652561960B00A90DA8 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		D6FEB043255EBE4F009B2235 /* LeakDetector */ = {
+		D785334B26DF1EAD001B3FDA /* LeakDetectorRxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = LeakDetector;
+			productName = LeakDetectorRxSwift;
+		};
+		D7A55BAD26DF27D300F0DA35 /* LeakDetectorCombine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LeakDetectorCombine;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

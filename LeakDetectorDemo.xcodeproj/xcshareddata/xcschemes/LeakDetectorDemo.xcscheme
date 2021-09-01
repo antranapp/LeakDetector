@@ -45,7 +45,7 @@
                BlueprintIdentifier = "LeakDetectorTests"
                BuildableName = "LeakDetectorTests"
                BlueprintName = "LeakDetectorTests"
-               ReferencedContainer = "container:LeakDetector">
+               ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
       </Testables>

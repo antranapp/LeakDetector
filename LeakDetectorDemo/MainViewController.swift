@@ -1,9 +1,9 @@
 //
-// Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Combine
-import LeakDetector
+import LeakDetectorCombine
 import UIKit
 
 class MainViewController: LeakDetectableTableViewController {
@@ -71,6 +71,10 @@ class MainViewController: LeakDetectableTableViewController {
                 navigationController?.pushViewController(viewController, animated: true)
             case 13:
                 let viewController = CoordinatorRootViewController()
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
+            case 14:
+                let viewController = LeakDetectorRxSwiftRootViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
             default:

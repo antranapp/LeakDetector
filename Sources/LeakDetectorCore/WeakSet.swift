@@ -1,17 +1,5 @@
 //
-//  Copyright (c) 2020. Adam Share
-//
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
-//
-//  http://www.apache.org/licenses/LICENSE-2.0
-//
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -29,7 +17,7 @@ public struct WeakSet<Element>: ExpressibleByArrayLiteral, CustomDebugStringConv
     }
 
     public var isEmpty: Bool {
-        return count == 0
+        count == 0
     }
 
     /// The number of elements in the set.
@@ -98,7 +86,7 @@ public struct WeakSet<Element>: ExpressibleByArrayLiteral, CustomDebugStringConv
     }
 
     private func keyForElement(_ element: Element) -> Key {
-        return NSNumber(value: ObjectIdentifier(element as AnyObject).hashValue)
+        NSNumber(value: ObjectIdentifier(element as AnyObject).hashValue)
     }
 
     private func storageCopy() -> NSMapTable<Key, Value> {
@@ -117,11 +105,11 @@ public struct WeakSet<Element>: ExpressibleByArrayLiteral, CustomDebugStringConv
     }
 }
 
-func memoryAddress(for object: AnyObject) -> String {
-    return String(format: "%018p", unsafeBitCast(object, to: Int.self))
+public func memoryAddress(for object: AnyObject) -> String {
+    String(format: "%018p", unsafeBitCast(object, to: Int.self))
 }
 
-func memoryAddressDescription(for object: AnyObject) -> String {
+public func memoryAddressDescription(for object: AnyObject) -> String {
     if object is NSObject {
         return "\(object)"
     } else {

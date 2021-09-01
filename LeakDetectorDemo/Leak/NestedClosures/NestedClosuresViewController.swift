@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 // Copied from: https://gist.github.com/almaleh/7e918ee284e67b2a8297b558f22a68ba
@@ -48,7 +48,7 @@ class LeakNestedClosureViewController3: ChildViewController {
         
         let view = self.view
         let workItem = DispatchWorkItem {
-            UIView.animate(withDuration: 1.0) { [weak self] in
+            UIView.animate(withDuration: 1.0) {
                 view?.backgroundColor = .red
             }
         }
