@@ -3,7 +3,8 @@
 //
 
 import Foundation
-import LeakDetector
+import LeakDetectorCombine
+import LeakDetectorRxSwift
 import XCTest
 
 class LeakTests: XCTestCase {
@@ -32,7 +33,7 @@ class LeakTests: XCTestCase {
 
     func testLeakByObservables() throws {
         assert(
-            testCase: "Leak by observables",
+            testCase: "Leak by RxSwift Observables",
             subcase: "Leak - 1",
             exitAction: {
                 app.buttons["Go Back"].tap()
@@ -84,7 +85,18 @@ class LeakTests: XCTestCase {
             timeout: .viewDisappearExpectation + 0.5
         )
     }
-    
+
+    func testLeakByRxSwiftDetectedByRxSwift() throws {
+        assert(
+            testCase: "LeakDetectorRxSwift",
+            subcase: "Leak - 1",
+            exitAction: {
+                app.buttons["Go Back"].tap()
+            },
+            timeout: .viewDisappearExpectation + 1
+        )
+    }
+
     private func assert(testCase: String, subcase: String? = nil, exitAction: () -> Void, timeout: TimeInterval = .deallocationExpectation + 0.5) {
         app.tables.staticTexts[testCase].tap()
         
