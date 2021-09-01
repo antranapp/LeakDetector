@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             LeakDetectorCombine.LeakDetector.instance.isEnabled = false
             LeakDetectorRxSwift.LeakDetector.instance.isEnabled = false
         }
+
+        // Combine
         
         LeakDetectorCombine.LeakDetector.instance.status
             .sink(
@@ -42,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
             .store(in: &cancellables)
+
+        // RxSwift
 
         LeakDetectorRxSwift.LeakDetector.instance.status
             .subscribe(

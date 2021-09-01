@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F1131712562D7E300438910 /* LeakDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 7F1131702562D7E300438910 /* LeakDetector */; };
 		7F1131782562D8C500438910 /* LeakDetectableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1131772562D8C500438910 /* LeakDetectableViewController.swift */; };
 		7F18D5912565F4E70045F6FC /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D5902565F4E70045F6FC /* ChildViewController.swift */; };
 		7F18D5952565F9730045F6FC /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D5942565F9730045F6FC /* TimerViewController.swift */; };
@@ -62,6 +61,8 @@
 		D7A55BB126DF2EF800F0DA35 /* LeakDetectorRxSwiftRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A55BB026DF2EF800F0DA35 /* LeakDetectorRxSwiftRootViewController.swift */; };
 		D7A55BB326DF2F4100F0DA35 /* LeakDetectableRxSwiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A55BB226DF2F4100F0DA35 /* LeakDetectableRxSwiftTableViewController.swift */; };
 		D7A55BB526DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A55BB426DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift */; };
+		D7A55BB726DF3E8E00F0DA35 /* LeakDetectorCombine in Frameworks */ = {isa = PBXBuildFile; productRef = D7A55BB626DF3E8E00F0DA35 /* LeakDetectorCombine */; };
+		D7A55BB926DF3E9400F0DA35 /* LeakDetectorRxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7A55BB826DF3E9400F0DA35 /* LeakDetectorRxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,7 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F1131712562D7E300438910 /* LeakDetector in Frameworks */,
+				D7A55BB726DF3E8E00F0DA35 /* LeakDetectorCombine in Frameworks */,
+				D7A55BB926DF3E9400F0DA35 /* LeakDetectorRxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +396,8 @@
 			);
 			name = LeakDetectorDemoUITests;
 			packageProductDependencies = (
-				7F1131702562D7E300438910 /* LeakDetector */,
+				D7A55BB626DF3E8E00F0DA35 /* LeakDetectorCombine */,
+				D7A55BB826DF3E9400F0DA35 /* LeakDetectorRxSwift */,
 			);
 			productName = LeakDetectorDemoUITests;
 			productReference = 7F4F1C4D2561726C00A90DA8 /* LeakDetectorDemoUITests.xctest */;
@@ -813,10 +816,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7F1131702562D7E300438910 /* LeakDetector */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = LeakDetector;
-		};
 		7F4F1C662561960B00A90DA8 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7F4F1C652561960B00A90DA8 /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -834,6 +833,14 @@
 		D7A55BAD26DF27D300F0DA35 /* LeakDetectorCombine */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LeakDetectorCombine;
+		};
+		D7A55BB626DF3E8E00F0DA35 /* LeakDetectorCombine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LeakDetectorCombine;
+		};
+		D7A55BB826DF3E9400F0DA35 /* LeakDetectorRxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LeakDetectorRxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

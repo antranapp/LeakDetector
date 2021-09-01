@@ -7,15 +7,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-public enum LeakDefaultExpectationTime {
-    public static let deallocation: TimeInterval = 1
-    public static let viewDisappear: TimeInterval = 5
-}
-
-public enum LeakDetectionStatus {
-    case inProgress, didComplete
-}
-
 public protocol LeakDetectionHandle {
     func cancel()
 }
@@ -51,7 +42,7 @@ public class LeakDetector {
     @discardableResult
     public func expectDeallocate(
         object: AnyObject,
-        inTime time: TimeInterval = LeakDefaultExpectationTime.deallocation
+        inTime time: TimeInterval = .deallocationExpectation
     ) -> LeakDetectionHandle {
         expectationCount.accept(expectationCount.value + 1)
 
@@ -75,7 +66,7 @@ public class LeakDetector {
                 } else if !didDeallocate {
                     print("Leak detection is disabled. This should only be used for debugging purposes.")
                     print("\(message)")
-                    self.isLeaked.on(.next(message))
+                    self.isLeaked.accept(message)
                 }
             }
 
@@ -92,7 +83,7 @@ public class LeakDetector {
     /// We should enable leak detector in Debug mode only.
     public var isEnabled: Bool = false
 
-    public let isLeaked = BehaviorSubject<String?>(value: nil)
+    public let isLeaked = BehaviorRelay<String?>(value: nil)
 
     /// Enable leak detector for core components such as RadixViewController, ServiceBasedViewModel, ... Default is false.
     ///
@@ -104,6 +95,7 @@ public class LeakDetector {
     func reset() {
         trackingObjects.removeAllObjects()
         expectationCount.accept(0)
+        isLeaked.accept(nil)
     }
     #endif
 

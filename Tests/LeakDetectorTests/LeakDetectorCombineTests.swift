@@ -6,7 +6,7 @@ import Combine
 import XCTest
 @testable import LeakDetectorCombine
 
-final class LeakDetectorTests: XCTestCase {
+final class LeakDetectorCombineTests: XCTestCase {
     
     private var cancellables = Set<AnyCancellable>()
     private var parent: Parent?
@@ -26,6 +26,7 @@ final class LeakDetectorTests: XCTestCase {
             cancellable.cancel()
         }
         cancellables.removeAll()
+        parent = nil
     }
     
     func testDetectNoLeak() {

@@ -55,7 +55,7 @@ let package = Package(
             dependencies: [
                 "LeakDetectorCore",
                 "LeakDetectorCombine",
-//                 "LeakDetectorRxSwift"
+                 "LeakDetectorRxSwift"
             ]
         ),
     ]

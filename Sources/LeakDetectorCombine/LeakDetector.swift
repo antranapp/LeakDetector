@@ -6,19 +6,6 @@ import Combine
 import Foundation
 @_exported import LeakDetectorCore
 
-/// The default time values used for leak detection expectations.
-public extension TimeInterval {
-    /// The object deallocation time.
-    static let deallocationExpectation: TimeInterval = 1.0
-
-    /// The view disappear time.
-    static let viewDisappearExpectation: TimeInterval = 3.0
-}
-
-public enum LeakDetectionStatus {
-    case inProgress, didComplete
-}
-
 /// An expectation based leak detector, that allows an object's owner to set an expectation that an owned object to be
 /// deallocated within a time frame.
 ///
