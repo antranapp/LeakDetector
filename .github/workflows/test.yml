@@ -12,10 +12,10 @@ jobs:
         uses: actions/checkout@master
 
       - name: Test (iOS)
-        run: xcodebuild test -project LeakDetector.xcodeproj -scheme LeakDetector-Package -destination "platform=iOS Simulator,name=iPhone 12"
+        run: xcodebuild test -workspace LeakDetectorDemo.xcworkspace -scheme LeakDetectorDemo -destination "platform=iOS Simulator,name=iPhone 12"
 
-      - name: Test (macOS)
-        run: xcodebuild test -project LeakDetector.xcodeproj -scheme LeakDetector-Package -destination "platform=macOS"
+      #- name: Test (macOS)
+      #  run: xcodebuild test -workspace LeakDetectorDemo.xcworkspace -scheme LeakDetector-Package -destination "platform=macOS"
 
       - name: Build and test demo app
         run: xcodebuild clean test -workspace LeakDetectorDemo.xcworkspace -scheme LeakDetectorDemo -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO

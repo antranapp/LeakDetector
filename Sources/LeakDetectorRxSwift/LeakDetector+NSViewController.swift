@@ -17,7 +17,7 @@ public extension LeakDetector {
     @discardableResult
     func expectViewControllerDellocated(
         viewController: NSViewController,
-        inTime time: TimeInterval = LeakDefaultExpectationTime.viewDisappear
+        inTime time: TimeInterval = .viewDisappearExpectation
     ) -> LeakDetectionHandle {
         expectationCount.accept(expectationCount.value + 1)
 
@@ -37,7 +37,7 @@ public extension LeakDetector {
                 } else if viewNotAllocated {
                     print("Leak detection is disabled. This should only be used for debugging purposes.")
                     print("\(message)")
-                    self.isLeaked.on(.next(message))
+                    self.isLeaked.accept(message)
                 }
             }
 
