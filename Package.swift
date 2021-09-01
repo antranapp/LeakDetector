@@ -5,23 +5,58 @@ let package = Package(
     name: "LeakDetector",
     platforms: [
         .iOS(.v13),
-        .macOS(.v10_15)
+        .macOS(.v10_15),
     ],
     products: [
         .library(
-            name: "LeakDetector",
-            targets: ["LeakDetector"]
+            name: "LeakDetectorCore",
+            targets: ["LeakDetectorCore"]
+        ),
+        .library(
+            name: "LeakDetectorCombine",
+            targets: ["LeakDetectorCombine"]
+        ),
+        .library(
+            name: "LeakDetectorRxSwift",
+            targets: ["LeakDetectorRxSwift"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(
+            name: "RxSwift",
+            url: "https://github.com/ReactiveX/RxSwift.git",
+            .upToNextMajor(from: "6.0.0")
+        ),
+    ],
     targets: [
         .target(
-            name: "LeakDetector",
+            name: "LeakDetectorCore",
             dependencies: []
         ),
+        
+        .target(
+            name: "LeakDetectorCombine",
+            dependencies: [
+                "LeakDetectorCore",
+            ]
+        ),
+
+        .target(
+            name: "LeakDetectorRxSwift",
+            dependencies: [
+                "LeakDetectorCore",
+                "RxSwift",
+                .product(name: "RxCocoa", package: "RxSwift"),
+            ]
+        ),
+
         .testTarget(
             name: "LeakDetectorTests",
-            dependencies: ["LeakDetector"]
+            dependencies: [
+                "LeakDetectorCore",
+                "LeakDetectorCombine",
+//                 "LeakDetectorRxSwift"
+            ]
         ),
     ]
 )

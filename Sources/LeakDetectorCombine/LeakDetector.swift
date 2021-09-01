@@ -1,9 +1,10 @@
 //
-// Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Combine
 import Foundation
+@_exported import LeakDetectorCore
 
 /// The default time values used for leak detection expectations.
 public extension TimeInterval {
@@ -95,7 +96,7 @@ public class LeakDetector {
     /// - parameter inTime: The time the given object is expected to be deallocated within.
     /// - returns: `AnyPublisher` that can be used to cancel the expectation.
     public func expectDeallocate(object: AnyObject, inTime time: TimeInterval = .deallocationExpectation) -> AnyPublisher<Void, Never> {
-        return Timer
+        Timer
             .execute(withDelay: time)
             .receive(on: DispatchQueue.main)
             .handleEvents(

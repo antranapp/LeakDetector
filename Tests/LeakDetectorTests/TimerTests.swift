@@ -1,10 +1,10 @@
 //
-// Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Combine
 import XCTest
-@testable import LeakDetector
+@testable import LeakDetectorCore
 
 final class TimerTests: XCTestCase {
     

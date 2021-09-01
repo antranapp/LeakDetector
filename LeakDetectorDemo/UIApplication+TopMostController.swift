@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 An Tran. All rights reserved.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import UIKit
@@ -26,6 +26,6 @@ extension UIViewController {
 
 extension UIApplication {
     func topMostViewController() -> UIViewController? {
-        UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController?.topMostViewController()
+        UIApplication.shared.windows.filter(\.isKeyWindow).first?.rootViewController?.topMostViewController()
     }
 }
