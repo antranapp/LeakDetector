@@ -10,6 +10,8 @@ import XCTest
 class LeakTests: XCTestCase {
 
     var app: XCUIApplication!
+
+    static let bufferInternal: TimeInterval = 2
     
     override func setUp() {
         super.setUp()
@@ -26,8 +28,7 @@ class LeakTests: XCTestCase {
             subcase: "Leak - 1",
             exitAction: {
                 app.buttons["Go Back"].tap()
-            },
-            timeout: .viewDisappearExpectation + 0.5
+            }
         )
     }
 
@@ -37,8 +38,7 @@ class LeakTests: XCTestCase {
             subcase: "Leak - 1",
             exitAction: {
                 app.buttons["Go Back"].tap()
-            },
-            timeout: .viewDisappearExpectation + 0.5
+            }
         )
     }
     
@@ -48,8 +48,7 @@ class LeakTests: XCTestCase {
             subcase: "Leak - Combine assign",
             exitAction: {
                 app.buttons["Go Back"].tap()
-            },
-            timeout: .viewDisappearExpectation + 0.5
+            }
         )
     }
     
@@ -59,8 +58,7 @@ class LeakTests: XCTestCase {
             subcase: "Leak View Controller",
             exitAction: {
                 app.buttons["Go Back"].tap()
-            },
-            timeout: .viewDisappearExpectation + 0.5
+            }
         )
     }
     
@@ -70,8 +68,7 @@ class LeakTests: XCTestCase {
             subcase: "Leak by Simple Closure",
             exitAction: {
                 app.buttons["Go Back"].tap()
-            },
-            timeout: .viewDisappearExpectation + 0.5
+            }
         )
     }
     
@@ -81,8 +78,7 @@ class LeakTests: XCTestCase {
             subcase: "Leak by Simple Closure",
             exitAction: {
                 app.buttons["Go Back"].tap()
-            },
-            timeout: .viewDisappearExpectation + 0.5
+            }
         )
     }
 
@@ -92,12 +88,11 @@ class LeakTests: XCTestCase {
             subcase: "Leak - 1",
             exitAction: {
                 app.buttons["Go Back"].tap()
-            },
-            timeout: .viewDisappearExpectation + 1
+            }
         )
     }
 
-    private func assert(testCase: String, subcase: String? = nil, exitAction: () -> Void, timeout: TimeInterval = .deallocationExpectation + 0.5) {
+    private func assert(testCase: String, subcase: String? = nil, exitAction: () -> Void, timeout: TimeInterval = .viewDisappearExpectation + LeakTests.bufferInternal) {
         app.tables.staticTexts[testCase].tap()
         
         if let subcase = subcase {
