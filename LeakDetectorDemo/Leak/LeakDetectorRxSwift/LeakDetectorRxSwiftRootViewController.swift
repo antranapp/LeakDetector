@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class LeakDetectorRxSwiftRootViewController: LeakDetectableRxSwiftTableViewController {
+final class LeakDetectorRxSwiftRootViewController: LeakDetectableRxSwiftTableViewController {
 
     private enum Scenarios {
 

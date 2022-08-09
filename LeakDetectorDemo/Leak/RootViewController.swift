@@ -10,14 +10,14 @@ private protocol LeakDelegate: AnyObject {
     var viewController: UIViewController { get }
 }
 
-class RootViewController: LeakDetectableTableViewController {
+final class RootViewController: LeakDetectableTableViewController {
     
     @IBAction func backFromLeakingViewController(_ segue: UIStoryboardSegue) {
         executeLeakDetector(for: segue.source)
     }
 }
 
-class NotLeakingChildViewController: UIViewController {
+final class NotLeakingChildViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class NotLeakingChildViewController: UIViewController {
     }
 }
 
-class LeakingChildViewController: UIViewController {
+final class LeakingChildViewController: UIViewController {
         
     //    weak private var delegate: LeakDelegate!
     private var delegate: LeakDelegate!

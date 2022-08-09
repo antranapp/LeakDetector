@@ -2,11 +2,14 @@
 // Copyright © 2021 An Tran. All rights reserved.
 //
 
+#if canImport(Combine)
 import Combine
+#endif
 import Foundation
 #if canImport(UIKit)
 import UIKit
 
+@available(iOS 13.0, *)
 public extension LeakDetector {
 
     /// Sets up an expectation for the given view controller to be deallocated within the given time.

@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Leak
 
-class LeakDetectorRxSwiftViewController1: ChildViewController {
+final class LeakDetectorRxSwiftViewController1: ChildViewController {
 
     let disposeBag = DisposeBag()
     let leakRelay = PublishRelay<Bool>()
@@ -29,7 +29,7 @@ class LeakDetectorRxSwiftViewController1: ChildViewController {
 
 // MARK: - No Leak
 
-class NoLeakLeakDetectorRxSwiftViewController1: ChildViewController {
+final class NoLeakLeakDetectorRxSwiftViewController1: ChildViewController {
 
     let disposeBag = DisposeBag()
     let leakRelay = PublishRelay<Bool>()

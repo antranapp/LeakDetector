@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-class LeakURLSessionViewController1: ChildViewController {
+final class LeakURLSessionViewController1: ChildViewController {
     
     private var closureStorage: Any?
     
@@ -31,7 +31,7 @@ class LeakURLSessionViewController1: ChildViewController {
     }
 }
 
-class NoLeakURLSessionViewController1: ChildViewController {
+final class NoLeakURLSessionViewController1: ChildViewController {
     
     private var closureStorage: Any?
     

@@ -5,7 +5,7 @@
 import UIKit
 
 // Taken from: https://github.com/chauvincent/LeakyApp-iOS
-class NotificationCenterViewController: ChildViewController {
+final class NotificationCenterViewController: ChildViewController {
 
     deinit {
         NotificationCenter.default.removeObserver(self)

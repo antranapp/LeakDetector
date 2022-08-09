@@ -5,7 +5,7 @@
 import Combine
 import UIKit
 
-class LeakTimerViewController1: ChildViewController {
+final class LeakTimerViewController1: ChildViewController {
     
     private var timer: Timer?
     
@@ -31,7 +31,7 @@ class LeakTimerViewController1: ChildViewController {
     }
 }
 
-class LeakTimerViewController2: ChildViewController {
+final class LeakTimerViewController2: ChildViewController {
     
     private var timer: Timer?
     
@@ -58,7 +58,7 @@ class LeakTimerViewController2: ChildViewController {
     }
 }
 
-class NoLeakTimerViewController1: ChildViewController {
+final class NoLeakTimerViewController1: ChildViewController {
     
     private var cancellable: AnyCancellable?
     private var timer: Timer?
@@ -86,7 +86,7 @@ class NoLeakTimerViewController1: ChildViewController {
     }
 }
 
-class NoLeakTimerViewController2: ChildViewController {
+final class NoLeakTimerViewController2: ChildViewController {
     
     private var cancellable: AnyCancellable?
     private var timer: Timer?

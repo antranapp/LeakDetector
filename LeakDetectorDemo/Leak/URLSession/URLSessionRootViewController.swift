@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class URLSessionRootViewController: LeakDetectableTableViewController {
+final class URLSessionRootViewController: LeakDetectableTableViewController {
     
     private enum Scenarios {
         

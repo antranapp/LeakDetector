@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class NestedClosuresRootViewController: LeakDetectableTableViewController {
+final class NestedClosuresRootViewController: LeakDetectableTableViewController {
     
     private enum Scenarios {
         

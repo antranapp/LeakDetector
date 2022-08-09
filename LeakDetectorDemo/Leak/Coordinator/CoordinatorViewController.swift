@@ -6,7 +6,7 @@ import Combine
 import LeakDetectorCombine
 import UIKit
 
-class CoordinatorViewController: UIViewController {
+final class CoordinatorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,7 +171,7 @@ extension LeakyDelegateViewController: LeakDelegate {
 
 // MARK: No Leak VC
 
-private class NonLeakyDelegateViewController: UIViewController {
+private final class NonLeakyDelegateViewController: UIViewController {
 
     private var cancellable: AnyCancellable?
 

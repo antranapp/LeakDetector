@@ -6,6 +6,7 @@ import Combine
 import XCTest
 @testable import LeakDetectorCombine
 
+@available(iOS 13, *)
 final class LeakDetectorCombineTests: XCTestCase {
     
     private var cancellables = Set<AnyCancellable>()

@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class NoLeakNonEscapingViewController: ChildViewController {
+final class NoLeakNonEscapingViewController: ChildViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

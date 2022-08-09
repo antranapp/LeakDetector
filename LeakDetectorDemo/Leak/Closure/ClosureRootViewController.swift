@@ -6,7 +6,7 @@ import Combine
 import LeakDetectorCombine
 import UIKit
 
-class ClosureRootViewController: LeakDetectableTableViewController {
+final class ClosureRootViewController: LeakDetectableTableViewController {
     
     @IBAction func backFromClosureViewController(_ segue: UIStoryboardSegue) {
         executeLeakDetector(for: segue.source)

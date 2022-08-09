@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class DispatchWorkItemViewController: ChildViewController {
+final class DispatchWorkItemViewController: ChildViewController {
     
     var workItem: DispatchWorkItem!
     

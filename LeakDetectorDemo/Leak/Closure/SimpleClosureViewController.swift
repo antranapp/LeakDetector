@@ -4,7 +4,7 @@
 
 import UIKit
 
-class SimpleClosureViewController: UIViewController {
+final class SimpleClosureViewController: UIViewController {
     
     private var handler: (() -> Void)!
       
@@ -17,7 +17,7 @@ class SimpleClosureViewController: UIViewController {
     }
 }
 
-class NoLeakSimpleClosureViewController: UIViewController {
+final class NoLeakSimpleClosureViewController: UIViewController {
     
     private var handler: (() -> Void)!
       

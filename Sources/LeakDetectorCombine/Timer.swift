@@ -2,9 +2,12 @@
 // Copyright © 2021 An Tran. All rights reserved.
 //
 
+#if canImport(Combine)
 import Combine
+#endif
 import Foundation
 
+@available(iOS 13.0, *)
 public extension Timer {
 
     /// Emite a Void signal after the given delay assuming the given maximum frame duration.

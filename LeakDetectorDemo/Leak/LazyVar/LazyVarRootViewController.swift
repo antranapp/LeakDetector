@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class LazyVarRootViewController: LeakDetectableTableViewController {
+final class LazyVarRootViewController: LeakDetectableTableViewController {
     
     private enum Scenarios {
         

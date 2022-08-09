@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-class LeakNestedClosureViewController1: ChildViewController {
+final class LeakNestedClosureViewController1: ChildViewController {
     
     var workItem: DispatchWorkItem?
     
@@ -23,7 +23,7 @@ class LeakNestedClosureViewController1: ChildViewController {
     }
 }
 
-class LeakNestedClosureViewController2: ChildViewController {
+final class LeakNestedClosureViewController2: ChildViewController {
     
     var workItem: DispatchWorkItem?
     
@@ -39,7 +39,7 @@ class LeakNestedClosureViewController2: ChildViewController {
     }
 }
 
-class LeakNestedClosureViewController3: ChildViewController {
+final class LeakNestedClosureViewController3: ChildViewController {
     
     var workItem: DispatchWorkItem?
     
@@ -56,7 +56,7 @@ class LeakNestedClosureViewController3: ChildViewController {
     }
 }
 
-class NoLeakNestedClosureViewController1: ChildViewController {
+final class NoLeakNestedClosureViewController1: ChildViewController {
     
     var workItem: DispatchWorkItem?
     
@@ -72,7 +72,7 @@ class NoLeakNestedClosureViewController1: ChildViewController {
     }
 }
 
-class NoLeakNestedClosureViewController2: ChildViewController {
+final class NoLeakNestedClosureViewController2: ChildViewController {
     
     var workItem: DispatchWorkItem?
     
@@ -88,7 +88,7 @@ class NoLeakNestedClosureViewController2: ChildViewController {
     }
 }
 
-class NoLeakNestedClosureViewController3: ChildViewController {
+final class NoLeakNestedClosureViewController3: ChildViewController {
     
     var workItem: DispatchWorkItem?
     

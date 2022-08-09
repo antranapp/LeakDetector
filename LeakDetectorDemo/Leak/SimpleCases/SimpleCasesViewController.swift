@@ -9,21 +9,21 @@ import UIKit
 
 // https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID48
 
-class Person {
+final class Person {
     let name: String
     init(name: String) { self.name = name }
     var apartment: LeakApartment?
     deinit { print("\(name) is being deinitialized") }
 }
 
-class LeakApartment {
+final class LeakApartment {
     let unit: String
     init(unit: String) { self.unit = unit }
     var tenant: Person?
     deinit { print("Apartment \(unit) is being deinitialized") }
 }
 
-class SimpleCasesViewController1: LeakDetectableViewController {
+final class SimpleCasesViewController1: LeakDetectableViewController {
     
     var john: Person?
     var unit4A: LeakApartment?
@@ -63,21 +63,21 @@ class SimpleCasesViewController1: LeakDetectableViewController {
 
 // MAKR: - No Leak: Case 1
 
-class NoLeakPerson {
+final class NoLeakPerson {
     let name: String
     init(name: String) { self.name = name }
     var apartment: NoLeakApartment?
     deinit { print("\(name) is being deinitialized") }
 }
 
-class NoLeakApartment {
+final class NoLeakApartment {
     let unit: String
     init(unit: String) { self.unit = unit }
     weak var tenant: NoLeakPerson?
     deinit { print("Apartment \(unit) is being deinitialized") }
 }
 
-class NoLeakSimpleCasesViewController1: LeakDetectableViewController {
+final class NoLeakSimpleCasesViewController1: LeakDetectableViewController {
     
     var john: NoLeakPerson?
     var unit4A: NoLeakApartment?
