@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class AnimatorViewController: ChildViewController {
+final class AnimatorViewController: ChildViewController {
     
     private var closureStorage: Any?
     

@@ -6,7 +6,7 @@ import Combine
 import Foundation
 import LeakDetectorCombine
 
-class NoLeakFutureViewController1: ChildViewController {
+final class NoLeakFutureViewController1: ChildViewController {
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -54,7 +54,7 @@ class NoLeakFutureViewController1: ChildViewController {
     }
 }
 
-class NoLeakFutureViewController2: ChildViewController {
+final class NoLeakFutureViewController2: ChildViewController {
     
     private var cancellables = Set<AnyCancellable>()
     

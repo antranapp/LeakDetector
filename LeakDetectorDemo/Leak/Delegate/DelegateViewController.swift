@@ -10,7 +10,7 @@ private protocol LeakDelegate: AnyObject {
     var viewController: UIViewController { get }
 }
 
-class DelegateViewController1: ChildViewController {
+final class DelegateViewController1: ChildViewController {
         
     private var cancellable: AnyCancellable?
     
@@ -33,7 +33,7 @@ extension DelegateViewController1: LeakDelegate {
 
 // MARK: - No Leak Case 1
 
-class NoLeakDelegateViewController1: ChildViewController {
+final class NoLeakDelegateViewController1: ChildViewController {
             
     private weak var delegate: LeakDelegate!
 
@@ -54,7 +54,7 @@ extension NoLeakDelegateViewController1: LeakDelegate {
 
 // MARK: - No Leake Case 2
 
-class NoLeakDelegateViewController2: ChildViewController, UITableViewDelegate, UITableViewDataSource {
+final class NoLeakDelegateViewController2: ChildViewController, UITableViewDelegate, UITableViewDataSource {
     
     private lazy var tableView = UITableView()
     

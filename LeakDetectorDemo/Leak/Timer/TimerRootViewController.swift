@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class TimerRootViewController: LeakDetectableTableViewController {
+final class TimerRootViewController: LeakDetectableTableViewController {
     
     private enum Scenarios {
         

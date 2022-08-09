@@ -6,6 +6,7 @@ import Combine
 import XCTest
 @testable import LeakDetectorCore
 
+@available(iOS 13, *)
 final class TimerTests: XCTestCase {
     
     private var cancellables = Set<AnyCancellable>()

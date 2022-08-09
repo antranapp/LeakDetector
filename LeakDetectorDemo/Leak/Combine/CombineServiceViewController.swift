@@ -5,7 +5,7 @@
 import Combine
 import Foundation
 
-class NoLeakCombineServiceViewController1: ChildViewController {
+final class NoLeakCombineServiceViewController1: ChildViewController {
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -38,7 +38,7 @@ class NoLeakCombineServiceViewController1: ChildViewController {
     }
 }
 
-private class Service {
+private final class Service {
     func fetch() -> AnyPublisher<Bool, Never> {
         Just(true).eraseToAnyPublisher()
     }

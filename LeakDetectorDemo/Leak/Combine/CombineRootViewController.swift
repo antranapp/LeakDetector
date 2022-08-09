@@ -6,7 +6,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
-class CombineRootViewController: LeakDetectableTableViewController {
+final class CombineRootViewController: LeakDetectableTableViewController {
     
     private enum Scenarios {
         

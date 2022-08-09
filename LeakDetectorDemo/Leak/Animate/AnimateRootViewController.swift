@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class AnimateRootViewController: LeakDetectableTableViewController {
+final class AnimateRootViewController: LeakDetectableTableViewController {
     
     private enum Scenarios {
         

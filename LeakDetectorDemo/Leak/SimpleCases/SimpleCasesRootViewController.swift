@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class SimpleCasesRootViewController: LeakDetectableTableViewController {
+final class SimpleCasesRootViewController: LeakDetectableTableViewController {
     
     private enum Scenarios {
         

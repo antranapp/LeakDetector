@@ -6,7 +6,7 @@ import Combine
 import LeakDetectorCombine
 import UIKit
 
-class LeakCombineViewController1: ChildViewController {
+final class LeakCombineViewController1: ChildViewController {
     
     private var cancellables = Set<AnyCancellable>()
     private let leakPublisher = CurrentValueSubject<Bool, Never>(false)
@@ -21,7 +21,7 @@ class LeakCombineViewController1: ChildViewController {
     }
 }
 
-class LeakCombineViewController2: ChildViewController {
+final class LeakCombineViewController2: ChildViewController {
     
     private var cancellables = Set<AnyCancellable>()
     private let leakPublisher = CurrentValueSubject<Bool, Never>(false)

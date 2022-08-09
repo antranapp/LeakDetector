@@ -6,7 +6,7 @@ import Combine
 import LeakDetectorCombine
 import UIKit
 
-class MainViewController: LeakDetectableTableViewController {
+final class MainViewController: LeakDetectableTableViewController {
                 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {

@@ -5,7 +5,7 @@
 import LeakDetectorCombine
 import UIKit
 
-class DispatchQueueRootViewController: LeakDetectableTableViewController {
+final class DispatchQueueRootViewController: LeakDetectableTableViewController {
     
     @IBAction func backFromDispatchQueueViewController(_ segue: UIStoryboardSegue) {
         executeLeakDetector(for: segue.source)

@@ -4,7 +4,7 @@
 
 import UIKit
 
-class NestedClosureViewController: UIViewController {
+final class NestedClosureViewController: UIViewController {
     
     private var handler: (() -> Void)!
       
@@ -23,7 +23,7 @@ class NestedClosureViewController: UIViewController {
     }
 }
 
-class NoLeakNestedClosureViewController: UIViewController {
+final class NoLeakNestedClosureViewController: UIViewController {
     
     private var handler: (() -> Void)!
       

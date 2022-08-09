@@ -7,7 +7,7 @@ import LeakDetectorCombine
 import LeakDetectorRxSwift
 import XCTest
 
-class LeakTests: XCTestCase {
+final class LeakTests: XCTestCase {
 
     var app: XCUIApplication!
 

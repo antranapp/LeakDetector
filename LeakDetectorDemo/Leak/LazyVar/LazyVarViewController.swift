@@ -8,7 +8,7 @@ import UIKit
 // MARK: - Leak - Case 1
 
 // Copied form https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID48
-class LeakyHTMLElement {
+final class LeakyHTMLElement {
 
     let name: String
     let text: String?
@@ -65,7 +65,7 @@ class LazyVarViewController1: LeakDetectableViewController {
 
 // MARK: - No Leak - Case 1
 
-class NoLeakHTMLElement {
+final class NoLeakHTMLElement {
 
     let name: String
     let text: String?
@@ -89,7 +89,7 @@ class NoLeakHTMLElement {
 
 }
 
-class NoLeakLazyVarViewController1: LeakDetectableViewController {
+final class NoLeakLazyVarViewController1: LeakDetectableViewController {
     
     private var heading: NoLeakHTMLElement? = NoLeakHTMLElement(name: "h1", text: "Hello")
     
