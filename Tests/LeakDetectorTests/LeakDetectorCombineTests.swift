@@ -9,6 +9,7 @@ import XCTest
 @available(iOS 13, *)
 final class LeakDetectorCombineTests: XCTestCase {
     
+    private let waitingTime: TimeInterval = 1.0
     private var cancellables = Set<AnyCancellable>()
     private var parent: Parent?
     
@@ -48,7 +49,7 @@ final class LeakDetectorCombineTests: XCTestCase {
             .store(in: &cancellables)
         parent = nil
         
-        wait(for: [expectation], timeout: .deallocationExpectation + 0.1)
+        wait(for: [expectation], timeout: .deallocationExpectation + waitingTime)
         
         XCTAssertNil(LeakDetector.instance.isLeaked.value)
     }
@@ -71,7 +72,7 @@ final class LeakDetectorCombineTests: XCTestCase {
             .store(in: &cancellables)
         parent = nil
 
-        wait(for: [expectation], timeout: .deallocationExpectation + 0.1)
+        wait(for: [expectation], timeout: .deallocationExpectation + waitingTime)
         
         XCTAssertNotNil(LeakDetector.instance.isLeaked.value)
     }

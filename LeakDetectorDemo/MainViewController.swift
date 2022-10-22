@@ -77,6 +77,10 @@ final class MainViewController: LeakDetectableTableViewController {
                 let viewController = LeakDetectorRxSwiftRootViewController()
                 weakViewController = viewController
                 navigationController?.pushViewController(viewController, animated: true)
+            case 15:
+                let viewController = LeakDetectorRxSwiftMultiVCRootViewController()
+                weakViewController = viewController
+                navigationController?.pushViewController(viewController, animated: true)
             default:
                 break
             }

@@ -29,12 +29,14 @@ public extension LeakDetector {
             // Retain the handle so we can check for the cancelled status. Also cannot use the cancellable
             // concurrency API since the returned handle must be retained to ensure closure is executed.
             if let viewController = viewController, !handle.cancelled {
-                let viewNotAllocated = viewController.isViewLoaded && viewController.view.window == nil
+                // Test if view has been dissapeared, but not deallocated -> indicating the view controller
+                // has been leaked
+                let viewDissapearedButNotDeallocated = viewController.isViewLoaded && viewController.view.window == nil
                 let message = "\(viewController) apparently has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
                 if self.isEnabled {
-                    assert(!viewNotAllocated, message)
-                } else if viewNotAllocated {
+                    assert(!viewDissapearedButNotDeallocated, message)
+                } else if viewDissapearedButNotDeallocated {
                     print("Leak detection is disabled. This should only be used for debugging purposes.")
                     print("\(message)")
                     self.isLeaked.accept(message)

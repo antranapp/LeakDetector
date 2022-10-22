@@ -18,7 +18,10 @@ public extension LeakDetector {
     /// - parameter inTime: The time the given view controller is expected to disappear.
     /// - returns: `AnyPublisher` that can be used to cancel the expectation.
     @discardableResult
-    func expectViewControllerDellocated(viewController: UIViewController, inTime time: TimeInterval = .viewDisappearExpectation) -> AnyPublisher<Void, Never> {
+    func expectViewControllerDellocated(
+        viewController: UIViewController,
+        inTime time: TimeInterval = .viewDisappearExpectation
+    ) -> AnyPublisher<Void, Never> {
         Timer
             .execute(withDelay: time)
             .receive(on: DispatchQueue.main)
@@ -28,12 +31,14 @@ public extension LeakDetector {
                 },
                 receiveOutput: { [weak viewController] in
                     if let viewController = viewController {
-                        let viewDidDisappear = (!viewController.isViewLoaded && viewController.view.window == nil)
+                        // Test if view has been dissapeared, but not deallocated -> indicating the view controller
+                        // has been leaked
+                        let viewDissapearedButNotDeallocated = viewController.isViewLoaded && viewController.view.window == nil
                         let message = "\(viewController) apparently has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
                         if self.isEnabled {
-                            assert(viewDidDisappear, message)
-                        } else if !viewDidDisappear {
+                            assert(!viewDissapearedButNotDeallocated, message)
+                        } else if viewDissapearedButNotDeallocated {
                             print("Leak detection is disabled. This should only be used for debugging purposes.")
                             print("\(message)")
                             self.isLeaked.send(message)

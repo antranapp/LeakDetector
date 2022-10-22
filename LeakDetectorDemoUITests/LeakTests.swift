@@ -11,7 +11,7 @@ final class LeakTests: XCTestCase {
 
     var app: XCUIApplication!
 
-    static let bufferInternal: TimeInterval = 2
+    static let bufferInternal: TimeInterval = 4
     
     override func setUp() {
         super.setUp()
@@ -72,10 +72,10 @@ final class LeakTests: XCTestCase {
         )
     }
     
-    func testLeakBySimplelosures() throws {
+    func testLeakByStoringDispatchWorkItem() throws {
         assert(
-            testCase: "Leak by Closure",
-            subcase: "Leak by Simple Closure",
+            testCase: "Leak by DispatchQueue",
+            subcase: "Leak by Storing DispatchWorkItem",
             exitAction: {
                 app.buttons["Go Back"].tap()
             }
@@ -85,6 +85,16 @@ final class LeakTests: XCTestCase {
     func testLeakByRxSwiftDetectedByRxSwift() throws {
         assert(
             testCase: "LeakDetectorRxSwift",
+            subcase: "Leak - 1",
+            exitAction: {
+                app.buttons["Go Back"].tap()
+            }
+        )
+    }
+    
+    func testLeakByRxSwiftMultipleVCDetectedByRxSwift() throws {
+        assert(
+            testCase: "LeakDetectorRxSwift Multi VC",
             subcase: "Leak - 1",
             exitAction: {
                 app.buttons["Go Back"].tap()

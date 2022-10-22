@@ -30,9 +30,9 @@ public class LeakDetector {
             .removeDuplicates()
             .eraseToAnyPublisher()
     }
-
+    
     // MARK: - Private Interface
-
+    
     private(set) var trackingObjects = WeakSet<AnyObject>()
     @Published var expectationCount: Int = 0 {
         didSet {
@@ -42,48 +42,59 @@ public class LeakDetector {
             }
         }
     }
-
+    
     private init() {}
-
+    
     /// Sets up an expectation for the given objects to be deallocated within the given time.
     ///
     /// - parameter objects: The weak set of objects to track for deallocation.
     /// - parameter inTime: The time the given object is expected to be deallocated within.
     /// - returns: `Publishers.First` that outputs after delay.
-    public func expectDeallocate<Element>(objects: WeakSet<Element>, inTime time: TimeInterval = .deallocationExpectation) -> AnyPublisher<Void, Never> {
+    public func expectDeallocate<Element>(
+        objects: WeakSet<Element>,
+        inTime time: TimeInterval = .deallocationExpectation
+    ) -> AnyPublisher<Void, Never> {
         guard !objects.isEmpty else { return Empty().eraseToAnyPublisher() }
         return Timer
             .execute(withDelay: time)
             .receive(on: DispatchQueue.main)
-            .handleEvents(receiveSubscription: { _ in
-                self.trackingObjects.formUnion(objects)
-                self.expectationCount += 1
-            }, receiveOutput: {
-                if !objects.isEmpty {
-                    let message = "\(objects) have leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
-                    if self.isEnabled {
-                        assertionFailure(message)
-                    } else {
-                        print("Leak detection is disabled. This should only be used for debugging purposes.")
-                        print(message)
-                        self.isLeaked.send(message)
+            .handleEvents(
+                receiveSubscription: { _ in
+                    self.trackingObjects.formUnion(objects)
+                    self.expectationCount += 1
+                },
+                receiveOutput: {
+                    if !objects.isEmpty {
+                        let message = "\(objects) have leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
+                        if self.isEnabled {
+                            assertionFailure(message)
+                        } else {
+                            print("Leak detection is disabled. This should only be used for debugging purposes.")
+                            print(message)
+                            self.isLeaked.send(message)
+                        }
                     }
+                },
+                receiveCompletion: { _ in
+                    self.expectationCount -= 1
+                },
+                receiveCancel: {
+                    self.expectationCount -= 1
                 }
-            }, receiveCompletion: { _ in
-                self.expectationCount -= 1
-            }, receiveCancel: {
-                self.expectationCount -= 1
-            })
+            )
             .subscribe(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
-
+    
     /// Sets up an expectation for the given object to be deallocated within the given time.
     ///
     /// - parameter object: The object to track for deallocation.
     /// - parameter inTime: The time the given object is expected to be deallocated within.
     /// - returns: `AnyPublisher` that can be used to cancel the expectation.
-    public func expectDeallocate(object: AnyObject, inTime time: TimeInterval = .deallocationExpectation) -> AnyPublisher<Void, Never> {
+    public func expectDeallocate(
+        object: AnyObject,
+        inTime time: TimeInterval = .deallocationExpectation
+    ) -> AnyPublisher<Void, Never> {
         Timer
             .execute(withDelay: time)
             .receive(on: DispatchQueue.main)
@@ -97,7 +108,7 @@ public class LeakDetector {
                 receiveOutput: { [weak object] in
                     if let object = object {
                         let message = "<\(memoryAddressDescription(for: object))> has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
-
+                        
                         if self.isEnabled {
                             assertionFailure(message)
                         } else {
@@ -117,22 +128,22 @@ public class LeakDetector {
             .subscribe(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
-
+    
     // MARK: - Internal Interface
-
+    
     /// Enable leak detector. Default is false.
     ///
     /// We should enable leak detector in Debug mode only.
     public var isEnabled: Bool = false
-
+    
     public var isLeaked = CurrentValueSubject<String?, Never>(nil)
-
-    #if DEBUG
+    
+#if DEBUG
     /// Reset the state of Leak Detector, internal for UI test only.
     func reset() {
         trackingObjects.removeAll()
         expectationCount = 0
         isLeaked.send(nil)
     }
-    #endif
+#endif
 }

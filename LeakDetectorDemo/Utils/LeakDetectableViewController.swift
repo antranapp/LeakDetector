@@ -16,10 +16,14 @@ class LeakDetectableViewController: UIViewController {
     }
 
     func executeLeakDetector(for object: AnyObject) {
+        leakSubscription?.cancel()
+        leakSubscription = nil
         leakSubscription = LeakDetector.instance.expectDeallocate(object: object).sink {}
     }
 
     func executeLeakDetector(for viewController: UIViewController) {
+        leakSubscription?.cancel()
+        leakSubscription = nil
         leakSubscription = LeakDetector.instance.expectViewControllerDellocated(viewController: viewController).sink {}
     }
 }
@@ -35,10 +39,14 @@ class LeakDetectableTableViewController: UITableViewController {
     }
 
     func executeLeakDetector(for object: AnyObject) {
+        leakSubscription?.cancel()
+        leakSubscription = nil
         leakSubscription = LeakDetector.instance.expectDeallocate(object: object).sink {}
     }
 
     func executeLeakDetector(for viewController: UIViewController) {
+        leakSubscription?.cancel()
+        leakSubscription = nil
         leakSubscription = LeakDetector.instance.expectViewControllerDellocated(viewController: viewController).sink {}
     }
     
