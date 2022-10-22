@@ -18,6 +18,7 @@
 		7F4F1C712562A78000A90DA8 /* ClosureRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C702562A78000A90DA8 /* ClosureRootViewController.swift */; };
 		7F4F1C762562B4DC00A90DA8 /* SimpleClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C752562B4DC00A90DA8 /* SimpleClosureViewController.swift */; };
 		7F4F1C7C2562B75400A90DA8 /* NestedClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C7B2562B75400A90DA8 /* NestedClosureViewController.swift */; };
+		7F7353BF290531CA00958751 /* LeakDetectorRxSwiftMultiVCRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7353BE290531CA00958751 /* LeakDetectorRxSwiftMultiVCRootViewController.swift */; };
 		7F957C4D255EC7DE002EB89A /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F957C4C255EC7DE002EB89A /* RxViewController.swift */; };
 		7FB179A0256EA72C00209C04 /* CombineSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1799F256EA72C00209C04 /* CombineSwiftUIView.swift */; };
 		7FB179B1256EAE7500209C04 /* NotificationCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB179B0256EAE7500209C04 /* NotificationCenterViewController.swift */; };
@@ -89,6 +90,7 @@
 		7F4F1C702562A78000A90DA8 /* ClosureRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureRootViewController.swift; sourceTree = "<group>"; };
 		7F4F1C752562B4DC00A90DA8 /* SimpleClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleClosureViewController.swift; sourceTree = "<group>"; };
 		7F4F1C7B2562B75400A90DA8 /* NestedClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedClosureViewController.swift; sourceTree = "<group>"; };
+		7F7353BE290531CA00958751 /* LeakDetectorRxSwiftMultiVCRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakDetectorRxSwiftMultiVCRootViewController.swift; sourceTree = "<group>"; };
 		7F957C4C255EC7DE002EB89A /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
 		7FB1799F256EA72C00209C04 /* CombineSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineSwiftUIView.swift; sourceTree = "<group>"; };
 		7FB179B0256EAE7500209C04 /* NotificationCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterViewController.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			children = (
 				D7A55BB026DF2EF800F0DA35 /* LeakDetectorRxSwiftRootViewController.swift */,
 				D7A55BB426DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift */,
+				7F7353BE290531CA00958751 /* LeakDetectorRxSwiftMultiVCRootViewController.swift */,
 			);
 			path = LeakDetectorRxSwift;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				D7A55BB526DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift in Sources */,
 				7FE047D525673F34005BE7C7 /* DispatchWorkItemViewController.swift in Sources */,
 				D6FEB02E255EBDE1009B2235 /* SceneDelegate.swift in Sources */,
+				7F7353BF290531CA00958751 /* LeakDetectorRxSwiftMultiVCRootViewController.swift in Sources */,
 				7FE047DF25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
