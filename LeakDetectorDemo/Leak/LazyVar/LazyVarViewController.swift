@@ -32,7 +32,7 @@ final class LeakyHTMLElement {
 
 }
 
-class LazyVarViewController1: LeakDetectableViewController {
+final class LazyVarViewController1: LeakDetectableViewController {
     
     private var heading: LeakyHTMLElement? = LeakyHTMLElement(name: "h1", text: "Hello")
     

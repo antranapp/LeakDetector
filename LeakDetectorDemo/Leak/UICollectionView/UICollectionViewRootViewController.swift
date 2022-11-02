@@ -1,32 +1,33 @@
 //
-// Copyright © 2021 An Tran. All rights reserved.
+//  UICollectionViewRootViewController.swift
+//  LeakDetectorDemo
+//
+//  Created by An Tran on 2/11/22.
 //
 
 import Foundation
 import UIKit
-import LeakDetectorCombine
 import Combine
+import LeakDetectorCombine
 
-final class DelegateRootViewController: LeakDetectableTableViewController {
-    
+final class UICollectionViewRootViewController: LeakDetectableTableViewController {
     private enum Scenarios {
         
         enum Leak: String, CaseIterable {
-            case delegate1 = "Leak - 1"
+            case lazy1 = "Leak - 1"
         }
         
         enum NoLeak: String, CaseIterable {
-            case delegate1 = "No Leak - 1"
-            case delegate2 = "No Leak - 2"
+            case lazy1 = "No Leak - 1"
         }
     }
     
     private var statusLabel: UILabel?
     private var cancellables = Set<AnyCancellable>()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Delegate"
+        title = "UICollectionView"
         
         LeakDetectorCombine.LeakDetector.instance.status
             .sink(
@@ -86,30 +87,31 @@ final class DelegateRootViewController: LeakDetectableTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
-        case 0:
-            return
         case 1:
             let scenario = Scenarios.Leak.allCases[indexPath.row]
             switch scenario {
-            case .delegate1:
-                let viewController = DelegateViewController1()
-                viewController.title = scenario.rawValue
-                weakViewController = viewController
-                navigationController?.pushViewController(viewController, animated: true)
+            case .lazy1:
+                if #available(iOS 14.0, *) {
+                    let viewController = LeakUICollectionViewController()
+                    viewController.title = scenario.rawValue
+                    weakViewController = viewController
+                    navigationController?.pushViewController(viewController, animated: true)
+                } else {
+                    showAlert("Required iOS >= 14")
+                }
             }
         case 2:
             let scenario = Scenarios.NoLeak.allCases[indexPath.row]
             switch scenario {
-            case .delegate1:
-                let viewController = NoLeakDelegateViewController1()
-                viewController.title = scenario.rawValue
-                weakViewController = viewController
-                navigationController?.pushViewController(viewController, animated: true)
-            case .delegate2:
-                let viewController = NoLeakDelegateViewController2()
-                viewController.title = scenario.rawValue
-                weakViewController = viewController
-                navigationController?.pushViewController(viewController, animated: true)
+            case .lazy1:
+                if #available(iOS 14.0, *) {
+                    let viewController = NoLeakUICollectionViewController()
+                    viewController.title = scenario.rawValue
+                    weakViewController = viewController
+                    navigationController?.pushViewController(viewController, animated: true)
+                } else {
+                    showAlert("Required iOS >= 14")
+                }
             }
 
         default:
