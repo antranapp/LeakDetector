@@ -101,8 +101,20 @@ final class LeakTests: XCTestCase {
             }
         )
     }
+    
+    func testNoLeakByUICollectionView() throws {
+        assert(
+            testCase: "Leak by UICollectionView",
+            subcase: "Leak - 1",
+            exitAction: {
+                app.navigationBars["Leak - 1"].buttons["UICollectionView"].tap()
+            }
+        )
+    }
+
 
     private func assert(testCase: String, subcase: String? = nil, exitAction: () -> Void, timeout: TimeInterval = .viewDisappearExpectation + LeakTests.bufferInternal) {
+        app.tables.firstMatch.scrollTo(element: app.tables.staticTexts[testCase])
         app.tables.staticTexts[testCase].tap()
         
         if let subcase = subcase {

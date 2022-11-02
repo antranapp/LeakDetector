@@ -32,7 +32,28 @@ final class NoLeakTests: XCTestCase {
         )
     }
 
+    func testNoLeakDetectedByRxSwift() throws {
+        assert(
+            testCase: "LeakDetectorRxSwift",
+            subcase: "No Leak - 1",
+            exitAction: {
+                app.buttons["Go Back"].tap()
+            }
+        )
+    }
+
+    func testNoLeakByUICollectionView() throws {
+        assert(
+            testCase: "Leak by UICollectionView",
+            subcase: "No Leak - 1",
+            exitAction: {
+                app.navigationBars["No Leak - 1"].buttons["UICollectionView"].tap()
+            }
+        )
+    }
+
     private func assert(testCase: String, subcase: String? = nil, exitAction: () -> Void, timeout: TimeInterval = .viewDisappearExpectation + LeakTests.bufferInternal) {
+        app.tables.firstMatch.scrollTo(element: app.tables.staticTexts[testCase])
         app.tables.staticTexts[testCase].tap()
         
         if let subcase = subcase {

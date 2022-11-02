@@ -11,6 +11,10 @@
 		7F18D5912565F4E70045F6FC /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D5902565F4E70045F6FC /* ChildViewController.swift */; };
 		7F18D5952565F9730045F6FC /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D5942565F9730045F6FC /* TimerViewController.swift */; };
 		7F18D5992565FA730045F6FC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18D5982565FA730045F6FC /* MainViewController.swift */; };
+		7F28E4D22912202300A1B905 /* UICollectionViewRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28E4D12912202300A1B905 /* UICollectionViewRootViewController.swift */; };
+		7F28E4D4291221AC00A1B905 /* UICollectionViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28E4D3291221AC00A1B905 /* UICollectionViewControllers.swift */; };
+		7F28E4D62912615D00A1B905 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28E4D52912615D00A1B905 /* UIViewController+Alert.swift */; };
+		7F28E4D82912655700A1B905 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28E4D72912655700A1B905 /* XCUIElement+Extensions.swift */; };
 		7F4A212A291218660063D1FC /* NoLeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A2129291218660063D1FC /* NoLeakTests.swift */; };
 		7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */; };
 		7F4F1C502561726C00A90DA8 /* LeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F1C4F2561726C00A90DA8 /* LeakTests.swift */; };
@@ -81,6 +85,10 @@
 		7F18D5902565F4E70045F6FC /* ChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		7F18D5942565F9730045F6FC /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		7F18D5982565FA730045F6FC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7F28E4D12912202300A1B905 /* UICollectionViewRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewRootViewController.swift; sourceTree = "<group>"; };
+		7F28E4D3291221AC00A1B905 /* UICollectionViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewControllers.swift; sourceTree = "<group>"; };
+		7F28E4D52912615D00A1B905 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		7F28E4D72912655700A1B905 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		7F4A2129291218660063D1FC /* NoLeakTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLeakTests.swift; sourceTree = "<group>"; };
 		7F4F1C3F255EE0C700A90DA8 /* CombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
 		7F4F1C4D2561726C00A90DA8 /* LeakDetectorDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeakDetectorDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,13 +173,24 @@
 				7F1131772562D8C500438910 /* LeakDetectableViewController.swift */,
 				7F18D5902565F4E70045F6FC /* ChildViewController.swift */,
 				D7A55BB226DF2F4100F0DA35 /* LeakDetectableRxSwiftTableViewController.swift */,
+				7F28E4D52912615D00A1B905 /* UIViewController+Alert.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		7F28E4D029121FD000A1B905 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				7F28E4D12912202300A1B905 /* UICollectionViewRootViewController.swift */,
+				7F28E4D3291221AC00A1B905 /* UICollectionViewControllers.swift */,
+			);
+			path = UICollectionView;
 			sourceTree = "<group>";
 		};
 		7F4F1C3A255EE07800A90DA8 /* Leak */ = {
 			isa = PBXGroup;
 			children = (
+				7F28E4D029121FD000A1B905 /* UICollectionView */,
 				D7A55BAF26DF2EE500F0DA35 /* LeakDetectorRxSwift */,
 				D62DE94D2588B2C200CF5CE1 /* Coordinator */,
 				7FB179E8257375C000209C04 /* SimpleCases */,
@@ -205,6 +224,7 @@
 				7F4A2129291218660063D1FC /* NoLeakTests.swift */,
 				7F4F1C4F2561726C00A90DA8 /* LeakTests.swift */,
 				7F4F1C512561726C00A90DA8 /* Info.plist */,
+				7F28E4D72912655700A1B905 /* XCUIElement+Extensions.swift */,
 			);
 			path = LeakDetectorDemoUITests;
 			sourceTree = "<group>";
@@ -495,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F28E4D82912655700A1B905 /* XCUIElement+Extensions.swift in Sources */,
 				7F4F1C502561726C00A90DA8 /* LeakTests.swift in Sources */,
 				7F4A212A291218660063D1FC /* NoLeakTests.swift in Sources */,
 			);
@@ -517,6 +538,7 @@
 				7F18D5952565F9730045F6FC /* TimerViewController.swift in Sources */,
 				7FE0480D25681B29005BE7C7 /* NestedClosuresViewController.swift in Sources */,
 				D6FEB02C255EBDE1009B2235 /* AppDelegate.swift in Sources */,
+				7F28E4D4291221AC00A1B905 /* UICollectionViewControllers.swift in Sources */,
 				7FB179D62572970800209C04 /* LazyVarRootViewController.swift in Sources */,
 				7FB179F02573768B00209C04 /* SimpleCasesViewController.swift in Sources */,
 				7F4F1C40255EE0C700A90DA8 /* CombineViewController.swift in Sources */,
@@ -542,11 +564,13 @@
 				7F1131782562D8C500438910 /* LeakDetectableViewController.swift in Sources */,
 				D62DE9532588B2C200CF5CE1 /* CoordinatorRootViewController.swift in Sources */,
 				7FF1190925673784000B6C59 /* NoLeakNonEscapingClosureViewController.swift in Sources */,
+				7F28E4D62912615D00A1B905 /* UIViewController+Alert.swift in Sources */,
 				7FBA06F2256B22E2000A42C4 /* FutureViewController.swift in Sources */,
 				7FE047E82567F6E0005BE7C7 /* AnimateRootViewController.swift in Sources */,
 				D7A55BB526DF320900F0DA35 /* LeakDetectorRxSwiftChildViewControllers.swift in Sources */,
 				7FE047D525673F34005BE7C7 /* DispatchWorkItemViewController.swift in Sources */,
 				D6FEB02E255EBDE1009B2235 /* SceneDelegate.swift in Sources */,
+				7F28E4D22912202300A1B905 /* UICollectionViewRootViewController.swift in Sources */,
 				7F7353BF290531CA00958751 /* LeakDetectorRxSwiftMultiVCRootViewController.swift in Sources */,
 				7FE047DF25674C4A005BE7C7 /* NoLeakHighOrderFunctionViewController.swift in Sources */,
 			);
