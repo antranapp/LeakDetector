@@ -11,8 +11,8 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var cancellables = Set<AnyCancellable>()
-    var bag = DisposeBag()
+    private var cancellables = Set<AnyCancellable>()
+    private var bag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
