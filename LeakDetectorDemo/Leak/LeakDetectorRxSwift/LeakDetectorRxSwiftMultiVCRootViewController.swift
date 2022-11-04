@@ -3,13 +3,13 @@
 //
 
 import Foundation
-import UIKit
 import LeakDetectorCore
 import LeakDetectorRxSwift
+import UIKit
 
 final class LeakDetectorRxSwiftMultiVCRootViewController: UITableViewController {
     
-    private var viewControllers = WeakSet<UIViewController>()
+    private var viewControllers = WeakSequenceOf<UIViewController>()
     private var leakSubscription: LeakDetectionHandle?
 
     private enum Scenarios {
@@ -35,9 +35,7 @@ final class LeakDetectorRxSwiftMultiVCRootViewController: UITableViewController 
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        if !viewControllers.isEmpty {
-            executeLeakDetector()
-        }
+        executeLeakDetector()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

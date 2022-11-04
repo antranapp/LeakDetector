@@ -5,8 +5,8 @@
 import Foundation
 import RxSwift
 #if canImport(UIKit)
-import UIKit
 import LeakDetectorCore
+import UIKit
 
 public extension LeakDetector {
 
@@ -57,7 +57,7 @@ public extension LeakDetector {
     /// - returns: The handle that can be used to cancel the expectation.
     @discardableResult
     func expectViewControllerDellocated(
-        viewControllers: WeakSet<UIViewController>,
+        viewControllers: WeakSequenceOf<UIViewController>,
         inTime time: TimeInterval = .viewDisappearExpectation
     ) -> LeakDetectionHandle {
         expectationCount.accept(expectationCount.value + 1)
@@ -67,7 +67,7 @@ public extension LeakDetector {
         }
 
         Timer.execute(withDelay: time) {
-            if !viewControllers.isEmpty, !handle.cancelled {
+            if !viewControllers.asArray.isEmpty, !handle.cancelled {
                 let viewDidDisappear = viewControllers.asArray.filter { !$0.isViewLoaded || $0.view.window == nil }.count == 0
                 let message = "\(viewControllers) apparently have leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 

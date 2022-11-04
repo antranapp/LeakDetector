@@ -79,9 +79,7 @@ class NoLeakRxSwiftViewController1: ChildViewController {
 class NoLeakRxSwiftViewController2: ChildViewController {
     
     private let disposeBag = DisposeBag()
-    private lazy var button = {
-        UIButton()
-    }()
+    private lazy var button = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()

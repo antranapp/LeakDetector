@@ -1,14 +1,11 @@
 //
-//  UICollectionViewRootViewController.swift
-//  LeakDetectorDemo
-//
-//  Created by An Tran on 2/11/22.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import Combine
+import Foundation
 import LeakDetectorCombine
+import UIKit
 
 final class UICollectionViewRootViewController: LeakDetectableTableViewController {
     private enum Scenarios {

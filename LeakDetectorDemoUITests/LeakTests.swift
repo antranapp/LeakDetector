@@ -112,7 +112,6 @@ final class LeakTests: XCTestCase {
         )
     }
 
-
     private func assert(testCase: String, subcase: String? = nil, exitAction: () -> Void, timeout: TimeInterval = .viewDisappearExpectation + LeakTests.bufferInternal) {
         app.tables.firstMatch.scrollTo(element: app.tables.staticTexts[testCase])
         app.tables.staticTexts[testCase].tap()

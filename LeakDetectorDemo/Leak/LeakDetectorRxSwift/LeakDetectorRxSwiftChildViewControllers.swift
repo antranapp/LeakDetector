@@ -26,7 +26,6 @@ final class LeakDetectorRxSwiftViewController1: ChildViewController {
     }
 }
 
-
 // MARK: - No Leak
 
 final class NoLeakLeakDetectorRxSwiftViewController1: ChildViewController {

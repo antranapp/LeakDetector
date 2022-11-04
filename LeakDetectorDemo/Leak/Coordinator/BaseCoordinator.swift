@@ -11,7 +11,7 @@ open class BaseCoordinator<T>: UINavigationController, Coordinator {
     public let dependency: T
     private var cancellables = Set<AnyCancellable>()
 
-    private var trackingViewControllers = WeakSet<UIViewController>()
+    private var trackingViewControllers = WeakSequenceOf<AnyObject>()
 
     public init(with dependency: T) {
         self.dependency = dependency
