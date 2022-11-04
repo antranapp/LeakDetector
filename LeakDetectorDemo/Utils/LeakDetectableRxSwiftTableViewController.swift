@@ -1,14 +1,11 @@
 //
-//  LeakDetectableRxSwiftTableViewController.swift
-//  LeakDetectorDemo
-//
-//  Created by Binh An Tran on 1/9/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
 import LeakDetectorRxSwift
-import UIKit
 import RxSwift
+import UIKit
 
 class LeakDetectableRxSwiftTableViewController: UITableViewController {
 
@@ -43,4 +40,3 @@ class LeakDetectableRxSwiftTableViewController: UITableViewController {
         }
     }
 }
-

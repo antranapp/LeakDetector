@@ -33,7 +33,7 @@ public class LeakDetector {
     
     // MARK: - Private Interface
     
-    private(set) var trackingObjects = WeakSet<AnyObject>()
+    private(set) var trackingObjects = WeakSequenceOf<AnyObject>()
     @Published var expectationCount: Int = 0 {
         didSet {
             if expectationCount == 0 {
@@ -50,11 +50,11 @@ public class LeakDetector {
     /// - parameter objects: The weak set of objects to track for deallocation.
     /// - parameter inTime: The time the given object is expected to be deallocated within.
     /// - returns: `Publishers.First` that outputs after delay.
-    public func expectDeallocate<Element>(
-        objects: WeakSet<Element>,
+    public func expectDeallocate<T>(
+        objects: WeakSequenceOf<T>,
         inTime time: TimeInterval = .deallocationExpectation
     ) -> AnyPublisher<Void, Never> {
-        guard !objects.isEmpty else { return Empty().eraseToAnyPublisher() }
+        guard !objects.asArray.isEmpty else { return Empty().eraseToAnyPublisher() }
         return Timer
             .execute(withDelay: time)
             .receive(on: DispatchQueue.main)
@@ -64,7 +64,7 @@ public class LeakDetector {
                     self.expectationCount += 1
                 },
                 receiveOutput: {
-                    if !objects.isEmpty {
+                    if !objects.asArray.isEmpty {
                         let message = "\(objects) have leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
                         if self.isEnabled {
                             assertionFailure(message)
@@ -107,7 +107,7 @@ public class LeakDetector {
                 },
                 receiveOutput: { [weak object] in
                     if let object = object {
-                        let message = "<\(memoryAddressDescription(for: object))> has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
+                        let message = "<\(object)> has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
                         
                         if self.isEnabled {
                             assertionFailure(message)
@@ -138,12 +138,12 @@ public class LeakDetector {
     
     public var isLeaked = CurrentValueSubject<String?, Never>(nil)
     
-#if DEBUG
+    #if DEBUG
     /// Reset the state of Leak Detector, internal for UI test only.
     func reset() {
         trackingObjects.removeAll()
         expectationCount = 0
         isLeaked.send(nil)
     }
-#endif
+    #endif
 }

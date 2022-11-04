@@ -4,8 +4,8 @@
 
 import Foundation
 @_exported import LeakDetectorCore
-import RxSwift
 import RxCocoa
+import RxSwift
 
 public protocol LeakDetectionHandle {
     func cancel()
@@ -40,11 +40,11 @@ public class LeakDetector {
     /// - parameter inTime: The time the given object is expected to be deallocated within.
     /// - returns: The handle that can be used to cancel the expectation.
     @discardableResult
-    public func expectDeallocate<Element>(
-        objects: WeakSet<Element>,
+    public func expectDeallocate<T>(
+        objects: WeakSequenceOf<T>,
         inTime time: TimeInterval = .deallocationExpectation
     ) -> LeakDetectionHandle {
-        guard !objects.isEmpty else { return EmptyDetectionHandleImpl() }
+        guard !objects.asArray.isEmpty else { return EmptyDetectionHandleImpl() }
 
         expectationCount.accept(expectationCount.value + 1)
 
@@ -56,7 +56,7 @@ public class LeakDetector {
 
         Timer.execute(withDelay: time) {
             if !handle.cancelled {
-                let didDeallocate = objects.isEmpty
+                let didDeallocate = objects.asArray.isEmpty
                 let message = "\(objects) has leaked. Objects are expected to be deallocated at this time: \(self.trackingObjects)"
 
                 if self.isEnabled {
@@ -141,8 +141,7 @@ public class LeakDetector {
 
     // MARK: - Private Interface
 
-//    let trackingObjects = NSMapTable<AnyObject, AnyObject>.strongToWeakObjects()
-    private(set) var trackingObjects = WeakSet<AnyObject>()
+    private(set) var trackingObjects = WeakSequenceOf<AnyObject>()
     let expectationCount = BehaviorRelay<Int>(value: 0)
 
     private init() {}

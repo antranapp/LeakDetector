@@ -2,10 +2,10 @@
 // Copyright © 2021 An Tran. All rights reserved.
 //
 
-import Foundation
-import UIKit
-import LeakDetectorCombine
 import Combine
+import Foundation
+import LeakDetectorCombine
+import UIKit
 
 final class DelegateRootViewController: LeakDetectableTableViewController {
     

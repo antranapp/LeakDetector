@@ -1,8 +1,5 @@
 //
-//  UICollectionViewControllers.swift
-//  LeakDetectorDemo
-//
-//  Created by An Tran on 2/11/22.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -69,7 +66,6 @@ class BaseUICollectionViewController: UIViewController {
         return NSCollectionLayoutSection(group: group)
     }
     
-    
     func makeDataSource() -> UICollectionViewDiffableDataSource<Section, Product> {
         let cellRegistration = makeCellRegistration()
         
@@ -94,7 +90,6 @@ class BaseUICollectionViewController: UIViewController {
         dataSource.apply(snapshot)
     }
 }
-
 
 @available(iOS 14.0, *)
 final class LeakUICollectionViewController: BaseUICollectionViewController {

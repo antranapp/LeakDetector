@@ -2,9 +2,9 @@
 // Copyright © 2021 An Tran. All rights reserved.
 //
 
+import RxSwift
 import XCTest
 @testable import LeakDetectorRxSwift
-import RxSwift
 
 final class LeakDetectorRxSwiftTests: XCTestCase {
     
@@ -97,28 +97,28 @@ final class LeakDetectorRxSwiftTests: XCTestCase {
     }
     
     func testExpectObjectsDealloc() {
-        var objects: WeakSet<TestObject> = []
+        var objects: WeakSequenceOf<AnyObject> = []
         autoreleasepool {
             let testObjects = [TestObject(), TestObject(), TestObject()]
-            objects = WeakSet(testObjects)
-            
+            objects = WeakSequenceOf(testObjects)
+
             LeakDetector.instance.expectDeallocate(objects: objects, inTime: 0.0)
-            XCTAssertEqual(LeakDetector.instance.trackingObjects.count, 3)
-            XCTAssertEqual(objects.count, 3)
+            XCTAssertEqual(LeakDetector.instance.trackingObjects.asArray.count, 3)
+            XCTAssertEqual(objects.asArray.count, 3)
             XCTAssertEqual(testObjects.count, 3)
         }
         
         XCTAssertEqual(LeakDetector.instance.expectationCount.value, 1)
         XCTAssertTrue(LeakDetector.instance.trackingObjects.asArray.isEmpty)
-        XCTAssertEqual(objects.count, 0)
-        
+        XCTAssertEqual(objects.asArray.count, 0)
+
         let e = expectation(description: "Still expectations in leak detector")
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             XCTAssertEqual(LeakDetector.instance.expectationCount.value, 0)
             e.fulfill()
         }
-        
+
         wait(for: [e], timeout: waitingTime)
     }
 }

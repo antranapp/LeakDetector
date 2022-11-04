@@ -40,7 +40,7 @@ let package = Package(
                 "LeakDetectorCore",
             ]
         ),
-
+        
         .target(
             name: "LeakDetectorRxSwift",
             dependencies: [
@@ -49,7 +49,7 @@ let package = Package(
                 .product(name: "RxCocoa", package: "RxSwift"),
             ]
         ),
-
+        
         .testTarget(
             name: "LeakDetectorTests",
             dependencies: [
