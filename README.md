@@ -25,4 +25,4 @@ This demo app focuses on common mistakes that could lead to retain cycles/memory
 - swift-leak-check: [https://github.com/grab/swift-leak-check](https://github.com/grab/swift-leak-check)
 - LifetimeTracker: [https://github.com/krzysztofzablocki/LifetimeTracker](https://github.com/krzysztofzablocki/LifetimeTracker)
 - The Nested Closure Trap: [https://medium.com/flawless-app-stories/the-nested-closure-trap-356a0145b6d](https://medium.com/flawless-app-stories/the-nested-closure-trap-356a0145b6d)
-- When to weakify: [https://jayeshkawli.ghost.io/when-to-weakify/](https://jayeshkawli.ghost.io/when-to-weakify/}
+- When to weakify: [https://jayeshkawli.ghost.io/when-to-weakify/](https://jayeshkawli.ghost.io/when-to-weakify/)
